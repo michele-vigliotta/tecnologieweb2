@@ -14,7 +14,6 @@
 
   <title>Affitta casa</title>
 
-
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="{{ URL('css/bootstrap.css') }}" />
 
@@ -27,9 +26,6 @@
   <!--owl slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
-  <!-- phone prefix -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
-
   <!-- font awesome style -->
   <link href="{{ URL('css/font-awesome.min.css')}}" rel="stylesheet" />
 
@@ -41,6 +37,10 @@
 </head>
 
 <body class="sub_page">
+
+  @if(isset(Auth::user()->nome))
+    <script>window.location.href = "{{ route('profile') }}";</script>
+  @endif
 
   <div class="hero_area2">
     <!-- header section strats -->
@@ -75,33 +75,17 @@
                 <a class="nav-link" href="{{ route('testimonial') }}">Testimonial</a>
               </li>
             </ul>
-
-            @if(isset(Auth::user()->nome))
-              <div class="quote_btn-container">
-                <a href="{{ route('profile') }}" class="quote_btn">
-                  {{ Auth::user()->nome }}
-                </a>
-              </div>
-              &nbsp
-              <div class="quote_btn-container">
-                <a href="{{ route('logout') }}" class="quote_btn">
-                  LOGOUT
-                </a>
-              </div>
-            @else
-              <div class="quote_btn-container">
-                <a href="{{ route('login') }}" class="quote_btn">
-                  LOG IN
-                </a>
-              </div>
-              &nbsp;
-              <div class="quote_btn-container">
-                <a href="{{ route('signup') }}" class="quote_btn">
-                  SIGN UP
-                </a>
-              </div>
-            @endif
-
+            <div class="quote_btn-container">
+              <a href="{{ route('login') }}" class="quote_btn">
+                LOG IN
+              </a>
+            </div>
+            &nbsp;
+            <div class="quote_btn-container">
+              <a href="{{ route('signup') }}" class="quote_btn">
+                SIGN UP
+              </a>
+            </div>
           </div>
         </nav>
       </div>
@@ -119,6 +103,11 @@
             <div class="tab-content text-center">
               <div class="tab-pane active" id="rent">
                 <div class="Rent_form find_form">
+                  @if ($message = Session::get('error'))
+                   <div class="alert alert-danger alert-block">
+                      <strong>{{ $message }}</strong>
+                   </div>
+                  @endif
                   @if (count($errors) > 0)
                     <div class="alert alert-danger">
                       @foreach($errors->all() as $error)
@@ -126,35 +115,9 @@
                       @endforeach
                     </div>
                   @endif
-                  <form method="POST" action="register">
+                  <form method="POST" action="user">
                     @csrf
-                    <div class="form-row"> <!-- Nome e Cognome -->
-                      <div class="col-md-6 px-0">
-                        <div class="form-group ">
-                          <div class="input-group ">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text">
-                                <img src="{{ URL('images/icon/nome.png') }}" alt="User Image" />
-                              </div>
-                            </div>
-                            <input type="text" name="nome" class="form-control" placeholder="Nome"/>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-6 px-0">
-                        <div class="form-group ">
-                          <div class="input-group ">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text">
-                                <img src="{{ URL('images/icon/nome.png') }}" alt="User Image" />
-                              </div>
-                            </div>
-                            <input type="text" name="cognome" class="form-control" placeholder="Cognome"/>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-row"> <!-- Username e Password-->
+                    <div class="form-row">
                       <div class="col-md-6 px-0">
                         <div class="form-group ">
                           <div class="input-group ">
@@ -163,7 +126,7 @@
                                 <img src="{{ URL('images/icon/user.png') }}" alt="User Image" />
                               </div>
                             </div>
-                            <input type="text" name="username"class="form-control" placeholder="Username"/>
+                            <input type="text" name="username" class="form-control" id="inputRentDestination" placeholder="Username"/>
                           </div>
                         </div>
                       </div>
@@ -175,82 +138,15 @@
                                 <img src="{{ URL('images/icon/pass.png') }}" alt="Password image"/>
                               </div>
                             </div>
-                            <input type="password" name="password" class="form-control" placeholder="Password" />
+                            <input type="password" name="password" class="form-control" id="inputRentPropery" placeholder="Password" />
                           </div>
                         </div>
                       </div>
                     </div>
-                    <center> <!-- Email -->
-                      <div class="col-md-6 px-0">
-                        <div class="form-group ">
-                          <div class="input-group ">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text">
-                                <img src="{{ URL('images/icon/email.png') }}" alt="Email Image" />
-                              </div>
-                            </div>
-                            <input type="email" name="email" class="form-control" id="inputRentDestination" placeholder="E-mail"/>
-                          </div>
-                        </div>
-                      </div>
-                    </center>
-                    <div class="form-row"> <!-- Data di nascità e Codice Fiscale-->
-                      <div class="col-md-6 px-0">
-                        <div class="form-group ">
-                          <div class="input-group ">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text">
-                                <img src="{{ URL('images/icon/calendario.png') }}" alt="Calendar Image" />
-                              </div>
-                            </div>
-                            <input type="date" id="data" onload="getDate()" name="data_nascita" class="form-control" />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-6 px-0">
-                        <div class="form-group ">
-                          <div class="input-group ">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text">
-                                <img src="{{ URL('images/icon/codice.png') }}" alt="Code Image" />
-                              </div>
-                            </div>
-                            <input type="text" name="c_fiscale" class="form-control" placeholder="Codice Fiscale" maxlength="16"/>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-row"> <!-- Prefisso e Telefono-->
-                      <div class="col-md-6 px-0">
-                        <div class="form-group ">
-                          <div class="input-group ">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text">
-                                <img src="{{ URL('images/icon/user.png') }}" alt="User Image" />
-                              </div>
-                            </div>
-                            <input type="text" name="prefisso" class="form-control" placeholder="Prefisso" maxlength="3" size="3"/>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-6 px-0">
-                        <div class="form-group ">
-                          <div class="input-group ">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text">
-                                <img src="{{ URL('images/icon/phone.png') }}" alt="User Image" />
-                              </div>
-                            </div>
-                            <input type="text" name="numero" class="form-control" placeholder="Telefono" maxlength="10"/>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
                     <div class="btn-box">
                       <button type="submit">
                         <span>
-                          REGISTER
+                          LOG IN
                         </span>
                       </button>
                     </div>
@@ -367,15 +263,15 @@
   <!-- jQery -->
   <script src="{{ URL('js/jquery-3.4.1.min.js') }}"></script>
   <!-- popper js -->
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
   <!-- nice select -->
   <script src="{{ URL('js/jquery.nice-select.min.js') }}"></script>
   <!-- bootstrap js -->
   <script src="{{ URL('js/bootstrap.js') }}"></script>
   <!-- owl slider -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-  <!-- phone prefix -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
   <!-- custom js -->
   <script src="{{ URL('js/custom.js') }}"></script>
 
