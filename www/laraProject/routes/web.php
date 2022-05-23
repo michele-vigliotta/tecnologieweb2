@@ -40,3 +40,5 @@ Route::post('register', [RegistrationController::class, 'store']);
 Route::post('user', [UserController::class, 'checkLogin']);
 
 Route::get('/logout', 'LogoutController@logout')->name('logout');
+
+Route::get('/homelocatore', 'HomeController@homelocatore')->name('homelocatore');

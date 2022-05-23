@@ -71,6 +71,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('faq') }}">FAQ</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('homelocatore') }}">HomeLocatore</a>
+              </li>
 
             </ul>
             @if(isset(Auth::user()->nome))
