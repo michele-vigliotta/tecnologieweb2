@@ -132,7 +132,7 @@
             <p>
               Trova l'annuncio più adatto a te
             </p>
-            <a href="./about.html">
+            <a href="{{ route('catalogo') }}">
               Sfoglia catalogo
             </a>
             @endif 
