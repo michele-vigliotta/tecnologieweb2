@@ -39,7 +39,7 @@
 <body class="sub_page">
 
   @if(isset(Auth::user()->nome))
-    <script>window.location.href = "{{ route('profile') }}";</script>
+    <script>window.location.href = "{{ route('homeutente') }}";</script>
   @endif
 
   <div class="hero_area2">

@@ -20,15 +20,15 @@
        );
 
        if(Auth::attempt($user_data, $remember=true)){
-         return redirect()->to('/profile');
+         return redirect()->to('/homeutente');
        }else{
          return back()->with('error', 'Username e/o password errati!');
        }
     }
 
 
-    public function profile(){
-      return view('profile');
+    public function homeutente(){
+      return view('homeutente');
     }
 
   }

@@ -34,6 +34,6 @@ class RegistrationController extends Controller
        );
 
       if(Auth::attempt($user_data, $remember=true))
-        return redirect()->to('/profile');
+        return redirect()->to('/homeutente');
       }
 }

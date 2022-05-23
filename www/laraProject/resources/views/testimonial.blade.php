@@ -74,7 +74,7 @@
             </ul>
             @if(isset(Auth::user()->nome))
               <div class="quote_btn-container">
-                <a href="{{ route('profile') }}" class="quote_btn">
+                <a href="{{ route('homeutente') }}" class="quote_btn">
                   {{ Auth::user()->nome }}
                 </a>
               </div>
