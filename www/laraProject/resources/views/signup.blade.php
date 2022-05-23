@@ -259,7 +259,7 @@
                     <div class="btn-box">
                       <button type="submit">
                         <span>
-                          REGISTER
+                          REGISTRATI
                         </span>
                       </button>
                     </div>
