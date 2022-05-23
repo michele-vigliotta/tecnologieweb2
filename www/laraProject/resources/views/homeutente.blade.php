@@ -121,7 +121,7 @@
                 Bentornato {{Auth::user()->nome}}!
               </h2>
             </div>
-            @if('locatore'==(Auth::user()->tipo))
+            @if('Locatore'==(Auth::user()->tipo))
             <p>
               Inizia ora a pubblicare un annuncio andando nella sezione annunci
             </p>
