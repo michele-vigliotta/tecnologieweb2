@@ -71,7 +71,7 @@
               <li class="nav-item">
                   <a class="nav-link" href="{{ route('catalogo')}}">Profilo</a>
               </li>
-              @if('locatore'==(Auth::user()->tipo))-->
+              @if('Locatore'==(Auth::user()->tipo))
                     <li class="nav-item">
                   <a class="nav-link" href="{{ route('catalogo')}}">Annunci</a>
               </li>
