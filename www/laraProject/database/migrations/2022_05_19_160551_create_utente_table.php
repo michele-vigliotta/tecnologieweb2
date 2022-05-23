@@ -24,6 +24,7 @@ class CreateUtenteTable extends Migration
           $table->string('c_fiscale',17);
           $table->string('numero',11);
           $table->string('prefisso',3);
+          $table->string('tipo',15);
           $table->rememberToken();
           $table->timestamps();
         });
