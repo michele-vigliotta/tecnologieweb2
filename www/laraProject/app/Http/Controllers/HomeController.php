@@ -29,6 +29,9 @@
 	  public function testimonial(){
       return view('testimonial');
     }
+      public function faq(){
+          return view('faq');
+      }
 
 	  public function login(){
       return view('login');
@@ -37,9 +40,7 @@
     public function signup(){
       return view('signup');
     }
-      public function faq(){
-          return view('faq');
-      }
+
   }
 
  ?>
