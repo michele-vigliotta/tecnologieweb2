@@ -37,6 +37,9 @@
     public function signup(){
       return view('signup');
     }
+      public function faq(){
+          return view('faq');
+      }
   }
 
  ?>
