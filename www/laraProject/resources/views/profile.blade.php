@@ -98,7 +98,7 @@
                 </a>
               </div>
             @endif
-            
+
         </nav>
       </div>
     </header>
@@ -177,11 +177,10 @@
                 QUICK LINKS
               </h4>
               <div class="info_links_menu">
-                <a class="" href="{{ route('index') }}">Home <span class="sr-only">(current)</span></a>
-                <a class="" href="{{ route('about') }}l"> About Us</a>
-                <a class="" href="{{ route('catalogo')}}">Catalogo</a>
-                <a class="" href="{{ route('why') }}">Why Us</a>
-                <a class="" href="{{ route('testimonial') }}">Testimonial</a>
+                  <a href="{{ route('index') }}">Home <span class="sr-only">(current)</span></a>
+                  <a href="{{ route('about') }}"> About</a>
+                  <a href="{{ route('why') }}">Why Us</a>
+                  <a href="{{ route('faq') }}">FAQ</a>
               </div>
             </div>
           </div>

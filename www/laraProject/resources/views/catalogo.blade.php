@@ -281,11 +281,10 @@
                 QUICK LINKS
               </h4>
               <div class="info_links_menu">
-                <a class="" href="index.html">Home <span class="sr-only">(current)</span></a>
-                <a class="" href="about.html"> About</a>
-                <a class="" href="property.html">Property</a>
-                <a class="" href="why.html">Why Us</a>
-                <a class="" href="testimonial.html">Testimonial</a>
+                  <a href="{{ route('index') }}">Home <span class="sr-only">(current)</span></a>
+                  <a href="{{ route('about') }}"> About</a>
+                  <a href="{{ route('why') }}">Why Us</a>
+                  <a href="{{ route('faq') }}">FAQ</a>
               </div>
             </div>
           </div>
