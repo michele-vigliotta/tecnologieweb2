@@ -131,7 +131,7 @@
                       </p>
                     </div>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="{{ route('catalogo') }}" class="btn1">
                         Esplora
                       </a>
                     </div>
@@ -155,7 +155,7 @@
                       </p>
                     </div>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="{{ route('signup') }}" class="btn1">
                         Registrati
                       </a>
                     </div>
@@ -179,7 +179,7 @@
                       </p>
                     </div>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="{{ route('signup') }}" class="btn1">
                         Registrati
                       </a>
                     </div>
