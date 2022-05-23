@@ -143,16 +143,7 @@
                         </div>
                       </div>
                     </div>
-                    <form>
-                        <fieldset>
-                            <legend>Sei un?</legend>
-                                <select name="types" >
-                                    <option value="Locatore" selected="selected">Locatore</option>
-                                        <option value="Studente">Studente</option>
-                                </select>
-                            </fieldset>
-                    </form>
-                    <div class="btn-box">
+                     <div class="btn-box">
                       <button type="submit">
                         <span>
                           LOG IN
