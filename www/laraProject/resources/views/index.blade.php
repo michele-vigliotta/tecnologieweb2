@@ -42,8 +42,8 @@
   <div class="hero_area">
     <!-- header section strats -->
     <header class="header_section">
-      <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg custom_nav-container ">
+        <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
           <a class="navbar-brand" href="{{ route('index') }}">
             <span>
               Affitta casa
@@ -121,6 +121,7 @@
               <div class="row">
                 <div class="col-md-10 mx-auto">
                   <div class="detail-box">
+                    @if(!isset(Auth::user()->nome))
                     <h1>
                       Esplora <br>
                       Catalogo
@@ -150,6 +151,7 @@
                       locale?
                     </h1>
                     <div class="col-md-8 px-0">
+                        
                       <p>
                         Registrati e pubblica il tuo primo annuncio.
                       </p>
@@ -158,6 +160,7 @@
                       <a href="{{ route('signup') }}" class="btn1">
                         Registrati
                       </a>
+                      
                     </div>
                   </div>
                 </div>
@@ -183,11 +186,43 @@
                         Registrati
                       </a>
                     </div>
+                      @elseif('locatario'==(Auth::user()->tipo))
+                       <h1>
+                      Esplora <br>
+                      Catalogo
+                    </h1>
+                    <div class="col-md-8 px-0">
+                      <p>
+                        Esplora le migliori offerte. 
+                      </p>
+                    </div>
+                    <div class="btn-box">
+                      <a href="{{ route('catalogo') }}" class="btn1">
+                        Esplora
+                      </a>
+                    </div>
+                      @else
+                      <h1>
+                      Possiedi un <br>
+                      locale?
+                    </h1>
+                    <div class="col-md-8 px-0">
+                        
+                      <p>
+                        Inizia pubblicando un annuncio.
+                      </p>
+                    </div>
+                    <div class="btn-box">
+                      <a href="{{ route('signup') }}" class="btn1">
+                        Pubblica annuncio
+                      </a>
+                      @endif
                   </div>
                 </div>
               </div>
             </div>
           </div>
+            
         </div>
         <ol class="carousel-indicators">
           <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
@@ -214,7 +249,7 @@
             </div>
             <p>
               Siamo una società che nasce con l'intento con l'intento di facilitare gli studenti nella ricerca di un alloggio,
-              facilitando lo scambio di informazioni con il locatore nel modo più facile e chiaro possibile.
+              offrendo uno scambio di informazioni con il locatore nel modo più facile e chiaro possibile.
             </p>
             <a href="./about.html">
               Leggi più
@@ -370,7 +405,7 @@
     <div class="container">
       <div class="heading_container heading_center psudo_white_primary mb_45">
         <h2>
-          What says our Customers
+          
         </h2>
       </div>
       <div class="carousel-wrap ">

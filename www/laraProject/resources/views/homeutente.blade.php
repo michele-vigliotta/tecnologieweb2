@@ -71,11 +71,11 @@
               <li class="nav-item">
                   <a class="nav-link" href="{{ route('catalogo')}}">Profilo</a>
               </li>
-              <!--@if('locatore'==(Auth::user()->tipo))-->
+              @if('locatore'==(Auth::user()->tipo))-->
                     <li class="nav-item">
                   <a class="nav-link" href="{{ route('catalogo')}}">Annunci</a>
               </li>
-              <!--@endif-->
+              @endif
             </ul>
             @if(isset(Auth::user()->nome))
               <div class="quote_btn-container">
@@ -118,24 +118,24 @@
           <div class="detail-box">
             <div class="heading_container">
               <h2>
-                Bentornato Auth::user()->name!
+                Bentornato {{Auth::user()->nome}}!
               </h2>
             </div>
-            <!--@if('locatore'==(Auth::user()->tipo))-->
+            @if('locatore'==(Auth::user()->tipo))
             <p>
               Inizia ora a pubblicare un annuncio andando nella sezione annunci
             </p>
             <a href="./about.html">
               Pubblica ora
             </a>
-            <!--@else
+            @else
             <p>
               Trova l'annuncio più adatto a te
             </p>
             <a href="./about.html">
               Sfoglia catalogo
             </a>
-            @endif -->
+            @endif 
           </div>
         </div>
         <div class="col-md-6 ">

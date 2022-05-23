@@ -40,6 +40,10 @@
     public function signup(){
       return view('signup');
     }
+    
+    public function homeutente(){
+      return view('homeutente');
+    }
   
   }
 
