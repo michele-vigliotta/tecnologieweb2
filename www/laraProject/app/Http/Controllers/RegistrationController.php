@@ -23,9 +23,10 @@ class RegistrationController extends Controller
         'c_fiscale'     => 'required|max:16',
         'prefisso'      => 'required|min:2|max:2',
         'numero'        => 'required|min:10|max:10',
+        'tipo'          => 'required',
       ]);
 
-      $user = User::create(request(['username', 'password', 'nome', 'cognome', 'email', 'data_nascita', 'c_fiscale', 'numero', 'prefisso']));
+      $user = User::create(request(['username', 'password', 'nome', 'cognome', 'email', 'data_nascita', 'c_fiscale', 'numero', 'prefisso', 'tipo']));
 
       $user_data = array(
          'username'  => $request->get('username'),

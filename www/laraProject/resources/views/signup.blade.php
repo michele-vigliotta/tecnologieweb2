@@ -41,9 +41,7 @@
 </head>
 
 <body class="sub_page">
-  @if(isset(Auth::user()->nome))
-    <script>window.location.href = "{{ route('profile') }}";</script>
-  @endif
+
   <div class="hero_area2">
     <!-- header section strats -->
     <header class="header_section">
@@ -222,33 +220,42 @@
                         </div>
                       </div>
                     </div>
-                    <div class="form-row"> <!-- Prefisso e Telefono-->
-                      <div class="col-md-6 px-0">
-                        <div class="form-group ">
-                          <div class="input-group ">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text">
-                                <img src="{{ URL('images/icon/user.png') }}" alt="User Image" />
-                              </div>
+                    <center>
+                      <div class="form-row"> <!-- Prefisso e Telefono-->
+                        <div class="col-md-6_2 px-02">
+                          <div class="form-group ">
+                            <div class="input-group">
+                              <input type="text" name="prefisso" class="form-control" placeholder="Prefisso" size="3"/>
                             </div>
-                            <input type="text" name="prefisso" class="form-control" placeholder="Prefisso" maxlength="3" size="3"/>
+                          </div>
+                        </div>
+                        <div class="col-md-6 px-0">
+                          <div class="form-group ">
+                            <div class="input-group ">
+                              <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                  <img src="{{ URL('images/icon/phone.png') }}" alt="Phone Image" />
+                                </div>
+                              </div>
+                              <input type="text" name="numero" class="form-control" placeholder="Telefono" maxlength="10"/>
+                            </div>
                           </div>
                         </div>
                       </div>
+                    </center>
+                    <center>
                       <div class="col-md-6 px-0">
-                        <div class="form-group ">
+                        <div class="form-group">
                           <div class="input-group ">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text">
-                                <img src="{{ URL('images/icon/phone.png') }}" alt="User Image" />
-                              </div>
-                            </div>
-                            <input type="text" name="numero" class="form-control" placeholder="Telefono" maxlength="10"/>
+                            <select name="tipo" class="form-control" required>
+                              <option value="" disabled selected></option>
+                              <option value="locatario">Locatario</option>
+                              <option valie="locatore"> Locatore </option>
+                            </select>
                           </div>
                         </div>
                       </div>
-                    </div>
-
+                    </center>
                     <div class="btn-box">
                       <button type="submit">
                         <span>

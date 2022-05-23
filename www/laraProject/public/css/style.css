@@ -520,6 +520,13 @@ a:focus {
           box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
 }
 
+.find_section .find_form .form-group2 {
+  margin: 15px;
+  position: relative;
+  -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+}
+
 .find_section .find_form .input-group-text {
   width: 50px;
   display: -webkit-box;
@@ -536,6 +543,16 @@ a:focus {
 }
 
 .find_section .find_form .form-control {
+  height: 50px;
+  outline: none;
+  border: none;
+  position: relative;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: #f7f8f3;
+}
+
+.find_section .find_form .form-control2 {
   height: 50px;
   outline: none;
   border: none;
