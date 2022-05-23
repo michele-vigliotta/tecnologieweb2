@@ -69,7 +69,7 @@
                 <a class="nav-link" href="{{ route('testimonial') }}">Chat</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="{{ route('catalogo')}}">Profilo</a>
+                  <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
               </li>
               @if('Locatore'==(Auth::user()->tipo))
                     <li class="nav-item">
