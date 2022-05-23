@@ -69,11 +69,13 @@
                 <a class="nav-link" href="{{ route('testimonial') }}">Chat</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-item" href="{{ route('catlogo')" }}">Profilo</a>
+                  <a class="nav-link" href="{{ route('catalogo')}}">Profilo</a>
               </li>
-              <li class="nav-item">
-                  <a class="nav-item" href="{{ route('catlogo')" }}">Annunci</a>
+              <!--@if('locatore'==(Auth::user()->tipo))-->
+                    <li class="nav-item">
+                  <a class="nav-link" href="{{ route('catalogo')}}">Annunci</a>
               </li>
+              <!--@endif-->
             </ul>
             @if(isset(Auth::user()->nome))
               <div class="quote_btn-container">
@@ -119,12 +121,21 @@
                 Bentornato Auth::user()->name!
               </h2>
             </div>
+            <!--@if('locatore'==(Auth::user()->tipo))-->
             <p>
               Inizia ora a pubblicare un annuncio andando nella sezione annunci
             </p>
             <a href="./about.html">
               Pubblica ora
             </a>
+            <!--@else
+            <p>
+              Trova l'annuncio più adatto a te
+            </p>
+            <a href="./about.html">
+              Sfoglia catalogo
+            </a>
+            @endif -->
           </div>
         </div>
         <div class="col-md-6 ">

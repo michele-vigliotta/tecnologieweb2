@@ -71,9 +71,8 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('faq') }}">FAQ</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('homelocatore') }}">HomeLocatore</a>
-              </li>
+              
+             
 
             </ul>
             @if(isset(Auth::user()->nome))
@@ -124,11 +123,11 @@
                   <div class="detail-box">
                     <h1>
                       Esplora <br>
-                      Monolocali
+                      Catalogo
                     </h1>
                     <div class="col-md-8 px-0">
                       <p>
-                        Esplora le migliori offerte relative ai monolocali.
+                        Esplora le migliori offerte. 
                       </p>
                     </div>
                     <div class="btn-box">
@@ -147,17 +146,17 @@
                 <div class="col-md-10 mx-auto">
                   <div class="detail-box">
                     <h1>
-                      Esplora <br>
-                      Bilocali
+                      Possiedi un <br>
+                      locale?
                     </h1>
                     <div class="col-md-8 px-0">
                       <p>
-                        Esplora le migliori offerte relative ai bilocali.
+                        Registrati e pubblica il tuo primo annuncio.
                       </p>
                     </div>
                     <div class="btn-box">
                       <a href="" class="btn1">
-                        Esplora
+                        Registrati
                       </a>
                     </div>
                   </div>
@@ -171,17 +170,17 @@
                 <div class="col-md-10 mx-auto">
                   <div class="detail-box">
                     <h1>
-                      Esplora <br>
-                      Trilocali
+                      Cerchi <br>
+                      una camera?
                     </h1>
                     <div class="col-md-8 px-0">
                       <p>
-                        Esplora le migliori offerte relative ai trilocali.
+                        Registrati e prenota subito.
                       </p>
                     </div>
                     <div class="btn-box">
                       <a href="" class="btn1">
-                        Esplora
+                        Registrati
                       </a>
                     </div>
                   </div>

@@ -40,9 +40,7 @@
     public function signup(){
       return view('signup');
     }
-    public function homelocatore(){
-        return view('homelocatore');
-    }
+  
   }
 
  ?>
