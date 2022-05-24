@@ -71,19 +71,20 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('faq') }}">FAQ</a>
                 </li>
-                @if(isset(Auth::user()->nome))
+            @if(isset(Auth::user()->nome))
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('testimonial') }}">Chat</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
               </li>
-              @endif
-              @if('Locatore'==(Auth::user()->tipo))
-                    <li class="nav-item">
+              
+                    @if('Locatore'==(Auth::user()->tipo))
+              <li class="nav-item">
                   <a class="nav-link" href="{{ route('catalogo')}}">Annunci</a>
               </li>
-              @endif
+                    @endif
+                @endif
             </ul>
             @if(isset(Auth::user()->nome))
               <div class="quote_btn-container">
