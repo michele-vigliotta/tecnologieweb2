@@ -39,7 +39,7 @@
 
 <body class="sub_page">
 
-  <div class="hero_area">
+  <div class="hero_area2">
     <!-- header section strats -->
     <header class="header_section">
       <div class="container-fluid">
@@ -56,17 +56,17 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  ">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('index') }}">Home</a>
+                </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('index') }}"> Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ route('catalogo') }}">Catalogo<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('catalogo') }}"> Catalogo</a>
+                    <a class="nav-link" href="{{ route('about') }}">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('about') }}"> About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('why') }}"> Why Us</a>
+                    <a class="nav-link" href="{{ route('why') }}">Why Us</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('faq') }}">FAQ</a>
@@ -111,127 +111,30 @@
     <div class="container-fluid">
       <div class="heading_container">
         <h2>
-          House For Sale
+          Case disponibili
         </h2>
-        <p>
-          There are many variations of passages of Lorem Ipsum available, but the
-        </p>
       </div>
       <div class="row">
+        @foreach ($annunci as $annuncio)
         <div class="col-sm-6 col-md-4">
           <div class="box">
             <div class="img-box">
-              <img src="images/s1.jpg" alt="">
+              <img src="{{ $annuncio['image'] }}" alt="">
             </div>
             <div class="detail-box">
               <h6>
-                Apartments house
+                {{ $annuncio['nome'] }}
               </h6>
               <p>
-                There are many variations of passages of Lorem Ipsum available, but
+                {{ $annuncio['descrizione'] }}
               </p>
-              <a href="">
-                View Detail
+              <a href="{{ route('dettagli') }}" class="nav-link">
+                Più informazioni
               </a>
             </div>
           </div>
         </div>
-        <div class="col-sm-6 col-md-4">
-          <div class="box">
-            <div class="img-box">
-              <img src="images/s2.jpg" alt="">
-            </div>
-            <div class="detail-box">
-              <h6>
-                Apartments house
-              </h6>
-              <p>
-                There are many variations of passages of Lorem Ipsum available, but
-              </p>
-              <a href="">
-                View Detail
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-          <div class="box">
-            <div class="img-box">
-              <img src="images/s3.jpg" alt="">
-            </div>
-            <div class="detail-box">
-              <h6>
-                Apartments house
-              </h6>
-              <p>
-                There are many variations of passages of Lorem Ipsum available, but
-              </p>
-              <a href="">
-                View Detail
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-          <div class="box">
-            <div class="img-box">
-              <img src="images/s4.jpg" alt="">
-            </div>
-            <div class="detail-box">
-              <h6>
-                Apartments house
-              </h6>
-              <p>
-                There are many variations of passages of Lorem Ipsum available, but
-              </p>
-              <a href="">
-                View Detail
-              </a>
-            </div>
-          </div>
-
-        </div>
-        <div class="col-sm-6 col-md-4">
-          <div class="box">
-            <div class="img-box">
-              <img src="images/s5.jpg" alt="">
-            </div>
-            <div class="detail-box">
-              <h6>
-                Apartments house
-              </h6>
-              <p>
-                There are many variations of passages of Lorem Ipsum available, but
-              </p>
-              <a href="">
-                View Detail
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-          <div class="box">
-            <div class="img-box">
-              <img src="images/s6.jpg" alt="">
-            </div>
-            <div class="detail-box">
-              <h6>
-                Apartments house
-              </h6>
-              <p>
-                There are many variations of passages of Lorem Ipsum available, but
-              </p>
-              <a href="">
-                View Detail
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="btn-box">
-        <a href="">
-          Find More
-        </a>
+        @endforeach
       </div>
     </div>
   </section>

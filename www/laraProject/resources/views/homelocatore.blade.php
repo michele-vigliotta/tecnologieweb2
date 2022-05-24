@@ -69,10 +69,10 @@
                 <a class="nav-link" href="{{ route('testimonial') }}">Chat</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-item" href="{{ route('catlogo')" }}">Profilo</a>
+                  <a class="nav-link" href="{{ route('catalogo') }}">Profilo</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-item" href="{{ route('catlogo')" }}">Annunci</a>
+                  <a class="nav-link" href="{{ route('catalogo') }}">Annunci</a>
               </li>
             </ul>
             @if(isset(Auth::user()->nome))
