@@ -34,7 +34,7 @@
   <link href="{{ URL('css/style.css') }}" rel="stylesheet" />
   <!-- responsive style -->
   <link href="{{ URL('css/responsive.css') }}" rel="stylesheet" />
-
+  
 </head>
 
 <body>

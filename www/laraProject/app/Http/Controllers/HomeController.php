@@ -48,6 +48,10 @@
      public function profile(){
       return view('profile');
     }
+    
+    public function provanavbar(){
+      return view('provanavbar');
+    }
   
   }
 

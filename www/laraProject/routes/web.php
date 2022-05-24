@@ -45,4 +45,6 @@ Route::get('/homeutente', 'HomeController@homeutente')->name('homeutente');
 
 Route::get('/profile', 'HomeController@profile')->name('profile');
 
+Route::get('/provanavbar', 'HomeController@provanavbar')->name('provanavbar');
+
 
