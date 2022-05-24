@@ -158,7 +158,7 @@
        <hr>
       <div class="row py-2">
          <div class="col-12 col-md-4 col-xl-3 mb-2 mb-md-0 dt">Data di nascita</div>
-         <div class="col-12 col-md-8 col-xl-9 dd">{{Auth::user()->data_nascita}}</div>
+         <div class="col-12 col-md-8 col-xl-9 dd">{{date('d-m-Y', strtotime(Auth::user()->data_nascita))}}</div>
       </div>
        <hr>
        <div class="row py-2">
