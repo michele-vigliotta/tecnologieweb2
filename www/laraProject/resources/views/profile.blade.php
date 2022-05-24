@@ -60,11 +60,12 @@
                 <a class="nav-link" href="{{ route('index') }}">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('about') }}"> About</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="{{ route('catalogo') }}">Catalogo</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('about') }}"> About</a>
+              </li>
+              
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('why') }}">Why Us</a>
               </li>
@@ -75,7 +76,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('testimonial') }}">Chat</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item active">
                   <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
               </li>
               

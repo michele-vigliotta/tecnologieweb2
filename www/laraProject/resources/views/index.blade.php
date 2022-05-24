@@ -70,8 +70,7 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('faq') }}">FAQ</a>
-              </li>
-              @if(isset(Auth::user()->nome))
+                @if(isset(Auth::user()->nome))
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('testimonial') }}">Chat</a>
               </li>
@@ -85,6 +84,7 @@
               </li>
                     @endif
                 @endif
+              </li>
               
               
              
@@ -136,7 +136,7 @@
               <div class="row">
                 <div class="col-md-10 mx-auto">
                   <div class="detail-box">
-                    @if(!isset(Auth::user()->nome))
+                    
                     <h1>
                       Esplora <br>
                       Catalogo
@@ -166,7 +166,7 @@
                       locale?
                     </h1>
                     <div class="col-md-8 px-0">
-                        
+                    @if(!isset(Auth::user()->nome))   
                       <p>
                         Registrati e pubblica il tuo primo annuncio.
                       </p>
@@ -175,9 +175,19 @@
                       <a href="{{ route('signup') }}" class="btn1">
                         Registrati
                       </a>
-                      
+                    @else
+                      <p>
+                        Inizia pubblicando un annuncio.
+                      </p>
+                    </div>
+                    <div class="btn-box">
+                      <a href="{{ route('signup') }}" class="btn1">
+                        Pubblica
+                      </a>
+                    @endif
                     </div>
                   </div>
+                    
                 </div>
               </div>
             </div>
@@ -192,6 +202,7 @@
                       una camera?
                     </h1>
                     <div class="col-md-8 px-0">
+                    @if(!isset(Auth::user()->nome))    
                       <p>
                         Registrati e prenota subito.
                       </p>
@@ -200,38 +211,19 @@
                       <a href="{{ route('signup') }}" class="btn1">
                         Registrati
                       </a>
-                    </div>
-                      @elseif('locatario'==(Auth::user()->tipo))
-                       <h1>
-                      Esplora <br>
-                      Catalogo
-                    </h1>
-                    <div class="col-md-8 px-0">
-                      <p>
-                        Esplora le migliori offerte. 
-                      </p>
-                    </div>
-                    <div class="btn-box">
-                      <a href="{{ route('catalogo') }}" class="btn1">
-                        Esplora
-                      </a>
-                    </div>
-                      @else
-                      <h1>
-                      Possiedi un <br>
-                      locale?
-                    </h1>
-                    <div class="col-md-8 px-0">
-                        
-                      <p>
-                        Inizia pubblicando un annuncio.
+                    @else
+                    <p>
+                        Sfoglia catalogo.
                       </p>
                     </div>
                     <div class="btn-box">
                       <a href="{{ route('signup') }}" class="btn1">
-                        Pubblica annuncio
+                        Catalogo
                       </a>
-                      @endif
+                    @endif
+                    
+                    </div>
+                   
                   </div>
                 </div>
               </div>
