@@ -49,3 +49,5 @@ Route::post('addAnnuncio', [AnnuncioController::class, 'addAnnuncio']);
 Route::get('/prova', 'AnnuncioController@aggiungiAnnuncio')->name('prova');
 
 Route::get('/dettagli', 'AnnuncioController@dettagli')->name('dettagli');
+
+Route::post('filterCatalog', [AnnuncioController::class, 'filterCatalog'])->name('filterCatalog');

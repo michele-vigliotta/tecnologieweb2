@@ -113,29 +113,53 @@
         <h2>
           Case disponibili
         </h2>
-      </div>
-      <div class="row">
-        @foreach ($annunci as $annuncio)
-        <div class="col-sm-6 col-md-4">
-          <div class="box">
-            <a href="{{ route('dettagli') }}">
-              <div class="img-box">
-                <img src="{{ $annuncio->mainImg }}" alt="">
+        <form method="POST" action="filterCatalog">
+          @csrf
+          <div class="form-row">
+            <div class="col-md-6 px-0">
+              <div class="form-group ">
+                <div class="input-group ">
+                  <input type="text" name="citta" class="form-control" placeholder="Città"/>
+                </div>
               </div>
-            </a>
-            <div class="detail-box">
-              <a href="{{ route('dettagli') }}">
-                <h4>{{ $annuncio->citta }}, {{$annuncio->stato}}</h4>
-              </a>
-              <h6>€{{ $annuncio->canone_affitto}}</h6>
-              <label>Da {{date('d-m-Y', strtotime($annuncio->inizio_locazione))}} a {{date('d-m-Y', strtotime($annuncio->fine_locazione))}}</label>
-              <p>
-                {{ $annuncio->descrizione }}
-              </p>
             </div>
           </div>
-        </div>
-        @endforeach
+           <div class="btn-box">
+            <button type="submit">
+              <span>
+                Cerca
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="row">
+          @foreach ($annunci as $annuncio)
+            <div class="col-sm-6 col-md-4">
+              <div class="box">
+                <a href="{{ route('dettagli') }}">
+                  <div class="img-box">
+                    <img src="{{ $annuncio->mainImg }}" alt="">
+                  </div>
+                </a>
+                <div class="detail-box">
+                  <a href="{{ route('dettagli') }}">
+                    <h4>{{ $annuncio->citta }}, {{$annuncio->stato}}</h4>
+                  </a>
+                  <h6>€{{ $annuncio->canone_affitto}}</h6>
+                  <label>Da {{date('d-m-Y', strtotime($annuncio->inizio_locazione))}} a {{date('d-m-Y', strtotime($annuncio->fine_locazione))}}</label>
+                  <p>
+                    {{ $annuncio->descrizione }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          @endforeach
+          <!--<div class="col-sm-6 col-md-4">
+            <div class='detail-box'>
+              <h4>Nessun annuncio disponibile, provare a modificare i filtri</h4>
+            </div>
+          </div>-->
       </div>
     </div>
   </section>
