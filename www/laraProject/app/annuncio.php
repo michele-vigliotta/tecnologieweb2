@@ -9,8 +9,9 @@ class annuncio extends Model
     protected $table = 'annuncio';
 
     protected $fillable = [
-      'id_locatore', 'descrizione', 'inizio_locazione', 'fine_locazione',
-      'status', 'servizi_offerti'
+      'id_locatore', 'descrizione', 'stato', 'citta', 'indirizzo',
+      'inizio_locazione', 'fine_locazione', 'genere_locatario',
+      'canone_affitto', 'status', 'servizi_offerti'
     ];
 
     public function image(){

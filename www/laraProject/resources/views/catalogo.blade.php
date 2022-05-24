@@ -118,19 +118,20 @@
         @foreach ($annunci as $annuncio)
         <div class="col-sm-6 col-md-4">
           <div class="box">
-            <div class="img-box">
-              <img src="{{ $annuncio['image'] }}" alt="">
-            </div>
+            <a href="{{ route('dettagli') }}">
+              <div class="img-box">
+                <img src="{{ $annuncio->mainImg }}" alt="">
+              </div>
+            </a>
             <div class="detail-box">
-              <h6>
-                {{ $annuncio['nome'] }}
-              </h6>
-              <p>
-                {{ $annuncio['descrizione'] }}
-              </p>
-              <a href="{{ route('dettagli') }}" class="nav-link">
-                Più informazioni
+              <a href="{{ route('dettagli') }}">
+                <h4>{{ $annuncio->citta }}, {{$annuncio->stato}}</h4>
               </a>
+              <h6>€{{ $annuncio->canone_affitto}}</h6>
+              <label>Da {{date('d-m-Y', strtotime($annuncio->inizio_locazione))}} a {{date('d-m-Y', strtotime($annuncio->fine_locazione))}}</label>
+              <p>
+                {{ $annuncio->descrizione }}
+              </p>
             </div>
           </div>
         </div>

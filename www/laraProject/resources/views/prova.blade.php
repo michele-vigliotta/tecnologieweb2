@@ -18,6 +18,22 @@
             <input type="date" onload="getDate()" name="inizio_locazione"/>
           <label>Fine locazione</label>
             <input type="date" onload="getDate()" name="fine_locazione"/>
+          <label>Stato</label>
+            <input type="text" name="stato" placeholder="Inserire stato"/>
+          <label>Città</label>
+            <input type="text" name="citta" placeholder="Inserire città"/>
+          <label>CAP</label>
+            <input type="text" name="CAP" placeholder="Inserire CAP"/>
+          <label>Indirizzo</label>
+            <input type="text" name="indirizzo" placeholder="Inserire indirizzo"/>
+          <label>Prezzo</label>
+            <input type="number" name="canone" placeholder="Inserire canone d'affitto" min="0" step="any"/>
+          <label>Genere del locatario</label>
+            <select name="genere">
+              <option value="Uomo">Uomo</option>
+              <option value="Donna">Donna</option>
+              <option value="Non specificato" selected="selected">Non specificato</label>
+            </selecet>
           <div>
               <input type="checkbox" name="servizio1" value="1"/>
             <label>1</label>
@@ -28,8 +44,10 @@
           </div>
         </div>
         <div>
+          <label>Choose main img</label>
+            <input type="file" name="mainImg"/>
           <label>Choose Images</label>
-            <input type="file"  name="images[]" multiple>
+            <input type="file"  name="images[]" multiple/>
         </div>
         <hr>
         <button type="submit" >Submit</button>
