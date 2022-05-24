@@ -65,12 +65,14 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('faq') }}">Faq</a>
               </li>
+              @if(isset(Auth::user()->nome))
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('testimonial') }}">Chat</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
               </li>
+              @endif
               @if('Locatore'==(Auth::user()->tipo))
                     <li class="nav-item">
                   <a class="nav-link" href="{{ route('catalogo')}}">Annunci</a>
