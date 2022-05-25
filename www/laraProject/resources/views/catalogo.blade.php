@@ -126,8 +126,10 @@
         <h1>
           Catalogo
         </h1>
-        <h3>Filtri</h3>
+        
         @if(isset(Auth::user()->nome))
+            @if('locatario'==(Auth::user()->tipo))
+            <h3>Filtri</h3>
           <form method="POST" action="filterCatalog">
             @csrf
             <div class="form-row">
@@ -156,8 +158,9 @@
              </div>
           </div>
         </form>
+            @endif
         @else
-          Accedi per filtrare
+          Accedi come locatario per filtrare
         @endif
       </div>
       <div class="form-row">
