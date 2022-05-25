@@ -258,7 +258,7 @@
               Siamo una società che nasce con l'intento con l'intento di facilitare gli studenti nella ricerca di un alloggio,
               offrendo uno scambio di informazioni con il locatore nel modo più facile e chiaro possibile.
             </p>
-            <a href="./about.html">
+            <a href="{{ route('about') }}">
               Leggi più
             </a>
           </div>

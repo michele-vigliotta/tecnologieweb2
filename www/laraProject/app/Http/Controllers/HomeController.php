@@ -48,6 +48,9 @@
      public function profile(){
       return view('profile');
     }
+    public function profileupdate(){
+      return view('profileupdate');
+    }
     
     public function provanavbar(){
       return view('provanavbar');

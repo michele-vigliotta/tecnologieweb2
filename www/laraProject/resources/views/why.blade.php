@@ -116,11 +116,8 @@
       </div>
     </header>
     <!-- end header section -->
-  </div>
-
-  <!-- why us section -->
-
-  <section class="why_us_section layout_padding">
+    
+    <section class="why_us_section layout_padding">
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
@@ -187,6 +184,34 @@
       </div>
     </div>
   </section>
+  </div>
+
+  <!-- why us section -->
+  <br><!-- comment -->
+  <br><!--  -->
+  <br>
+  <br>
+  <br><!-- comment -->
+  <br><!--  -->
+  <br>
+  <br>
+  <br><!-- comment -->
+  <br><!--  -->
+  <br>
+  <br>
+  <br>
+  <br>
+  <br><!-- comment -->
+  <br><!--  -->
+  <br>
+  <br>
+  <br>
+  <br>
+  <br><!-- comment -->
+  <br><!--  -->
+  <br>
+  <br>
+  
 
   <!-- end why us section -->
 

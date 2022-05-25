@@ -56,13 +56,13 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  ">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('index') }}"> Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('catalogo') }}"> Catalogo</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="{{ route('about') }}"> About</a>
                 </li>
                 <li class="nav-item">
@@ -73,7 +73,7 @@
                 </li>
              @if(isset(Auth::user()->nome))
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('testimonial') }}">Chat</a>
+                <a class="nav-link" href="{{ route('profile') }}">Chat</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
@@ -115,12 +115,7 @@
         </nav>
       </div>
     </header>
-    <!-- end header section -->
-  </div>
-
-  <!-- about section -->
-
-  <section class="about_section layout_padding">
+    <section class="about_section layout_padding">
     <div class="container  ">
       <div class="row">
         <div class="col-md-6">
@@ -144,6 +139,7 @@
         <div class="col-md-6 ">
           <div class="img-box">
             <img src="images/about-img.jpg" alt="">
+            
           </div>
         </div>
 
@@ -151,6 +147,35 @@
     </div>
   </section>
 
+    <!-- end header section -->
+  </div>
+
+  <!-- about section -->
+  
+  <br><!-- comment -->
+  <br><!--  -->
+  <br>
+  <br>
+  <br><!-- comment -->
+  <br><!--  -->
+  <br>
+  <br>
+  <br><!-- comment -->
+  <br><!--  -->
+  <br>
+  <br>
+  <br>
+  <br>
+  <br><!-- comment -->
+  <br><!--  -->
+  <br>
+  <br>
+  <br>
+  <br>
+  <br><!-- comment -->
+  <br><!--  -->
+  <br>
+  <br>
   <!-- end about section -->
 
   <!-- info section -->
