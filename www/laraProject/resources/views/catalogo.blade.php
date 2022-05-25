@@ -12,7 +12,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Estee</title>
+  <title>Filtro</title>
 
 
   <!-- bootstrap core css -->
@@ -39,7 +39,7 @@
 
 <body class="sub_page">
 
-  <div class="hero_area">
+  <div class="hero_area2">
     <!-- header section strats -->
     <header class="header_section">
       <div class="container-fluid">
@@ -56,17 +56,17 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  ">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('index') }}">Home</a>
+                </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('index') }}"> Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ route('catalogo') }}">Catalogo<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('catalogo') }}"> Catalogo</a>
+                    <a class="nav-link" href="{{ route('about') }}">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('about') }}"> About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('why') }}"> Why Us</a>
+                    <a class="nav-link" href="{{ route('why') }}">Why Us</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('faq') }}">FAQ</a>
@@ -106,132 +106,76 @@
 
 
   <!-- sale section -->
-
-  <section class="sale_section layout_padding">
+ <section class="sale_section layout_padding">
     <div class="container-fluid">
       <div class="heading_container">
-        <h2>
-          House For Sale
-        </h2>
-        <p>
-          There are many variations of passages of Lorem Ipsum available, but the
-        </p>
+        <h1>
+          Catalogo
+        </h1>
+        <h3>Filtri</h3>
+        @if(isset(Auth::user()->nome))
+          <form method="POST" action="filterCatalog">
+            @csrf
+            <div class="form-row">
+              <div class="col-md-6 px-0">
+                <div class="form-group ">
+                  <div class="input-group ">
+                    <input type="text" name="citta" class="form-control" placeholder="Città"/>
+                  </div>
+                </div>
+              </div>
+              &nbsp;
+              <div class="col-md-6 px-0">
+                <div class="form-group">
+                  <div class="input-group">
+                    <h6>Da</h6> <input type="date" name="inizio" class="form-control"/>
+                    <h6>a</h6> <input type="date" name="fine" class="form-control"/>
+                  </div>
+                </div>
+              </div>
+              <div class="btn-box">
+                <button type="submit">
+                  <span>
+                    Cerca
+                  </span>
+                </button>
+             </div>
+          </div>
+        </form>
+        @else
+          Accedi per filtrare
+        @endif
       </div>
-      <div class="row">
-        <div class="col-sm-6 col-md-4">
-          <div class="box">
-            <div class="img-box">
-              <img src="images/s1.jpg" alt="">
+      <div class="form-row">
+        @if(!empty($annunci))
+          @foreach ($annunci as $annuncio)
+            <div class="col-sm-6 col-md-4">
+              <div class="box">
+                <a href="{{ route('dettagli') }}">
+                  <div class="img-box">
+                    <img src="{{ $annuncio->mainImg }}" alt="">
+                  </div>
+                </a>
+                <div class="detail-box">
+                  <a href="{{ route('dettagli') }}">
+                    <h4>{{ $annuncio->citta }}, {{$annuncio->stato}}</h4>
+                  </a>
+                  <h6>€{{ $annuncio->canone_affitto}}</h6>
+                  <label>Da {{date('d-m-Y', strtotime($annuncio->inizio_locazione))}} a {{date('d-m-Y', strtotime($annuncio->fine_locazione))}}</label>
+                  <p>
+                    {{ $annuncio->descrizione }}
+                  </p>
+                </div>
+              </div>
             </div>
-            <div class="detail-box">
-              <h6>
-                Apartments house
-              </h6>
-              <p>
-                There are many variations of passages of Lorem Ipsum available, but
-              </p>
-              <a href="">
-                View Detail
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-          <div class="box">
-            <div class="img-box">
-              <img src="images/s2.jpg" alt="">
-            </div>
-            <div class="detail-box">
-              <h6>
-                Apartments house
-              </h6>
-              <p>
-                There are many variations of passages of Lorem Ipsum available, but
-              </p>
-              <a href="">
-                View Detail
-              </a>
+          @endforeach
+        @else
+          <div class="col-sm-6 col-md-4">
+            <div class='detail-box'>
+              <h4>Nessun annuncio disponibile, provare a modificare i filtri</h4>
             </div>
           </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-          <div class="box">
-            <div class="img-box">
-              <img src="images/s3.jpg" alt="">
-            </div>
-            <div class="detail-box">
-              <h6>
-                Apartments house
-              </h6>
-              <p>
-                There are many variations of passages of Lorem Ipsum available, but
-              </p>
-              <a href="">
-                View Detail
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-          <div class="box">
-            <div class="img-box">
-              <img src="images/s4.jpg" alt="">
-            </div>
-            <div class="detail-box">
-              <h6>
-                Apartments house
-              </h6>
-              <p>
-                There are many variations of passages of Lorem Ipsum available, but
-              </p>
-              <a href="">
-                View Detail
-              </a>
-            </div>
-          </div>
-
-        </div>
-        <div class="col-sm-6 col-md-4">
-          <div class="box">
-            <div class="img-box">
-              <img src="images/s5.jpg" alt="">
-            </div>
-            <div class="detail-box">
-              <h6>
-                Apartments house
-              </h6>
-              <p>
-                There are many variations of passages of Lorem Ipsum available, but
-              </p>
-              <a href="">
-                View Detail
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-          <div class="box">
-            <div class="img-box">
-              <img src="images/s6.jpg" alt="">
-            </div>
-            <div class="detail-box">
-              <h6>
-                Apartments house
-              </h6>
-              <p>
-                There are many variations of passages of Lorem Ipsum available, but
-              </p>
-              <a href="">
-                View Detail
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="btn-box">
-        <a href="">
-          Find More
-        </a>
+        @endif
       </div>
     </div>
   </section>
