@@ -34,7 +34,7 @@
   <link href="{{ URL('css/style.css') }}" rel="stylesheet" />
   <!-- responsive style -->
   <link href="{{ URL('css/responsive.css') }}" rel="stylesheet" />
-  
+
 </head>
 
 <body>
@@ -79,16 +79,16 @@
                   <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
               </li>
               
-                    @if('Locatore'==(Auth::user()->tipo))
+            @if('Locatore'==(Auth::user()->tipo))
               <li class="nav-item">
                   <a class="nav-link" href="">Annunci</a>
               </li>
                     @endif
                 @endif
-              
-              
-              
-             
+
+
+
+
 
             </ul>
             @if(isset(Auth::user()->nome))
@@ -137,14 +137,14 @@
               <div class="row">
                 <div class="col-md-10 mx-auto">
                   <div class="detail-box">
-                    
+
                     <h1>
                       Esplora <br>
                       Catalogo
                     </h1>
                     <div class="col-md-8 px-0">
                       <p>
-                        Esplora le migliori offerte. 
+                        Esplora le migliori offerte.
                       </p>
                     </div>
                     <div class="btn-box">
@@ -167,7 +167,7 @@
                       locale?
                     </h1>
                     <div class="col-md-8 px-0">
-                    @if(!isset(Auth::user()->nome))   
+                    @if(!isset(Auth::user()->nome))
                       <p>
                         Registrati e pubblica il tuo primo annuncio.
                       </p>
@@ -188,7 +188,7 @@
                     @endif
                     </div>
                   </div>
-                    
+
                 </div>
               </div>
             </div>
@@ -203,7 +203,7 @@
                       una camera?
                     </h1>
                     <div class="col-md-8 px-0">
-                    @if(!isset(Auth::user()->nome))    
+                    @if(!isset(Auth::user()->nome))
                       <p>
                         Registrati e prenota subito.
                       </p>
@@ -222,15 +222,15 @@
                         Catalogo
                       </a>
                     @endif
-                    
+
                     </div>
-                   
+
                   </div>
                 </div>
               </div>
             </div>
           </div>
-            
+
         </div>
         <ol class="carousel-indicators">
           <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
@@ -408,7 +408,7 @@
     <div class="container">
       <div class="heading_container heading_center psudo_white_primary mb_45">
         <h2>
-          
+
         </h2>
       </div>
       <div class="carousel-wrap ">

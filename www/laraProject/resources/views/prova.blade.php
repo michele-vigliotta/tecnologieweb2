@@ -12,6 +12,11 @@
       <form method="POST" action="addAnnuncio" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div>
+          <label>Tipo</label>
+            <select name="tipo">
+              <option value="appartamento">Appartamento</option>
+              <option valie="camera">Camera</option>
+            </select>
           <label>Descrizione</label>
             <input type="text" name="descrizione" rows="4" placeholder="Enter Product description">
           <label>Inizio locazione</label>
@@ -25,7 +30,11 @@
           <label>CAP</label>
             <input type="text" name="CAP" placeholder="Inserire CAP"/>
           <label>Indirizzo</label>
-            <input type="text" name="indirizzo" placeholder="Inserire indirizzo"/>
+            <input type="text" name="indirizzo"/>
+          <label>Numero camere</label>
+            <input type="number" name="n_camere"/>
+          <label>Numero di posti letto totali</label>
+            <input type="number" name="n_posti_letto">
           <label>Prezzo</label>
             <input type="number" name="canone" placeholder="Inserire canone d'affitto" min="0" step="any"/>
           <label>Genere del locatario</label>

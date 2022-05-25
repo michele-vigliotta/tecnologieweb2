@@ -78,7 +78,7 @@
               <li class="nav-item">
                   <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
               </li>
-              
+
                     @if('Locatore'==(Auth::user()->tipo))
               <li class="nav-item">
                   <a class="nav-link" href="">Annunci</a>
@@ -167,7 +167,7 @@
               <div class="box">
                 <a href="{{ route('dettagli') }}">
                   <div class="img-box">
-                    <img src="{{ $annuncio->mainImg }}" alt="">
+                    <img src="./immaginiAnnunci/{{ $annuncio->mainImg }}" height="300px">
                   </div>
                 </a>
                 <div class="detail-box">

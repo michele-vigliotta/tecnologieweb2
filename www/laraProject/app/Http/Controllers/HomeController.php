@@ -40,22 +40,22 @@
     public function signup(){
       return view('signup');
     }
-    
+
     public function homeutente(){
       return view('homeutente');
     }
-    
+
      public function profile(){
       return view('profile');
     }
     public function profileupdate(){
       return view('profileupdate');
     }
-    
+
     public function provanavbar(){
       return view('provanavbar');
     }
-  
+
   }
 
  ?>
