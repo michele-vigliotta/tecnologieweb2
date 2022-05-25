@@ -160,7 +160,7 @@
         </form>
             @endif
         @else
-          Accedi come locatario per filtrare
+        <a href="{{ route('signup') }}">Accedi come locatario per filtrare<a>
         @endif
       </div>
       <div class="form-row">

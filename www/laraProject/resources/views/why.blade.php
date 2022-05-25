@@ -150,8 +150,8 @@
                 24/7 Support
               </h5>
               <p>
-                Il nostro team di supporto è attivo ogni ora ed è possibile contattarlo <a href="#NU">telefonicamente</a>
-                  o tramite <a href="#EM">email</a>.
+                Il nostro team di supporto è attivo ogni ora ed è possibile contattarlo <a href="tel:+01 123455678990">telefonicamente</a>
+                  o tramite <a href="mailto:demo@gmail.com">email</a>.
               </p>
             </div>
           </div>
