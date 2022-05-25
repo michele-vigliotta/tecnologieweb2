@@ -30,6 +30,9 @@
     public function homeutente(){
       return view('homeutente');
     }
+    public function profile(){
+      return view('profile');
+    }
 
   }
 
