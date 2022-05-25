@@ -60,20 +60,33 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  ">
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('index') }}">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ route('index') }}"> Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('catalogo') }}"> Catalogo</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('about') }}"> About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('catalogo') }}">Catalogo</a>
+                <a class="nav-link" href="{{ route('why') }}"> Why Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('why') }}">Why Us</a>
+                <a class="nav-link" href="{{ route('faq') }}">FAQ</a>
+                @if(isset(Auth::user()->nome))
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('testimonial') }}">Chat</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('testimonial') }}">Testimonial</a>
+                  <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
               </li>
+              
+                    @if('Locatore'==(Auth::user()->tipo))
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('catalogo')}}">Annunci</a>
+              </li>
+                    @endif
+                @endif
             </ul>
 
             @if(isset(Auth::user()->nome))
@@ -203,7 +216,7 @@
                                 <img src="{{ URL('images/icon/calendario.png') }}" alt="Calendar Image" />
                               </div>
                             </div>
-                            <input type="date" id="data" onload="getDate()" name="data_nascita" class="form-control" />
+                            <input type="date"  name="data_nascita" class="form-control" />
                           </div>
                         </div>
                       </div>
@@ -281,7 +294,7 @@
 
     <div class="container">
       <div class="contact_nav">
-        <a href="">
+        <a href="tel:+01 123455678990">
           <i class="fa fa-phone" aria-hidden="true"></i>
           <span>
             Call : +01 123455678990

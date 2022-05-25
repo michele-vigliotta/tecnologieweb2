@@ -132,6 +132,7 @@
               <br>
               Sei uno studente? Registrati subito e cerca l'alloggio più adatto alle tue esigenze.
               <br>
+              <br>
               Possiedi un locale? Registrati subito e inizia pubblicando il tuo primo annuncio.
             </p>
             <a href="{{ route('signup') }}">
@@ -186,13 +187,13 @@
 
     <div class="container">
       <div class="contact_nav">
-        <a href="">
+        <a href="tel:+01 123455678990">
           <i class="fa fa-phone" aria-hidden="true"></i>
           <span>
             Call : +01 123455678990
           </span>
         </a>
-        <a href="">
+        <a href="mailto:demo@gmail.com">
           <i class="fa fa-envelope" aria-hidden="true"></i>
           <span>
             Email : demo@gmail.com
