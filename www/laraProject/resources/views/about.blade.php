@@ -126,13 +126,16 @@
               </h2>
             </div>
             <p>
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-              the middle of text. All
+              Siamo una società che nasce con l'intento di facilitare gli studenti nella ricerca di un alloggio,
+              offrendo uno scambio di informazioni con i locatori nel modo più facile e immediato.
+              <br>
+              <br>
+              Sei uno studente? Registrati subito e cerca l'alloggio più adatto alle tue esigenze.
+              <br>
+              Possiedi un locale? Registrati subito e inizia pubblicando il tuo primo annuncio.
             </p>
-            <a href="">
-              Read More
+            <a href="{{ route('signup') }}">
+              Registrati
             </a>
           </div>
         </div>
