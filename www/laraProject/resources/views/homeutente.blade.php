@@ -67,9 +67,10 @@
               </li>
               @if(isset(Auth::user()->nome))
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('testimonial') }}">Chat</a>
+                <a class="nav-link" href="{{ route('homeutente') }}">Chat</a>
               </li>
               <li class="nav-item">
+<<<<<<< HEAD
                   <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
               </li>
 
@@ -80,10 +81,17 @@
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="{{ route('catalogo') }}">Annunci</a>
+=======
+                <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
+              </li>
+                    @if('Locatore'==(Auth::user()->tipo))
+              <li class="nav-item">
+                  <a class="nav-link" href="">Annunci</a>
+>>>>>>> 2d7002b070b2c25f099ade77e5ce8f52e3456334
               </li>
                     @endif
-                @endif
-            </ul>
+              @endif
+             </ul>
             @if(isset(Auth::user()->nome))
               <div class="quote_btn-container">
                 <a href="{{ route('homeutente') }}" class="quote_btn">
