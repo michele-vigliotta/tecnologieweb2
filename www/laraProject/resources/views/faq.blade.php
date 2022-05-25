@@ -122,13 +122,16 @@
         <h2>
           Frequently Asked Questions
         </h2>
+          <br>
           <div class="form-row">
         @if(!empty($FAQ))
           @foreach ($FAQ as $xfaq)
             <div class="col-sm-6 col-md-4">
               <h4>{{ $xfaq->domanda }}</h4>
                   <p>{{ $xfaq->risposta}}</p>
+                  
             </div>
+          
           @endforeach
         @else
           <div class="col-sm-6 col-md-4">
@@ -139,9 +142,21 @@
         @endif
       </div>
       </div>
-      
+
     </div>
   </section>
+          <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
   </div>
 
   <!-- client section -->
