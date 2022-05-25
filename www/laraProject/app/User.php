@@ -16,7 +16,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'password', 'nome', 'cognome', 'email', 'data_nascita', 'c_fiscale', 'numero', 'prefisso', 'tipo'
+        'username', 'password', 'nome',
+        'cognome', 'email', 'data_nascita',
+        'c_fiscale', 'numero', 'prefisso', 'tipo'
     ];
 
     /**
@@ -42,5 +44,9 @@ class User extends Authenticatable
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = bcrypt($password);
+    }
+
+    public function messaggio(){
+      return $this->hasMany('App\messaggio', 'id');
     }
 }

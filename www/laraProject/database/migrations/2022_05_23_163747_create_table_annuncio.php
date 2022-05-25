@@ -28,8 +28,11 @@ class CreateTableAnnuncio extends Migration
             $table->boolean('status')->default(1);
             $table->json('servizi_offerti');
             $table->string('mainImg', 150)->nullable();
+            $table->string('tipo', 15);
+            $table->integer('numero_camere');
+            $table->integer('posti_letto_totali');
             $table->timestamps();
-
+            
             $table->foreign('id_locatore')->references('id')->on('utente');
         });
     }

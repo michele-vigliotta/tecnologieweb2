@@ -12,7 +12,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Estee</title>
+  <title>Filtro</title>
 
 
   <!-- bootstrap core css -->
@@ -106,34 +106,48 @@
 
 
   <!-- sale section -->
-
-  <section class="sale_section layout_padding">
+ <section class="sale_section layout_padding">
     <div class="container-fluid">
       <div class="heading_container">
-        <h2>
-          Case disponibili
-        </h2>
-        <form method="POST" action="filterCatalog">
-          @csrf
-          <div class="form-row">
-            <div class="col-md-6 px-0">
-              <div class="form-group ">
-                <div class="input-group ">
-                  <input type="text" name="citta" class="form-control" placeholder="Città"/>
+        <h1>
+          Catalogo
+        </h1>
+        <h3>Filtri</h3>
+        @if(isset(Auth::user()->nome))
+          <form method="POST" action="filterCatalog">
+            @csrf
+            <div class="form-row">
+              <div class="col-md-6 px-0">
+                <div class="form-group ">
+                  <div class="input-group ">
+                    <input type="text" name="citta" class="form-control" placeholder="Città"/>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-           <div class="btn-box">
-            <button type="submit">
-              <span>
-                Cerca
-              </span>
-            </button>
+              &nbsp;
+              <div class="col-md-6 px-0">
+                <div class="form-group">
+                  <div class="input-group">
+                    <h6>Da</h6> <input type="date" name="inizio" class="form-control"/>
+                    <h6>a</h6> <input type="date" name="fine" class="form-control"/>
+                  </div>
+                </div>
+              </div>
+              <div class="btn-box">
+                <button type="submit">
+                  <span>
+                    Cerca
+                  </span>
+                </button>
+             </div>
           </div>
         </form>
+        @else
+          Accedi per filtrare
+        @endif
       </div>
-      <div class="row">
+      <div class="form-row">
+        @if(!empty($annunci))
           @foreach ($annunci as $annuncio)
             <div class="col-sm-6 col-md-4">
               <div class="box">
@@ -155,11 +169,13 @@
               </div>
             </div>
           @endforeach
-          <!--<div class="col-sm-6 col-md-4">
+        @else
+          <div class="col-sm-6 col-md-4">
             <div class='detail-box'>
               <h4>Nessun annuncio disponibile, provare a modificare i filtri</h4>
             </div>
-          </div>-->
+          </div>
+        @endif
       </div>
     </div>
   </section>

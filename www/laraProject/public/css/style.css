@@ -780,6 +780,21 @@ a:focus {
   background-color: #f00712;
 }
 
+.find_section .find_form .btn-box button {
+  display: inline-block;
+  padding: 12px 50px;
+  background-color: #fa4952;
+  color: #ffffff;
+  border-radius: 45x;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  border: none;
+}
+
+.find_section .find_form .btn-box button:hover {
+  background-color: #f00712;
+}
+
 /* client section start */
 .client_section .heading_container {
   margin-bottom: 30px;

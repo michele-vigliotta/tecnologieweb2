@@ -203,7 +203,7 @@
                                 <img src="{{ URL('images/icon/calendario.png') }}" alt="Calendar Image" />
                               </div>
                             </div>
-                            <input type="date" id="data" onload="getDate()" name="data_nascita" class="form-control" />
+                            <input type="date" name="data_nascita" class="form-control" />
                           </div>
                         </div>
                       </div>
@@ -248,7 +248,7 @@
                         <div class="form-group">
                           <div class="input-group ">
                             <select name="tipo" class="form-control" required>
-                              <option value="" disabled selected></option>
+                              <option value="" disabled selected>Che tipo di utente sei?</option>
                               <option value="locatario">Locatario</option>
                               <option valie="locatore"> Locatore </option>
                             </select>

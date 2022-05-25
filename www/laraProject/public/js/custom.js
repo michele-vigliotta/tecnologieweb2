@@ -10,14 +10,14 @@ function getDate(){
   document.getElementById('data').value = today;
   document.getElementById('data').min = today;
 
-  /*tomorrow.setDate(tomorrow.getDate() + 1);
+  tomorrow.setDate(tomorrow.getDate() + 1);
   var dd = String(tomorrow.getDate()).padStart(2, '0');
   var mm = String(tomorrow.getMonth() + 1).padStart(2, '0');
   var yyyy = tomorrow.getFullYear();
 
   tomorrow = yyyy + '-' + mm + '-' + dd;
   document.getElementById('endDate').value = tomorrow;
-  document.getElementById('endDate').min = tomorrow;*/
+  document.getElementById('endDate').min = tomorrow;
 }
 
 getDate();
@@ -62,21 +62,3 @@ $(".client_owl-carousel").owlCarousel({
         }
     }
 });
-
-/*window.onscroll = function() {lockHeader()};
-
-// Get the navbar
-var navbar = document.getElementById("header_section");
-var slider = document.getElementsByClassName("slider_section");
-
-// Get the offset position of the navbar
-var sticky = navbar.offsetTop;
-
-// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-function lockHeader() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky");
-  } else {
-    navbar.classList.remove("sticky");
-  }
-}*/

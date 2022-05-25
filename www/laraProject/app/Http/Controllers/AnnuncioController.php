@@ -64,7 +64,11 @@ class AnnuncioController extends Controller
     }
 
     public function filterCatalog(Request $request){
-      $annunci=DB::select("select * from annuncio where citta='".$request->citta."'");
+      $query="select * from annuncio ";
+      if($request->filled('citta'))
+        $query.="where citta='".$request->citta."' ";
+      
+      $annunci=DB::select($query);
       return view('catalogo', ['annunci'=>$annunci]);
     }
 
