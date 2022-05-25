@@ -33,7 +33,7 @@
 
     public function faq(){
       $FAQ=DB::select('select * from FAQ');
-      return view('faq', ['annunci'=>$FAQ]);
+      return view('faq', ['FAQ'=>$FAQ]);
     }
 
 	  public function login(){
