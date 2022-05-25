@@ -42,17 +42,6 @@ Route::post('user', [UserController::class, 'checkLogin']);
 
 Route::get('/logout', 'LogoutController@logout')->name('logout');
 
-<<<<<<< HEAD
-Route::get('/homeutente', 'HomeController@homeutente')->name('homeutente');
-
-Route::get('/profile', 'HomeController@profile')->name('profile');
-
-Route::get('/profileupdate', 'HomeController@profileupdate')->name('profileupdate');
-
-Route::get('/provanavbar', 'HomeController@provanavbar')->name('provanavbar');
-
-
-=======
 Route::get('/homelocatore', 'HomeController@homelocatore')->name('homelocatore');
 
 Route::post('addAnnuncio', [AnnuncioController::class, 'addAnnuncio']);
@@ -62,4 +51,3 @@ Route::get('/prova', 'AnnuncioController@aggiungiAnnuncio')->name('prova');
 Route::get('/dettagli', 'AnnuncioController@dettagli')->name('dettagli');
 
 Route::post('filterCatalog', [AnnuncioController::class, 'filterCatalog'])->name('filterCatalog');
->>>>>>> catalogo

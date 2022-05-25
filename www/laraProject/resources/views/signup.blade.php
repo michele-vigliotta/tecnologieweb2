@@ -80,7 +80,7 @@
               <li class="nav-item">
                   <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
               </li>
-              
+
                     @if('Locatore'==(Auth::user()->tipo))
               <li class="nav-item">
                   <a class="nav-link" href="{{ route('catalogo')}}">Annunci</a>
@@ -216,11 +216,7 @@
                                 <img src="{{ URL('images/icon/calendario.png') }}" alt="Calendar Image" />
                               </div>
                             </div>
-<<<<<<< HEAD
                             <input type="date" name="data_nascita" class="form-control" />
-=======
-                            <input type="date"  name="data_nascita" class="form-control" />
->>>>>>> c5c312d1c545d6d3f9e86c7ec03db98329a5080c
                           </div>
                         </div>
                       </div>
