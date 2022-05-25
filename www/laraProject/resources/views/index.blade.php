@@ -70,7 +70,21 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('faq') }}">FAQ</a>
+                @if(isset(Auth::user()->nome))
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('testimonial') }}">Chat</a>
               </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
+              </li>
+              
+                    @if('Locatore'==(Auth::user()->tipo))
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('catalogo')}}">Annunci</a>
+              </li>
+                    @endif
+                @endif
+              
               
               
              
@@ -122,7 +136,7 @@
               <div class="row">
                 <div class="col-md-10 mx-auto">
                   <div class="detail-box">
-                    @if(!isset(Auth::user()->nome))
+                    
                     <h1>
                       Esplora <br>
                       Catalogo
@@ -152,7 +166,7 @@
                       locale?
                     </h1>
                     <div class="col-md-8 px-0">
-                        
+                    @if(!isset(Auth::user()->nome))   
                       <p>
                         Registrati e pubblica il tuo primo annuncio.
                       </p>
@@ -161,9 +175,19 @@
                       <a href="{{ route('signup') }}" class="btn1">
                         Registrati
                       </a>
-                      
+                    @else
+                      <p>
+                        Inizia pubblicando un annuncio.
+                      </p>
+                    </div>
+                    <div class="btn-box">
+                      <a href="{{ route('signup') }}" class="btn1">
+                        Pubblica
+                      </a>
+                    @endif
                     </div>
                   </div>
+                    
                 </div>
               </div>
             </div>
@@ -178,6 +202,7 @@
                       una camera?
                     </h1>
                     <div class="col-md-8 px-0">
+                    @if(!isset(Auth::user()->nome))    
                       <p>
                         Registrati e prenota subito.
                       </p>
@@ -186,38 +211,19 @@
                       <a href="{{ route('signup') }}" class="btn1">
                         Registrati
                       </a>
-                    </div>
-                      @elseif('locatario'==(Auth::user()->tipo))
-                       <h1>
-                      Esplora <br>
-                      Catalogo
-                    </h1>
-                    <div class="col-md-8 px-0">
-                      <p>
-                        Esplora le migliori offerte. 
-                      </p>
-                    </div>
-                    <div class="btn-box">
-                      <a href="{{ route('catalogo') }}" class="btn1">
-                        Esplora
-                      </a>
-                    </div>
-                      @else
-                      <h1>
-                      Possiedi un <br>
-                      locale?
-                    </h1>
-                    <div class="col-md-8 px-0">
-                        
-                      <p>
-                        Inizia pubblicando un annuncio.
+                    @else
+                    <p>
+                        Sfoglia catalogo.
                       </p>
                     </div>
                     <div class="btn-box">
                       <a href="{{ route('signup') }}" class="btn1">
-                        Pubblica annuncio
+                        Catalogo
                       </a>
-                      @endif
+                    @endif
+                    
+                    </div>
+                   
                   </div>
                 </div>
               </div>
@@ -249,10 +255,10 @@
               </h2>
             </div>
             <p>
-              Siamo una società che nasce con l'intento con l'intento di facilitare gli studenti nella ricerca di un alloggio,
-              offrendo uno scambio di informazioni con il locatore nel modo più facile e chiaro possibile.
+              Siamo una società che nasce con l'intento di facilitare gli studenti nella ricerca di un alloggio,
+              offrendo uno scambio di informazioni con i locatori nel modo più facile e immediato.
             </p>
-            <a href="./about.html">
+            <a href="{{ route('about') }}">
               Leggi più
             </a>
           </div>
@@ -272,7 +278,7 @@
     <div class="container-fluid">
       <div class="heading_container">
         <h2>
-          Tipi di camere
+          Tipi di alloggio
         </h2>
       </div>
       <div class="row">
@@ -283,10 +289,10 @@
             </div>
             <div class="detail-box">
               <h6>
-                Monolocale
+                Camera singola
               </h6>
               <p>
-                Appartamento con una sola stanza che funge da camera, cucina, soggiorno, sala studio e una stanza per il bagno.
+                Appartamento con una solo posto letto disponibile.
               </p>
             </div>
           </div>
@@ -298,10 +304,10 @@
             </div>
             <div class="detail-box">
               <h6>
-                Bilocale
+                Camera doppia
               </h6>
               <p>
-                Appartamento con due stanze suddivise in modo tale da avere camera, cucina, soggiorno, sala studio e una stanza per il bagno.
+                Appartamento con due posti letto disponibili.
               </p>
             </div>
           </div>
@@ -318,10 +324,10 @@
             </div>
             <div class="detail-box">
               <h6>
-                Trilocale
+                Camera tripla
               </h6>
               <p>
-                Appartamento con tre stanze suddivise in modo tale da avere almeno una camera, cucina, soggiorno, sala studio e una stanza per il bagno.
+                Appartamento con tre posti letto disponibili.
               </p>
             </div>
           </div>
@@ -350,9 +356,7 @@
                 Satisfied customers
               </h5>
               <p>
-                Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC,
-                making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in
-                Virginia.
+                Grazie a un'interfaccia immediata i nostri clienti sono in grado di pubblicare e cercare annunci in modo molto semplice.
               </p>
             </div>
           </div>
@@ -367,9 +371,8 @@
                 24/7 Support
               </h5>
               <p>
-                Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC,
-                making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in
-                Virginia.
+                  Il nostro team di supporto è attivo ogni ora ed è possibile contattarlo <a href="#NU">telefonicamente</a>
+                  o tramite <a href="#EM">email</a>.
               </p>
             </div>
           </div>
@@ -384,16 +387,14 @@
                 Affordable price
               </h5>
               <p>
-                Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC,
-                making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in
-                Virginia.
+                Grazie al nostro sistema di ricerca i nostri clienti sono in grado di trovare le offerte più vantaggiose.
               </p>
             </div>
           </div>
         </div>
       </div>
       <div class="btn-box">
-        <a href="">
+        <a href="{{ route('why') }}">
           Read More
         </a>
       </div>
@@ -510,15 +511,15 @@
 
     <div class="container">
       <div class="contact_nav">
-        <a href="">
+        <a href="tel:+01 123455678990">
           <i class="fa fa-phone" aria-hidden="true"></i>
-          <span>
+          <span id="NU">
             Call : +01 123455678990
           </span>
         </a>
         <a href="mailto:demo@gmail.com">
           <i class="fa fa-envelope" aria-hidden="true"></i>
-          <span>
+          <span id="EM">
             Email : demo@gmail.com
           </span>
         </a>

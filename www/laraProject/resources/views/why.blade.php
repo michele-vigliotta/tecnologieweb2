@@ -56,7 +56,7 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  ">
-                <li class="nav-item active">
+                <li class="nav-item ">
                     <a class="nav-link" href="{{ route('index') }}"> Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
@@ -65,12 +65,26 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('about') }}"> About</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="{{ route('why') }}"> Why Us</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('faq') }}">FAQ</a>
                 </li>
+                @if(isset(Auth::user()->nome))
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('testimonial') }}">Chat</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
+              </li>
+              
+                    @if('Locatore'==(Auth::user()->tipo))
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('catalogo')}}">Annunci</a>
+              </li>
+                    @endif
+                @endif
             </ul>
             @if(isset(Auth::user()->nome))
               <div class="quote_btn-container">
@@ -102,11 +116,8 @@
       </div>
     </header>
     <!-- end header section -->
-  </div>
-
-  <!-- why us section -->
-
-  <section class="why_us_section layout_padding">
+    
+    <section class="why_us_section layout_padding">
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
@@ -124,9 +135,7 @@
                 Satisfied customers
               </h5>
               <p>
-                Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC,
-                making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in
-                Virginia.
+                Grazie a un'interfaccia immediata i nostri clienti sono in grado di pubblicare e cercare annunci in modo molto semplice.
               </p>
             </div>
           </div>
@@ -141,9 +150,8 @@
                 24/7 Support
               </h5>
               <p>
-                Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC,
-                making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in
-                Virginia.
+                Il nostro team di supporto è attivo ogni ora ed è possibile contattarlo <a href="#NU">telefonicamente</a>
+                  o tramite <a href="#EM">email</a>.
               </p>
             </div>
           </div>
@@ -158,21 +166,47 @@
                 Affordable price
               </h5>
               <p>
-                Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC,
-                making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in
-                Virginia.
+                Grazie al nostro sistema di ricerca i nostri clienti sono in grado di trovare le offerte più vantaggiose.
               </p>
             </div>
           </div>
         </div>
       </div>
       <div class="btn-box">
-        <a href="">
-          Read More
+        <a href="{{ route('signup') }}">
+          Registrati ora
         </a>
       </div>
     </div>
   </section>
+  </div>
+
+  <!-- why us section -->
+  <br><!-- comment -->
+  <br><!--  -->
+  <br>
+  <br>
+  <br><!-- comment -->
+  <br><!--  -->
+  <br>
+  <br>
+  <br><!-- comment -->
+  <br><!--  -->
+  <br>
+  <br>
+  <br>
+  <br>
+  <br><!-- comment -->
+  <br><!--  -->
+  <br>
+  <br>
+  <br>
+  <br>
+  <br><!-- comment -->
+  <br><!--  -->
+  <br>
+  <br>
+  
 
   <!-- end why us section -->
 
@@ -181,15 +215,15 @@
 
     <div class="container">
       <div class="contact_nav">
-        <a href="">
+        <a href="tel:+01 123455678990">
           <i class="fa fa-phone" aria-hidden="true"></i>
-          <span>
+          <span id="NU">
             Call : +01 123455678990
           </span>
         </a>
-        <a href="">
+        <a href="mailto:demo@gmail.com">
           <i class="fa fa-envelope" aria-hidden="true"></i>
-          <span>
+          <span id="EM">
             Email : demo@gmail.com
           </span>
         </a>

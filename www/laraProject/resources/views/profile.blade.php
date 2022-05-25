@@ -60,17 +60,32 @@
                 <a class="nav-link" href="{{ route('index') }}">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('about') }}"> About</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="{{ route('catalogo') }}">Catalogo</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('about') }}"> About</a>
+              </li>
+              
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('why') }}">Why Us</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('testimonial') }}">Testimonial</a>
               </li>
+              @if(isset(Auth::user()->nome))
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('testimonial') }}">Chat</a>
+              </li>
+              <li class="nav-item active">
+                  <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
+              </li>
+              
+                    @if('Locatore'==(Auth::user()->tipo))
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('catalogo')}}">Annunci</a>
+              </li>
+                    @endif
+                @endif
             </ul>
 
             @if(isset(Auth::user()->nome))
@@ -143,7 +158,7 @@
        <hr>
       <div class="row py-2">
          <div class="col-12 col-md-4 col-xl-3 mb-2 mb-md-0 dt">Data di nascita</div>
-         <div class="col-12 col-md-8 col-xl-9 dd">{{Auth::user()->data_nascita}}</div>
+         <div class="col-12 col-md-8 col-xl-9 dd">{{date('d-m-Y', strtotime(Auth::user()->data_nascita))}}</div>
       </div>
        <hr>
        <div class="row py-2">

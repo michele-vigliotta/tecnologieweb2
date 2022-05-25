@@ -56,13 +56,13 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  ">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('index') }}"> Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('catalogo') }}"> Catalogo</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="{{ route('about') }}"> About</a>
                 </li>
                 <li class="nav-item">
@@ -71,6 +71,20 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('faq') }}">FAQ</a>
                 </li>
+             @if(isset(Auth::user()->nome))
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('profile') }}">Chat</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
+              </li>
+              
+                    @if('Locatore'==(Auth::user()->tipo))
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('catalogo')}}">Annunci</a>
+              </li>
+                    @endif
+                @endif
             </ul>
             @if(isset(Auth::user()->nome))
               <div class="quote_btn-container">
@@ -101,12 +115,7 @@
         </nav>
       </div>
     </header>
-    <!-- end header section -->
-  </div>
-
-  <!-- about section -->
-
-  <section class="about_section layout_padding">
+    <section class="about_section layout_padding">
     <div class="container  ">
       <div class="row">
         <div class="col-md-6">
@@ -117,19 +126,24 @@
               </h2>
             </div>
             <p>
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-              the middle of text. All
+              Siamo una società che nasce con l'intento di facilitare gli studenti nella ricerca di un alloggio,
+              offrendo uno scambio di informazioni con i locatori nel modo più facile e immediato.
+              <br>
+              <br>
+              Sei uno studente? Registrati subito e cerca l'alloggio più adatto alle tue esigenze.
+              <br>
+              <br>
+              Possiedi un locale? Registrati subito e inizia pubblicando il tuo primo annuncio.
             </p>
-            <a href="">
-              Read More
+            <a href="{{ route('signup') }}">
+              Registrati
             </a>
           </div>
         </div>
         <div class="col-md-6 ">
           <div class="img-box">
             <img src="images/about-img.jpg" alt="">
+            
           </div>
         </div>
 
@@ -137,6 +151,35 @@
     </div>
   </section>
 
+    <!-- end header section -->
+  </div>
+
+  <!-- about section -->
+  
+  <br><!-- comment -->
+  <br><!--  -->
+  <br>
+  <br>
+  <br><!-- comment -->
+  <br><!--  -->
+  <br>
+  <br>
+  <br><!-- comment -->
+  <br><!--  -->
+  <br>
+  <br>
+  <br>
+  <br>
+  <br><!-- comment -->
+  <br><!--  -->
+  <br>
+  <br>
+  <br>
+  <br>
+  <br><!-- comment -->
+  <br><!--  -->
+  <br>
+  <br>
   <!-- end about section -->
 
   <!-- info section -->
@@ -144,13 +187,13 @@
 
     <div class="container">
       <div class="contact_nav">
-        <a href="">
+        <a href="tel:+01 123455678990">
           <i class="fa fa-phone" aria-hidden="true"></i>
           <span>
             Call : +01 123455678990
           </span>
         </a>
-        <a href="">
+        <a href="mailto:demo@gmail.com">
           <i class="fa fa-envelope" aria-hidden="true"></i>
           <span>
             Email : demo@gmail.com
