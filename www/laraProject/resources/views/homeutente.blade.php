@@ -70,19 +70,16 @@
                 <a class="nav-link" href="{{ route('testimonial') }}">Chat</a>
               </li>
               <li class="nav-item">
-<<<<<<< HEAD:www/laraProject/resources/views/homeutente.blade.php
                   <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
               </li>
-              
+
                     @if('Locatore'==(Auth::user()->tipo))
               <li class="nav-item">
                   <a class="nav-link" href="{{ route('catalogo')}}">Annunci</a>
-=======
                   <a class="nav-link" href="{{ route('catalogo') }}">Profilo</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="{{ route('catalogo') }}">Annunci</a>
->>>>>>> catalogo:www/laraProject/resources/views/homelocatore.blade.php
               </li>
                     @endif
                 @endif
@@ -145,7 +142,7 @@
             <a href="{{ route('catalogo') }}">
               Sfoglia catalogo
             </a>
-            @endif 
+            @endif
           </div>
         </div>
         <div class="col-md-6 ">
