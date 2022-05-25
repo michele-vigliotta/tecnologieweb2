@@ -122,6 +122,22 @@
         <h2>
           Frequently Asked Questions
         </h2>
+          <div class="form-row">
+        @if(!empty($FAQ))
+          @foreach ($FAQ as $xfaq)
+            <div class="col-sm-6 col-md-4">
+              <h4>{{ $xfaq->domanda }}</h4>
+                  <p>{{ $xfaq->risposta}}</p>
+            </div>
+          @endforeach
+        @else
+          <div class="col-sm-6 col-md-4">
+            <div class='detail-box'>
+              <h4>Nessuna faq disponibile</h4>
+            </div>
+          </div>
+        @endif
+      </div>
       </div>
       
     </div>
