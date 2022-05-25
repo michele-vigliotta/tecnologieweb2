@@ -3,6 +3,7 @@
   namespace App\Http\Controllers;
 
   use Illuminate\Http\Request;
+  use Illuminate\Support\Facades\DB;
 
   class HomeController extends Controller{
 
@@ -29,9 +30,11 @@
 	  public function testimonial(){
       return view('testimonial');
     }
-      public function faq(){
-          return view('faq');
-      }
+
+    public function faq(){
+      $FAQ=DB::select('select * from FAQ');
+      return view('catalogo', ['annunci'=>$FAQ]);
+    }
 
 	  public function login(){
       return view('login');
