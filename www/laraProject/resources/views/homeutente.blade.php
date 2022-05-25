@@ -67,26 +67,18 @@
               </li>
               @if(isset(Auth::user()->nome))
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('testimonial') }}">Chat</a>
+                <a class="nav-link" href="{{ route('homeutente') }}">Chat</a>
               </li>
               <li class="nav-item">
-
-                  <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
+                <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
               </li>
-              
                     @if('Locatore'==(Auth::user()->tipo))
               <li class="nav-item">
                   <a class="nav-link" href="{{ route('catalogo')}}">Annunci</a>
-=======
-                  <a class="nav-link" href="{{ route('catalogo') }}">Profilo</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="{{ route('catalogo') }}">Annunci</a>
->>>>>>> catalogo:www/laraProject/resources/views/homelocatore.blade.php
               </li>
                     @endif
-                @endif
-            </ul>
+              @endif
+             </ul>
             @if(isset(Auth::user()->nome))
               <div class="quote_btn-container">
                 <a href="{{ route('homeutente') }}" class="quote_btn">
