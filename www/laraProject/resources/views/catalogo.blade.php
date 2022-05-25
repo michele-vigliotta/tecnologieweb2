@@ -56,21 +56,35 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  ">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('index') }}">Home</a>
+                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('index') }}"> Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('catalogo') }}">Catalogo<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ route('catalogo') }}"> Catalogo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('about') }}">About</a>
+                    <a class="nav-link" href="{{ route('about') }}"> About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('why') }}">Why Us</a>
+                    <a class="nav-link" href="{{ route('why') }}"> Why Us</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('faq') }}">FAQ</a>
                 </li>
+            @if(isset(Auth::user()->nome))
+              <li class="nav-item">
+                <a class="nav-link" href="">Chat</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
+              </li>
+              
+                    @if('Locatore'==(Auth::user()->tipo))
+              <li class="nav-item">
+                  <a class="nav-link" href="">Annunci</a>
+              </li>
+                    @endif
+                @endif
             </ul>
             @if(isset(Auth::user()->nome))
               <div class="quote_btn-container">

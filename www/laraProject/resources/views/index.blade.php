@@ -56,23 +56,24 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  ">
-              <li class="nav-item active">
-                <a class="nav-link" href="{{ route('index') }}"> Home <span class="sr-only">(current)</span></a>
-              </li>
+               <li class="nav-item active">
+                    <a class="nav-link" href="{{ route('index') }}"> Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('catalogo') }}"> Catalogo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('about') }}"> About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('why') }}"> Why Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('faq') }}">FAQ</a>
+                </li>
+            @if(isset(Auth::user()->nome))
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('catalogo') }}"> Catalogo</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('about') }}"> About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('why') }}"> Why Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('faq') }}">FAQ</a>
-                @if(isset(Auth::user()->nome))
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('testimonial') }}">Chat</a>
+                <a class="nav-link" href="">Chat</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
@@ -80,7 +81,7 @@
               
                     @if('Locatore'==(Auth::user()->tipo))
               <li class="nav-item">
-                  <a class="nav-link" href="{{ route('catalogo')}}">Annunci</a>
+                  <a class="nav-link" href="">Annunci</a>
               </li>
                     @endif
                 @endif

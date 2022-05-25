@@ -73,7 +73,7 @@
                 </li>
             @if(isset(Auth::user()->nome))
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('testimonial') }}">Chat</a>
+                <a class="nav-link" href="">Chat</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
@@ -81,7 +81,7 @@
               
                     @if('Locatore'==(Auth::user()->tipo))
               <li class="nav-item">
-                  <a class="nav-link" href="{{ route('catalogo')}}">Annunci</a>
+                  <a class="nav-link" href="">Annunci</a>
               </li>
                     @endif
                 @endif

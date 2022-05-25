@@ -74,7 +74,7 @@
               </li>
                     @if('Locatore'==(Auth::user()->tipo))
               <li class="nav-item">
-                  <a class="nav-link" href="{{ route('catalogo')}}">Annunci</a>
+                  <a class="nav-link" href="">Annunci</a>
               </li>
                     @endif
               @endif
