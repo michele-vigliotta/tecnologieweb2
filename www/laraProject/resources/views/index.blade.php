@@ -278,7 +278,7 @@
     <div class="container-fluid">
       <div class="heading_container">
         <h2>
-          Tipi di camere
+          Tipi di alloggio
         </h2>
       </div>
       <div class="row">
@@ -289,10 +289,10 @@
             </div>
             <div class="detail-box">
               <h6>
-                Monolocale
+                Camera singola
               </h6>
               <p>
-                Appartamento con una sola stanza che funge da camera, cucina, soggiorno, sala studio e una stanza per il bagno.
+                Appartamento con una solo posto letto disponibile.
               </p>
             </div>
           </div>
@@ -304,10 +304,10 @@
             </div>
             <div class="detail-box">
               <h6>
-                Bilocale
+                Camera doppia
               </h6>
               <p>
-                Appartamento con due stanze suddivise in modo tale da avere camera, cucina, soggiorno, sala studio e una stanza per il bagno.
+                Appartamento con due posti letto disponibili.
               </p>
             </div>
           </div>
@@ -324,10 +324,10 @@
             </div>
             <div class="detail-box">
               <h6>
-                Trilocale
+                Camera tripla
               </h6>
               <p>
-                Appartamento con tre stanze suddivise in modo tale da avere almeno una camera, cucina, soggiorno, sala studio e una stanza per il bagno.
+                Appartamento con tre posti letto disponibili.
               </p>
             </div>
           </div>
