@@ -743,6 +743,10 @@ a:focus {
   font-size: 15px;
   font-weight: 300;
   margin-bottom: 10px;
+  padding-right: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .sale_section .box .detail-box a {
