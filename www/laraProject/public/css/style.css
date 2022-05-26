@@ -800,6 +800,57 @@ a:focus {
   margin-bottom: 30px;
 }
 
+.client_section .heading_container .faq-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.client_section .heading_container .faq-question{
+    color: #444;
+    cursor: pointer;
+    padding: 30px 20px;
+    width: 100%;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    margin: auto;
+    flex-direction: column;
+}
+
+.client_section .heading_container .faq-answer{
+  margin: auto;
+  width: 100%;
+  padding: auto;
+}
+
+.client_section .active,
+  .faq-question:hover {
+      background-color: #F9F9F9;
+  }
+
+.client_section .faq-answer {
+    padding: 10px 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+}
+
+.client_section .faq-question:after {
+    content: '\02795';
+    /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+.client_section .active:after {
+    content: "\2796";
+    /* Unicode character for "minus" sign (-) */
+}
+
+
 .client_section .box {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -39,7 +39,7 @@
 
 <body class="sub_page">
 
-  <div class="hero_area">
+  <div class="hero_area2">
     <!-- header section strats -->
     <header class="header_section">
       <div class="container-fluid">
@@ -78,7 +78,7 @@
               <li class="nav-item">
                   <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
               </li>
-              
+
                     @if('Locatore'==(Auth::user()->tipo))
               <li class="nav-item">
                   <a class="nav-link" href="">Annunci</a>
@@ -116,57 +116,35 @@
       </div>
     </header>
     <!-- end header section -->
-    <section class="client_section layout_padding">
-    <div class="container">
-      <div class="heading_container heading_center psudo_white_primary mb_45">
+  </div>
+
+  <section class="client_section layout_padding">
+    <div class="container-fluid">
+      <div class="heading_container psudo_white_primary mb_45">
         <h2>
           Frequently Asked Questions
         </h2>
-          <br>
-          <div class="form-row">
-        @if(!empty($FAQ))
-          @foreach ($FAQ as $xfaq)
+          @if(!empty($FAQ))
+            @foreach ($FAQ as $xfaq)
+              <div class="col-sm-62">
+                <h4 class="faq-question">{{ $xfaq->domanda }}</h4>
+                <p  class="faq-answer">{{ $xfaq->risposta }}</p>
+              </div>
+            @endforeach
+          @else
             <div class="col-sm-6 col-md-4">
-              <h4>{{ $xfaq->domanda }}</h4>
-                  <p>{{ $xfaq->risposta}}</p>
-                  
+              <div class='detail-box'>
+                <h4>Nessuna faq disponibile</h4>
+              </div>
             </div>
-          
-          @endforeach
-        @else
-          <div class="col-sm-6 col-md-4">
-            <div class='detail-box'>
-              <h4>Nessuna faq disponibile</h4>
-            </div>
-          </div>
-        @endif
+          @endif
       </div>
-      </div>
-
     </div>
   </section>
-          
-  </div>
-<br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-  <!-- client section -->
 
-  
-
-  <!-- end client section -->
 
   <!-- info section -->
-  <section class="info_section ">
+  <section class="info_section">
 
     <div class="container">
       <div class="contact_nav">
@@ -263,15 +241,13 @@
   <!-- jQery -->
   <script src="js/jquery-3.4.1.min.js"></script>
   <!-- popper js -->
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <!-- nice select -->
   <script src="js/jquery.nice-select.min.js"></script>
   <!-- bootstrap js -->
   <script src="js/bootstrap.js"></script>
   <!-- owl slider -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <!-- custom js -->
   <script src="js/custom.js"></script>
 

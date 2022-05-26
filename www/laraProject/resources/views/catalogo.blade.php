@@ -120,13 +120,13 @@
 
 
   <!-- sale section -->
- <section class="sale_section layout_padding">
+  <section class="sale_section layout_padding">
     <div class="container-fluid">
       <div class="heading_container">
         <h1>
           Catalogo
         </h1>
-        
+
         @if(isset(Auth::user()->nome))
             @if('locatario'==(Auth::user()->tipo))
             <h3>Filtri</h3>
@@ -196,7 +196,6 @@
       </div>
     </div>
   </section>
-
   <!-- end sale section -->
 
   <!-- info section -->
