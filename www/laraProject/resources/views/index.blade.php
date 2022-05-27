@@ -39,7 +39,7 @@
 
 <body>
 
-  <div class="hero_area">
+<div class="hero_area">
     <!-- header section strats -->
     <header class="header_section">
         <div class="container-fluid">
@@ -78,7 +78,7 @@
               <li class="nav-item">
                   <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
               </li>
-              
+
             @if('Locatore'==(Auth::user()->tipo))
               <li class="nav-item">
                   <a class="nav-link" href="">Annunci</a>

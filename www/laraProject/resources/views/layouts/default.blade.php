@@ -8,9 +8,13 @@
     <header class="header_section">
         @include('includes.header')
     </header>
-    <div id="main" class="row">
-        @yield('content')
-    </div>
+    @yield('carousel')
+
+
+</div>
+
+<div id="main">
+    @yield('content')
 
     <footer class="footer_section">
         @include('includes.footer')
@@ -21,8 +25,5 @@
 
 
 </div>
-
-
-
 </body>
 </html>
