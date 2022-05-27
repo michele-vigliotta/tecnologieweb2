@@ -43,7 +43,7 @@
     <!-- header section strats -->
     <header class="header_section">
         <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg custom_nav-container">
+        <nav class="navbar navbar-expand-lg custom_nav-container" style>
           <a class="navbar-brand" href="{{ route('index') }}">
             <span>
               Affitta casa
@@ -55,7 +55,7 @@
           </button>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav  ">
+              <ul class="navbar-nav" style="position:fixed;">
                <li class="nav-item active">
                     <a class="nav-link" href="{{ route('index') }}"> Home <span class="sr-only">(current)</span></a>
                 </li>
