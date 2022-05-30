@@ -6,6 +6,7 @@
     @include('contentSections.general.clientSection')
     @include('contentSections.general.infoSection')
 @stop
+
 @section('carousel')
     @include('includes.slider')
 @stop
