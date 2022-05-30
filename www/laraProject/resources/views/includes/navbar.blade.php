@@ -94,7 +94,7 @@
                         @else
                             <li class="nav-item">
                                 @endif
-                                <a class="nav-link" href="{{ route('stats') }}">stats</a>
+                                <a class="nav-link" href="{{ route('stats') }}">statistiche</a>
                             </li>
                         @endif
                     @endif
