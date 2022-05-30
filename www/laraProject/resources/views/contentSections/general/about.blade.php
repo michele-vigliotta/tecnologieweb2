@@ -1,3 +1,4 @@
+<!-- About section -->
 <section class="about_section layout_padding3">
     <div class="container  ">
         <div class="row">
@@ -18,9 +19,16 @@
                             Possiedi un locale? Registrati subito e inizia pubblicando il tuo primo annuncio.
                         @endif
                     </p>
-                    <a href={{ route('about') }}>
-                        Leggi più
-                    </a>
+                    @if(!isset(Auth::user()->nome) && Request::is('about'))
+                        <a href="{{ route('signup') }}">
+                            Registrati
+                        </a>
+                    @else
+                        <a href={{ route('about') }}>
+                            Leggi più
+                        </a>
+                    @endif
+
                 </div>
             </div>
             <div class="col-md-6 ">
@@ -31,3 +39,4 @@
         </div>
     </div>
 </section>
+<!-- end About Section -->
