@@ -1,6 +1,6 @@
 @extends('layouts.default')
 @section('content')
-    @include('contentSections.general.aboutHome')
+    @include('contentSections.general.about')
     @include('contentSections.general.saleSection')
     @include('contentSections.general.whyUs')
     @include('contentSections.general.clientSection')
