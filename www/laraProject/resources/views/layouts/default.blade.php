@@ -6,7 +6,10 @@
 <body>
 <div class="hero_area">
     <header class="header_section">
-        @include('includes.header')
+        <div class="container-fluid">
+            @include('includes.navbar')
+        </div>
+
     </header>
     @yield('carousel')
 
