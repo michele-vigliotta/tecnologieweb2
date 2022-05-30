@@ -27,9 +27,6 @@
       return view('catalogo');
     }
 
-	  public function testimonial(){
-      return view('testimonial');
-    }
 
     public function faq(){
       $FAQ=DB::select('select * from FAQ');

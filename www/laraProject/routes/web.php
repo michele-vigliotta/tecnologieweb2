@@ -14,17 +14,13 @@ use App\Http\Controllers\AnnuncioController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', function () {return view('index');});
 
 Route::get('/', 'HomeController@index')->name('index');
 
 Route::get('/about', 'HomeController@about')->name('about');
 
 Route::get('/catalogo', 'AnnuncioController@catalogo')->name('catalogo');
-
-Route::get('/testimonial', 'HomeController@testimonial')->name('testimonial');
 
 Route::get('/why', 'HomeController@why')->name('why');
 
