@@ -3,7 +3,6 @@
 
 <head>
     @include('includes.head')
-
 </head>
 <body class="sub_page">
 
