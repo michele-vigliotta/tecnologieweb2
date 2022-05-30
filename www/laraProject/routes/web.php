@@ -51,3 +51,8 @@ Route::get('/dettagli', 'AnnuncioController@dettagli')->name('dettagli');
 Route::post('filterCatalog', [AnnuncioController::class, 'filterCatalog'])->name('filterCatalog');
 
 Route::get('/test2', function(){return View::make('pages.home');});
+
+Route::get('/annunci', 'HomeController@annunci')->name('annunci');
+Route::get('/stats', 'HomeController@stats')->name('stats');
+Route::get('/chat', 'HomeController@chat')->name('chat');
+

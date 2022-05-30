@@ -55,6 +55,15 @@
     public function provanavbar(){
       return view('provanavbar');
     }
+      public function annunci(){
+          return view('annunci');
+      }
+      public function stats(){
+          return view('stats');
+      }
+      public function chat(){
+          return view('chat');
+      }
 
   }
 
