@@ -1,4 +1,4 @@
-
+<!-- info section -->
 <section class="info_section ">
 
     <div class="container">
@@ -80,3 +80,4 @@
         </div>
     </div>
 </section>
+<!-- end info_section -->
