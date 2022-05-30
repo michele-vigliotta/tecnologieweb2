@@ -11,6 +11,12 @@
                     <p>
                         Siamo una società che nasce con l'intento con l'intento di facilitare gli studenti nella ricerca di un alloggio,
                         facilitando lo scambio di informazioni con il locatore nel modo più facile e chiaro possibile.
+                        @if( Request::is('about'))
+                            <br><br>
+                            Sei uno studente? Registrati subito e cerca l'alloggio più adatto alle tue esigenze.
+                            <br><br>
+                            Possiedi un locale? Registrati subito e inizia pubblicando il tuo primo annuncio.
+                        @endif
                     </p>
                     <a href={{ route('about') }}>
                         Leggi più
