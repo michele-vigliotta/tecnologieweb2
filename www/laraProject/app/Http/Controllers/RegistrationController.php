@@ -19,7 +19,7 @@ class RegistrationController extends Controller
         'nome'          => 'required|max:50',
         'cognome'       => 'required|max:50',
         'email'         => 'required|email|unique:utente',
-        'data_nascita'  => 'required',
+        'data_nascita'  => 'required|date',
         'c_fiscale'     => 'required|max:16',
         'prefisso'      => 'required|min:2|max:2',
         'numero'        => 'required|min:10|max:10',

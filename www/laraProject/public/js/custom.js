@@ -82,3 +82,15 @@ function faqAnimation(){
   }
 }
 faqAnimation();
+
+$("select[name='tipo']").change(function() {
+  let type = $(this).val();
+
+  if(type=="Camera"){
+    $('#as').children().show();
+    $('#N_camere').prop('disabled', true);
+  }else {
+    $('#as').children().hide();
+    $('#N_camere').prop('disabled', false);
+  }
+});

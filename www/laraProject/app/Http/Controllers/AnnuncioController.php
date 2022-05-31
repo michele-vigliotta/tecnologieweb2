@@ -15,8 +15,8 @@ class AnnuncioController extends Controller
       $this->validate($request, [
         'tipo'             => 'required',
         'descrizione'      => 'required|alphaNum|max:500',
-        'inizio_locazione' => 'required',
-        'fine_locazione'   => 'required',
+        'inizio_locazione' => 'required|date',
+        'fine_locazione'   => 'required|date|after_or_equal:start_date',
         'citta'            => 'required',
         'stato'            => 'required',
         'indirizzo'        => 'required',
@@ -66,7 +66,7 @@ class AnnuncioController extends Controller
     }
 
     public function aggiungiAnnuncio(){
-      return view('prova');
+      return view('addAnnuncio');
     }
 
     public function filterCatalog(Request $request){

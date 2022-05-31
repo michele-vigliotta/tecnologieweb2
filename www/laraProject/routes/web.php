@@ -48,7 +48,7 @@ Route::get('/homelocatore', 'HomeController@homelocatore')->name('homelocatore')
 
 Route::post('addAnnuncio', [AnnuncioController::class, 'addAnnuncio']);
 
-Route::get('/prova', 'AnnuncioController@aggiungiAnnuncio')->name('prova');
+Route::get('/aggAnnuncio', 'AnnuncioController@aggiungiAnnuncio')->name('aggAnnuncio');
 
 Route::get('/dettagli', 'AnnuncioController@dettagli')->name('dettagli');
 

@@ -465,10 +465,9 @@ a:focus {
 
 /* find section */
 .find_section {
-  background-image: url(../images/find-bg.png);
-  background-size: cover;
+  background-image: url(../images/find-bg.jpg);
+  background-size: contain;
   background-position: center;
-  background-repeat: no-repeat;
   margin-top: 0px;
 }
 
@@ -535,6 +534,18 @@ a:focus {
           box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
 }
 
+.find_section .find_form .form-group label{
+  background-color: #c5ccb6;
+  width: 100%;
+  margin-bottom:0px;
+  height: 30px;
+}
+
+.find_section .find_form .form-group textarea{
+  width: 100%;
+  height: 150px;
+}
+
 .find_section .find_form .form-group2 {
   margin: 15px;
   position: relative;
@@ -565,7 +576,9 @@ a:focus {
   -webkit-box-shadow: none;
           box-shadow: none;
   background-color: #f7f8f3;
+  text-align: center;
 }
+
 
 .find_section .find_form .form-control2 {
   height: 50px;
@@ -575,6 +588,22 @@ a:focus {
   -webkit-box-shadow: none;
           box-shadow: none;
   background-color: #f7f8f3;
+}
+
+.find_section .find_form .form-control3 {
+  line-height: 50px;
+  height: 50px;
+  outline: none;
+  border: none;
+  position: relative;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: #f7f8f3;
+  font-size:20px;
+}
+
+.find_section .find_form .form-control3 .checkbox-control{
+  transform: scale(1.5);
 }
 
 .find_section .find_form .form-control::-webkit-input-placeholder {
@@ -595,6 +624,7 @@ a:focus {
 
 .find_section .find_form .form-control.nice-select {
   line-height: 39px;
+  width: 100%;
 }
 
 .find_section .find_form .nice-select ul {
