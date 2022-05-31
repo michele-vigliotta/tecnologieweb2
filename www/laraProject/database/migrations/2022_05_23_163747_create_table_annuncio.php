@@ -21,9 +21,13 @@ class CreateTableAnnuncio extends Migration
             $table->string('citta', 50);
             $table->string('CAP', 8);
             $table->string('indirizzo', 30);
+            $table->integer('dimensione');
             $table->date('inizio_locazione');
             $table->date('fine_locazione');
             $table->string('genere_locatario', 15);
+            $table->boolean('is_camera');
+            $table->boolean('disponilita_angolo_studio')->nullable();
+            $table->integer('posti_camera')->nullable();
             $table->integer('canone_affitto');
             $table->boolean('status')->default(1);
             $table->json('servizi_offerti');
@@ -32,7 +36,7 @@ class CreateTableAnnuncio extends Migration
             $table->integer('numero_camere');
             $table->integer('posti_letto_totali');
             $table->timestamps();
-            
+
             $table->foreign('id_locatore')->references('id')->on('utente');
         });
     }

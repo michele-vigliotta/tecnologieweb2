@@ -100,9 +100,9 @@
             </div>
             @if('Locatore'==(Auth::user()->tipo))
             <p>
-              Inizia ora a pubblicare un annuncio andando nella sezione annunci
+              Inizia ora a pubblicare un annuncio!
             </p>
-            <a href="./about.html">
+            <a href="{{route('aggAnnuncio')}}">
               Pubblica ora
             </a>
             @else

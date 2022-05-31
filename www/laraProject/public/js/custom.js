@@ -87,10 +87,12 @@ $("select[name='tipo']").change(function() {
   let type = $(this).val();
 
   if(type=="Camera"){
-    $('#as').children().show();
-    $('#N_camere').prop('disabled', true);
+    $('#plc').prop('disabled', false);
+    $('#as').prop('disabled', false);
+    $('#nc').prop('disabled', true);
   }else {
-    $('#as').children().hide();
-    $('#N_camere').prop('disabled', false);
+    $('#plc').prop('disabled', true);
+    $('#as').prop('disabled', true);
+    $('#nc').prop('disabled', false);
   }
 });

@@ -11,10 +11,11 @@ use Auth;
 
 class AnnuncioController extends Controller
 {
+
     public function addAnnuncio(Request $request){
       $this->validate($request, [
         'tipo'             => 'required',
-        'descrizione'      => 'required|alphaNum|max:500',
+        'descrizione'      => 'required|max:500',
         'inizio_locazione' => 'required|date',
         'fine_locazione'   => 'required|date|after_or_equal:start_date',
         'citta'            => 'required',
@@ -22,16 +23,18 @@ class AnnuncioController extends Controller
         'indirizzo'        => 'required',
         'canone'           => 'required',
         'genere'           => 'required',
-        'n_posti_letto'    => 'required'
+        'dimensione'       => 'required',
+        'n_posti_letto_totali'    => 'required'
       ]);
 
-      $var=[
+      $service=[
         "servizio1" => $request->servizio1,
         "servizio2" => $request->servizio2,
-        "servizio3" => $request->servizio3
+        "servizio3" => $request->servizio3,
+        "servizio4" => $request->servizio4
       ];
 
-      Storage::disk('public')->put('service.json', json_encode($var));
+      Storage::disk('public')->put('service.json', json_encode($service));
 
       $annuncio=new annuncio;
       $annuncio->id_locatore=Auth::user()->id;
@@ -41,27 +44,36 @@ class AnnuncioController extends Controller
       $annuncio->citta=$request->citta;
       $annuncio->CAP=$request->CAP;
       $annuncio->indirizzo=$request->indirizzo;
+      $annuncio->dimensione=$request->dimensione;
       $annuncio->inizio_locazione=$request->inizio_locazione;
       $annuncio->fine_locazione=$request->fine_locazione;
       $annuncio->genere_locatario=$request->genere;
       $annuncio->canone_affitto=$request->canone;
-      $annuncio->numero_camere=$request->n_camere;
-      $annuncio->posti_letto_totali=$request->n_posti_letto;
+      $annuncio->posti_letto_totali=$request->n_posti_letto_totali;
       $annuncio->servizi_offerti=Storage::disk('public')->get('service.json');
+
+      if($request->tipo=="camera"){
+        $annuncio->id_camera="1";
+        $annuncio->posti_camera=$request->n_posti_camera;
+        $annuncio->disponilita_angolo_studio=$request->disponiblita_angolo_studio;
+      }else{
+        $annuncio->is_camera="0";
+        $annuncio->numero_camere=$request->n_camere;
+      }
       $annuncio->save();
 
       $id=DB::table('annuncio')->latest('created_at')->first();
 
       $val=$request->mainImg->store('/'.$id->id_annuncio,['disk'=>'my_files']);
-      echo($val);
       DB::table('annuncio')->where('id_annuncio',$id->id_annuncio)->update(['mainImg'=>$val]);
-
-      foreach ($request->file('images') as $file){
-        $image= new foto;
-        $path= $file->store('immaginiAnnunci/'.$id->id_annuncio, ['disk'=>'my_files']);
-        $image->url=$path;
-        $image->id_annuncio=$id->id_annuncio;
-        $image->save();
+      if(isset($request->images)){
+        foreach ($request->file('images') as $file){
+          $image= new foto;
+          $path= $file->store('immaginiAnnunci/'.$id->id_annuncio, ['disk'=>'my_files']);
+          $image->url=$path;
+          $image->id_annuncio=$id->id_annuncio;
+          $image->save();
+        }
       }
     }
 

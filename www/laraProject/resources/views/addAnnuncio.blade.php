@@ -74,18 +74,14 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('faq') }}">FAQ</a>
                 @if(isset(Auth::user()->nome))
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('testimonial') }}">Chat</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
-              </li>
-
-                    @if('Locatore'==(Auth::user()->tipo))
-              <li class="nav-item">
-                  <a class="nav-link" href="{{ route('catalogo')}}">Annunci</a>
-              </li>
-                    @endif
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
+                  </li>
+                  @if('Locatore'==(Auth::user()->tipo))
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ route('annunci')}}">I miei annunci</a>
+                    </li>
+                  @endif
                 @endif
             </ul>
 
@@ -145,9 +141,9 @@
                       <div class="col-md-6 px-0">
                         <div class="form-group">
                           <div class="input-group ">
+                            <label>Cosa vuoi affittare?</label>
                             <select name="tipo" id="type" class="form-control" required>
-                              <option value="" disabled selected>Per cosa è l'annuncio?</option>
-                              <option value="appartamento">Appartamento</option>
+                              <option value="appartamento" selected>Appartamento</option>
                               <option valie="camera">Camera</option>
                             </select>
                           </div>
@@ -158,7 +154,7 @@
                       <div class="col-md-6sd px-0">
                         <div class="form-group ">
                             <label class="label">Descrizione</label>
-                            <textarea name="descrizione" rows="50" cols="50" placeholder="Descrizione dell'appartamento/camera" class="form-control"></textarea>
+                            <textarea name="descrizione" max="500" rows="50" cols="50" placeholder="Descrizione dell'appartamento/camera" class="form-control"></textarea>
                         </div>
                       </div>
                     </center>
@@ -188,20 +184,28 @@
                         </div>
                       </div>
                     </div>
-                    <div class="form-row"> <!-- N. Camere, N. Posti letto, Genere locatario-->
+                    <div class="form-row"> <!-- N. Camere, N. Posti letto totali, N. Posti letto singola camera-->
                       <div class="col-md-6 px-0">
                         <div class="form-group ">
                           <label>Numero Camere</label>
-                          <input type="number" name="n_camere" id="N_camere" class="form-control" placeholder="1" min="1">
+                          <input type="number" name="n_camere" id="nc" class="form-control" placeholder="1" min="1">
                         </div>
                       </div>
                       <div class="col-md-6 px-0">
                         <div class="form-group ">
-                          <label>Numero posti letto</label>
-                          <input type="number" name="n_posti_letto" class="form-control" placeholder="1" min="1">
+                          <label>Numero posti letto nella camera</label>
+                          <input type="number" id="plc" name="n_posti_camera" class="form-control" placeholder="1" min="1" disabled>
                         </div>
                       </div>
                     </div>
+                    <center>
+                      <div class="col-md-6 px-0">
+                        <div class="form-group ">
+                          <label>Numero posti letto totali</label>
+                          <input type="number" name="n_posti_letto_totali" class="form-control" placeholder="1" min="1">
+                        </div>
+                      </div>
+                    </center>
                     <div class="form-row"> <!-- Genere locatario, Dimensione-->
                       <div class="col-md-6 px-0">
                         <div class="form-group">
@@ -262,10 +266,10 @@
                           </div>
                         </div>
                       </div>
-                      <div id="as" class="col-md-6 px-0">
+                      <div class="col-md-6 px-0">
                         <div class="form-group ">
                           <div class="form-control3">
-                            <input type="checkbox" name="angolo_studio" class="checkbox-control" value="si"/> Angolo studio
+                            <input type="checkbox" name="angolo_studio" id="as" class="checkbox-control" value="si" disabled/> Angolo studio
                           </div>
                         </div>
                       </div>
@@ -284,7 +288,7 @@
                         </div>
                       </div>
                     </div>
-                    <center>
+                    <center> <!-- Canone affitto -->
                       <div class="col-md-6 px-0">
                         <div class="form-group ">
                           <div class="input-group">

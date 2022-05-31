@@ -602,8 +602,16 @@ a:focus {
   font-size:20px;
 }
 
+.find_section .find_form .form-control:disabled{
+  background-color: lightgray;
+}
+
 .find_section .find_form .form-control3 .checkbox-control{
   transform: scale(1.5);
+}
+
+.find_section .find_form .form-control3 .checkbox-control:disabled{
+  background-color: lightgray;
 }
 
 .find_section .find_form .form-control::-webkit-input-placeholder {
