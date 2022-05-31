@@ -11,8 +11,9 @@
         </div>
 
     </header>
+    @if(Request::is('test2')||Request::is('index'))
     @yield('carousel')
-
+    @endif
 
 </div>
 

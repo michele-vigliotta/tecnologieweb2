@@ -22,10 +22,8 @@
   <div id="main">
   @include('contentSections/general/infoSection')
 
-
   @include('includes/footer')
   @include('includes.jsScript')
-
   </div>
 </body>
 

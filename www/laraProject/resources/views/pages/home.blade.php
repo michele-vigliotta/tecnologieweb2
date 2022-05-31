@@ -1,4 +1,5 @@
 @extends('layouts.default')
+
 @section('content')
     @include('contentSections.general.about')
     @include('contentSections.general.saleSection')

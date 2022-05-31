@@ -53,10 +53,19 @@
                 </div>
             </div>
         </div>
+        @if( Request::is('index')||Request::is('test2'))
         <div class="btn-box">
             <a href="{{ route('why') }}">
                 Read More
             </a>
+        </div>
+        @endif
+        <div class="btn-box">
+            @if(!isset(Auth::user()->nome))
+                <a href="{{ route('signup') }}">
+                    Registrati ora
+                </a>
+            @endif
         </div>
     </div>
 </section>

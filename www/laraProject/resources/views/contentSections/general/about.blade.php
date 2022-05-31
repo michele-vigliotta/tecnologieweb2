@@ -1,6 +1,6 @@
 <!-- About section -->
 <section class="about_section layout_padding3">
-    <div class="container  ">
+    <div class="container">
         <div class="row">
             <div class="col-md-6">
                 <div class="detail-box">
