@@ -100,6 +100,7 @@
                     <div>
                       <div class="content">
                           <div class="individual__section">
+                            <center>
                               <div class="d-none d-md-block col-md-9">
    <div class="d-flex align-items-center justify-content-between">
       <h3 class="h2 mr-auto">{{Auth::user()->username}}
@@ -140,6 +141,7 @@
 
 
                     </div>
+                  </center>
                   @else
                     <script>window.location = "/index";</script>
                   @endif

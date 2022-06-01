@@ -136,13 +136,13 @@
           @foreach ($annunci as $annuncio)
             <div class="col-sm-6 col-md-4">
               <div class="box">
-                <a href="{{ route('dettagli') }}">
+                <a href="{{ route('dettagli',['id'=>$annuncio->id_annuncio]) }}">
                   <div class="img-box">
                     <img src="./immaginiAnnunci/{{ $annuncio->mainImg }}" height="300px">
                   </div>
                 </a>
                 <div class="detail-box">
-                  <a href="{{ route('dettagli') }}">
+                  <a href="{{ route('dettagli',['id'=>$annuncio->id_annuncio]) }}">
                     <h4>{{ $annuncio->citta }}, {{$annuncio->stato}}</h4>
                   </a>
                   <h6>€{{ $annuncio->canone_affitto}}</h6>
