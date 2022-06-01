@@ -2,41 +2,7 @@
 <html>
 
 <head>
-  <!-- Basic -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
-
-  <title>Affitta casa</title>
-
-
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="{{ URL('css/bootstrap.css') }}" />
-
-  <!-- fonts style -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
-
-  <!-- nice selecy -->
-  <link rel="stylesheet" href="{{ URL('css/nice-select.min.css') }}">
-
-  <!--owl slider stylesheet -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-
-  <!-- phone prefix -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
-
-  <!-- font awesome style -->
-  <link href="{{ URL('css/font-awesome.min.css')}}" rel="stylesheet" />
-
-  <!-- Custom styles for this template -->
-  <link href="{{ URL('css/style.css') }}" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="{{ URL('css/responsive.css') }}" rel="stylesheet" />
+@include('includes/head')
 
 </head>
 
@@ -46,73 +12,7 @@
     <!-- header section strats -->
     <header class="header_section">
       <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="{{ route('index') }}">
-            <span>
-              Affitta casa
-            </span>
-          </a>
-
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""> </span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav  ">
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('index') }}"> Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('catalogo') }}"> Catalogo</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('about') }}"> About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('why') }}"> Why Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('faq') }}">FAQ</a>
-                @if(isset(Auth::user()->nome))
-                  <li class="nav-item">
-                      <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
-                  </li>
-                  @if('Locatore'==(Auth::user()->tipo))
-                    <li class="nav-item">
-                      <a class="nav-link" href="{{ route('annunci')}}">I miei annunci</a>
-                    </li>
-                  @endif
-                @endif
-            </ul>
-
-            @if(isset(Auth::user()->nome))
-              <div class="quote_btn-container">
-                <a href="{{ route('homeutente') }}" class="quote_btn">
-                  {{ Auth::user()->nome }}
-                </a>
-              </div>
-              &nbsp
-              <div class="quote_btn-container">
-                <a href="{{ route('logout') }}" class="quote_btn">
-                  LOGOUT
-                </a>
-              </div>
-            @else
-              <div class="quote_btn-container">
-                <a href="{{ route('login') }}" class="quote_btn">
-                  LOG IN
-                </a>
-              </div>
-              &nbsp;
-              <div class="quote_btn-container">
-                <a href="{{ route('signup') }}" class="quote_btn">
-                  SIGN UP
-                </a>
-              </div>
-            @endif
-
-          </div>
-        </nav>
+          @include('includes/navbar')
       </div>
     </header>
     <!-- end header section -->
