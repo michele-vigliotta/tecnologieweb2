@@ -28,10 +28,16 @@ class AnnuncioController extends Controller
       ]);
 
       $service=[
-        "servizio1" => $request->servizio1,
-        "servizio2" => $request->servizio2,
-        "servizio3" => $request->servizio3,
-        "servizio4" => $request->servizio4
+        "Internet" => $request->Internet,
+        "Linea telefonica" => $request->Linea_telefonica,
+        "Animali domestici" => $request->Animali_domestici,
+        "Televisione" => $request->Televisione,
+        "Aria condizionata" => $request->Aria_condizionata,
+        "Fumatori ammessi" => $request->Fumatori_ammessi,
+        "Ascensore" => $request->Ascensore,
+        "Lavatrice" => $request->Lavatrice,
+        "Asciugatrice" => $request->Asciugatrice,
+        "Accesso disabili" => $request->Accesso_disabili,
       ];
 
       Storage::disk('public')->put('service.json', json_encode($service));
@@ -53,9 +59,13 @@ class AnnuncioController extends Controller
       $annuncio->servizi_offerti=Storage::disk('public')->get('service.json');
 
       if($request->tipo=="camera"){
-        $annuncio->id_camera="1";
+        $annuncio->is_camera="1";
         $annuncio->posti_camera=$request->n_posti_camera;
-        $annuncio->disponilita_angolo_studio=$request->disponiblita_angolo_studio;
+        if($request->disponilita_angolo_studio==null){
+          $annuncio->disponiblita_angolo_studio='no';
+        }else{
+          $annuncio->disponilita_angolo_studio=$request->disponiblita_angolo_studio;
+        }
       }else{
         $annuncio->is_camera="0";
         $annuncio->numero_camere=$request->n_camere;
@@ -69,12 +79,17 @@ class AnnuncioController extends Controller
       if(isset($request->images)){
         foreach ($request->file('images') as $file){
           $image= new foto;
-          $path= $file->store('immaginiAnnunci/'.$id->id_annuncio, ['disk'=>'my_files']);
+          $path= $file->store('/'.$id->id_annuncio, ['disk'=>'my_files']);
           $image->url=$path;
           $image->id_annuncio=$id->id_annuncio;
           $image->save();
         }
       }
+      $query="select * from annuncio where id_annuncio='".$id->id_annuncio."'";
+      $query2="select * from foto where id_annuncio='".$id->id_annuncio."'";
+      $dato=DB::select($query);
+      $photo=DB::select($query2);
+      return view('dettagli', ['annuncio'=>$dato, 'photo'=>$photo]);
     }
 
     public function aggiungiAnnuncio(){
@@ -95,8 +110,12 @@ class AnnuncioController extends Controller
       return view('catalogo', ['annunci'=>$annunci]);
     }
 
-    public function dettagli(){
-      return view('prova');
+    public function dettagli(Request $request){
+      $query="select * from annuncio where id_annuncio='".$request->id."'";
+      $query2="select * from foto where id_annuncio='".$request->id."'";
+      $annuncio=DB::select($query);
+      $photo=DB::select($query2);
+      return view('dettagli', ['annuncio'=>$annuncio, 'photo'=>$photo]);
     }
 
 

@@ -41,7 +41,7 @@
                       <div class="col-md-6 px-0">
                         <div class="form-group">
                           <div class="input-group ">
-                            <label>Cosa vuoi affittare?</label>
+                            <label>Cosa vuoi mettere in affitto?</label>
                             <select name="tipo" id="type" class="form-control" required>
                               <option value="appartamento" selected>Appartamento</option>
                               <option valie="camera">Camera</option>
@@ -140,28 +140,70 @@
                         <div class="col-md-6 px-0">
                           <div class="form-group ">
                             <div class="form-control3">
-                              <input type="checkbox" name="servizio1" class="checkbox-control" value="Rete internet"/> Rete internet
+                              <input type="checkbox" name="Internet" class="checkbox-control" value="si"/> Internet
                             </div>
                           </div>
                         </div>
                         <div class="col-md-6 px-0">
                           <div class="form-group ">
                             <div class="form-control3">
-                              <input type="checkbox" name="servizio2" class="checkbox-control" value="Fermata mezzi nei pressi dell'abitazione"/> Fermata mezzi nei pressi dell'abitazione
+                              <input type="checkbox" name="Linea_telefonica" class="checkbox-control" value="si"/> Linea telefonica
                             </div>
                           </div>
                         </div>
                         <div class="col-md-6 px-0">
                           <div class="form-group ">
                             <div class="form-control3">
-                              <input type="checkbox" name="servizio3" class="checkbox-control" value="Risacaldamento"/> Riscaldamento
+                              <input type="checkbox" name="Animali_domestici" class="checkbox-control" value="si"/> Animali domestici
                             </div>
                           </div>
                         </div>
                         <div class="col-md-6 px-0">
                           <div class="form-group ">
                             <div class="form-control3">
-                              <input type="checkbox" name="servizio4" class="checkbox-control" value="Ascensore"/> Ascensore
+                              <input type="checkbox" name="Televisione" class="checkbox-control" value="si"/> Televisione
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 px-0">
+                          <div class="form-group ">
+                            <div class="form-control3">
+                              <input type="checkbox" name="Aria_condizionata" class="checkbox-control" value="si"/> Aria condizionata
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 px-0">
+                          <div class="form-group ">
+                            <div class="form-control3">
+                              <input type="checkbox" name="Fumatori_ammessi" class="checkbox-control" value="si"/> Fumatori ammessi
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 px-0">
+                          <div class="form-group ">
+                            <div class="form-control3">
+                              <input type="checkbox" name="Ascensore" class="checkbox-control" value="si"/> Ascensore
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 px-0">
+                          <div class="form-group ">
+                            <div class="form-control3">
+                              <input type="checkbox" name="Lavatrice" class="checkbox-control" value="si"/> Lavatrice
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 px-0">
+                          <div class="form-group ">
+                            <div class="form-control3">
+                              <input type="checkbox" name="Asciugatrice" class="checkbox-control" value="si"/> Asciugatrice
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 px-0">
+                          <div class="form-group ">
+                            <div class="form-control3">
+                              <input type="checkbox" name="Accesso_disabili" class="checkbox-control" value="si"/> Accesso disabili
                             </div>
                           </div>
                         </div>
@@ -216,7 +258,7 @@
                         <div class="form-group ">
                           <div class="input-group ">
                             <label>Ulteriori immagini</label>
-                            <input type="file" name="images[]" class="form-control" id="inputRentDestination"/>
+                            <input type="file" name="images[]" class="form-control" id="inputRentDestination" multiple/>
                           </div>
                         </div>
                       </div>

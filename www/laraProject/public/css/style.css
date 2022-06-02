@@ -471,6 +471,42 @@ a:focus {
   margin-top: 0px;
 }
 
+.find_section .carousel-indicators {
+  position: unset;
+  margin-bottom: 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 45px;
+}
+
+.find_section .carousel-indicators li {
+  background-color: #ffffff;
+  width: 12px;
+  height: 12px;
+  border-radius: 100%;
+  opacity: 1;
+  border: 1px solid #ffffff;
+  text-indent: unset;
+  background-clip: unset;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.find_section .carousel-indicators li.active {
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+}
+
+.find_section #customCarousel1 {
+  width: 100%;
+  position: unset;
+}
+
 .find_section .form_tab_container ul {
   padding: 0 30px;
 }
@@ -551,6 +587,131 @@ a:focus {
   position: relative;
   -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.find_section .find_form .dettagli{
+    display: grid;
+    grid-template-areas:
+      'image indirizzo'
+      'image indirizzo'
+      'specifiche prezzo'
+      'servizi contatta';
+    gap: 0px;
+    grid-template-columns: 0fr 385px;
+    background-color: #f7f9f3;
+    background-size: cover;
+}
+
+.find_section .find_form .dettagli > .carouselDettagli{
+  grid-area: image;
+  position: relative;
+  top: 7px;
+  left: 0px;
+}
+
+.find_section .find_form .dettagli > .specifiche{
+  grid-area: specifiche;
+  position: relative;
+  margin-left: 10px;
+}
+
+.find_section .find_form .dettagli > .servizi{
+  grid-area:servizi;
+  position: relative;
+  margin-left: 10px;
+}
+
+.find_section .find_form .dettagli > .prezzo{
+  grid-area: prezzo;
+  position: relative;
+  text-align: right;
+  padding: 43px 0px;
+  margin-right: 15px;
+}
+
+.find_section .find_form .dettagli > .span1{
+  grid-area: indirizzo;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 0px;
+  margin-top: 7px;
+}
+
+.find_section .find_form .dettagli > .span2{
+  grid-area: indirizzo;
+  font-size: 16px;
+  margin-left: 0px;
+  position: relative;
+  margin-top: 70px;
+  word-wrap: break-word;
+  width: 100%;
+  top: 7px;
+}
+
+.find_section .find_form .dettagli .span3{
+  grid-area: specifiche;
+  position: relative;
+  font-size: 16px;
+  font-weight: bold;
+  width: 45%;
+  bottom: 10px;
+}
+
+.find_section .find_form .dettagli .specifiche > .span4{
+  grid-area: specifiche;
+  margin-top: 10px;
+  font-size: 16px;
+  margin-left: 10px;
+  width: 45%;
+}
+
+.find_section .find_form .service{
+  grid-area: specifiche;
+  font-size: 16px;
+  width: 30%;
+  margin-left: 10px;
+}
+
+.find_section .find_form .service_no{
+  grid-area: specifiche;
+  font-size: 16px;
+  width: 30%;
+  margin-left: 10px;
+  text-decoration: line-through;
+}
+
+.find_section .find_form .service-img{
+  grid-area: specifiche;
+  margin-left: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+.find_section .find_form .dettagli .contatta{
+  grid-area: contatta;
+}
+
+.find_section .find_form .dettagli .btn-box {
+  grid-area: contatta;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 -5px;
+  margin-top: 30px;
+}
+
+.find_section .find_form .dettagli .btn-box a {
+  grid-area: contatta;
+  display: inline-block;
+  padding: 5px 25px;
+  background-color: #fa4952;
+  color: #ffffff;
+  border-radius: 5px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  border: none;
+  margin: 5px;
+  text-align: center;
 }
 
 .find_section .find_form .input-group-text {
