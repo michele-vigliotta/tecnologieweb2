@@ -8,7 +8,11 @@
 <body class="sub_page">
 
   @if(isset(Auth::user()->nome))
-    <script>window.location.href = "{{ route('homeutente') }}";</script>
+      @if('Locatore'==(Auth::user()->tipo)||'locatario'==(Auth::user()->tipo))
+      <script>window.location.href = "{{ route('homeutente') }}";</script>
+      @elseif('admin'==(Auth::user()->tipo))
+      <script>window.location.href = "{{ route('homeadmin') }}";</script>
+      @endif
   @endif
 
   <div class="hero_area2">
