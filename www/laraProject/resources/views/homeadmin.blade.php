@@ -25,24 +25,17 @@
           <div class="detail-box">
             <div class="heading_container">
               <h2>
-                Bentornato {{Auth::user()->nome}}!
+                Bentornato Admin!
               </h2>
             </div>
-            @if('Locatore'==(Auth::user()->tipo))
+            
             <p>
-              Inizia ora a pubblicare un annuncio!
+              Questa è la home admin
             </p>
-            <a href="{{route('aggAnnuncio')}}">
-              Pubblica ora
-            </a>
-            @else
-            <p>
-              Trova l'annuncio più adatto a te
-            </p>
-            <a href="{{ route('catalogo') }}">
-              Sfoglia catalogo
-            </a>
-            @endif
+            
+            
+            
+            
           </div>
         </div>
         <div class="col-md-6 ">
