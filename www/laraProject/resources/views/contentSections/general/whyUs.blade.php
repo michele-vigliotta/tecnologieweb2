@@ -1,3 +1,4 @@
+<!-- why us section -->
 <section class="why_us_section layout_padding">
     <div class="container">
         <div class="heading_container heading_center">
@@ -53,7 +54,7 @@
                 </div>
             </div>
         </div>
-        @if( Request::is('index')||Request::is('test2'))
+        @if( Request::is('/')||Request::is('test2'))
         <div class="btn-box">
             <a href="{{ route('why') }}">
                 Read More
@@ -61,7 +62,7 @@
         </div>
         @endif
         <div class="btn-box">
-            @if(!isset(Auth::user()->nome))
+            @if(!isset(Auth::user()->nome) && !Request::is('test2') && !Request::is('/'))
                 <a href="{{ route('signup') }}">
                     Registrati ora
                 </a>
@@ -69,3 +70,4 @@
         </div>
     </div>
 </section>
+<!-- end why us section -->

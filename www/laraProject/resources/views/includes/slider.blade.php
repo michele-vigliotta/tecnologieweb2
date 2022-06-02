@@ -1,3 +1,4 @@
+<!-- slider section -->
 <section class="slider_section layout_padding">
     <div class="slider_bg_box">
         <img src="{{ URL('images/slider-bg.jpg') }}" alt="">
@@ -112,3 +113,4 @@
     </div>
 
 </section>
+<!-- end slider section -->
