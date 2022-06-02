@@ -11,36 +11,80 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  ">
-               <li class="nav-item">
-                    <a class="nav-link" href="{{ route('index') }}"> Home <span class="sr-only">(current)</span></a>
-                </li>
+                
+                @if( Request::is('index'))
+               <li class="nav-item active">
+                @else
                 <li class="nav-item">
+                @endif
+                    <a class="nav-link" href="{{ route('index') }}"> Home </a>
+                </li>
+                
+                @if( Request::is('catalogo'))
+                <li class="nav-item active">
+                @else
+                <li class="nav-item">
+                @endif
                     <a class="nav-link" href="{{ route('catalogo') }}"> Catalogo</a>
                 </li>
+                
+                @if( Request::is('about'))
+                <li class="nav-item active">
+                @else
                 <li class="nav-item">
+                @endif
                     <a class="nav-link" href="{{ route('about') }}"> About</a>
                 </li>
+                
+                
+                @if( Request::is('why'))
+                <li class="nav-item active">
+                @else
                 <li class="nav-item">
+                @endif
                     <a class="nav-link" href="{{ route('why') }}"> Why Us</a>
                 </li>
+                
+                @if( Request::is('faq'))
                 <li class="nav-item active">
+                @else
+                <li class="nav-item">
+                @endif
                     <a class="nav-link" href="{{ route('faq') }}">FAQ</a>
                 </li>
+                
+                
+                
             @if(isset(Auth::user()->nome))
-              <li class="nav-item">
-                <a class="nav-link" href="">Chat</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
-              </li>
+                @if( Request::is('chat'))
+                <li class="nav-item active">
+                @else
+                <li class="nav-item">
+                @endif
+                    <a class="nav-link" href="">Chat</a>
+                </li>
+                
+                
+                @if( Request::is('profile'))
+                <li class="nav-item active">
+                @else
+                <li class="nav-item">
+                @endif
+                    <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
+                </li>
               
                     @if('Locatore'==(Auth::user()->tipo))
-              <li class="nav-item">
-                  <a class="nav-link" href="">Annunci</a>
+                @if( Request::is('annunci'))    
+                <li class="nav-item active">
+                @else
+                <li class="nav-item">
+                @endif
+                  <a class="nav-link" href="{{route('annunci')}}">Annunci</a>
               </li>
                     @endif
-                @endif
-             </ul>
+            @endif
+            </ul>
+              
             @if(isset(Auth::user()->nome))
               <div class="quote_btn-container">
                 <a href="{{ route('homeutente') }}" class="quote_btn">
