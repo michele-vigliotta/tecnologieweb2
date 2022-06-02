@@ -1,4 +1,8 @@
 @extends('layouts.default')
+@section('carousel')
+    @include('includes.slider')
+@stop
+
 
 @section('content')
     @include('contentSections.general.about')
@@ -8,6 +12,4 @@
     @include('contentSections.general.infoSection')
 @stop
 
-@section('carousel')
-    @include('includes.slider')
-@stop
+
