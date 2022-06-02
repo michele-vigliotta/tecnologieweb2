@@ -4,19 +4,19 @@
     @include('includes.head')
 </head>
 <body>
-<div class="hero_area">
+<div class="hero_area2">
     <header class="header_section">
         <div class="container-fluid">
             @include('includes.navbar')
         </div>
 
     </header>
-    @if(Request::is('test2')||Request::is('index'))
-    @yield('carousel')
-    @endif
+
+
+
 
 </div>
-
+    @yield('carousel')
 <div id="main">
     @yield('content')
 
