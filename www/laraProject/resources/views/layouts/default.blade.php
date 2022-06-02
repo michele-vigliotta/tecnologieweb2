@@ -11,12 +11,10 @@
         </div>
 
     </header>
-
-
-
-
 </div>
-    @yield('carousel')
+
+@yield('carousel')
+
 <div id="main">
     @yield('content')
 
