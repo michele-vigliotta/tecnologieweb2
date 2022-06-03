@@ -167,8 +167,22 @@
                         SERVIZI DISPONIBILI
                       </span>
                       <div class="row">
+                        <img class="service-img" src="../images/icon/service/Cucina.png">
+                        @if($annuncio[0]->cucina==1)
+                          <span class="service">Cucina</span>
+                        @else
+                          <span class="service_no">Cucina</span>
+                        @endif
+                        <img class="service-img" src="../images/icon/service/Locale ricreativo.png">
+                        @if($annuncio[0]->locale_ricreativo==1)
+                          <span class="service">Locale ricereativo</span>
+                        @else
+                          <span class="service_no">Locale ricereativo</span>
+                        @endif
+                        </div>
+                        <div class="row">
                         @foreach(json_decode($annuncio[0]->servizi_offerti) as $service=>$value)
-                          <img class="service-img" src="../images/icon/service/{{$service}}_si.png">
+                          <img class="service-img" src="../images/icon/service/{{$service}}.png">
                           @if($value!=null)
                             <span class="service">{{$service}}</span>
                           @else

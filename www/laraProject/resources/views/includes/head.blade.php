@@ -13,6 +13,7 @@
 
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="{{ URL('css/bootstrap.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ URL('css/bootstrap-multiselect.css') }}"/>
 
     <!-- fonts style -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
