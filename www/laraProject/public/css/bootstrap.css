@@ -3284,6 +3284,7 @@ input[type="button"].btn-block {
 
 .dropdown-menu.show {
   display: block;
+  background-color: #f7f8f3;
 }
 
 .dropdown-header {

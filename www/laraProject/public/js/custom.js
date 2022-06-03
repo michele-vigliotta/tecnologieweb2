@@ -32,9 +32,13 @@ function getYear() {
 getYear();
 
 // nice select
-$(document).ready(function () {
+/*$(document).ready(function () {
     $("select").niceSelect();
-});
+});*/
+
+$(document).ready(function() {
+        $('#select1').multiselect();
+    });
 
 
 // client section owl carousel
@@ -86,7 +90,7 @@ faqAnimation();
 $("select[name='tipo']").change(function() {
   let type = $(this).val();
 
-  if(type=="Camera"){
+  if(type=="camera"||type=="camera_s"||type=="camera_m"){
     $('#plc').prop('disabled', false);
     $('#as').prop('disabled', false);
     $('#nc').prop('disabled', true);
@@ -95,10 +99,4 @@ $("select[name='tipo']").change(function() {
     $('#as').prop('disabled', true);
     $('#nc').prop('disabled', false);
   }
-});
-
-const img = document.getElementById('img');
-
-img.addEventListener('error', function handleError() {
-  img.src = '../images/no_img.png'; 
 });

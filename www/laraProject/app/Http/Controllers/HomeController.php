@@ -64,6 +64,7 @@
       public function chat(){
           return view('chat');
       }
+      
      
 
   }

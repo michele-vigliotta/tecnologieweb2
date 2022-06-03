@@ -77,7 +77,7 @@ class AnnuncioController extends Controller
         if($request->filled('locale_ricreativo')){
           $annuncio->locale_ricreativo=$request->locale_ricreativo;
         }else{
-          $annuncio->locale_ricreativo="";
+          $annuncio->locale_ricreativo="0";
         }
       }
       $annuncio->save();
@@ -108,12 +108,44 @@ class AnnuncioController extends Controller
 
       $query="select * from annuncio ";
 
-      if($request->filled('citta')){ //Filtro città
-        $query.="where citta='".$request->citta."' ";
+      if($request->filled('tipo')){ //Filtro tipo alloggio
+        if($request->tipo=='appartameto'){
+          $query.="where is_camera='0' ";
+        }else{
+          $query.="where is_camera='1' ";
+        }
         $check=true;
       }
 
-      if($request->filled('inizio')&&$request->filled('fine')){ //Filtro periodo locazione
+      if($request->filled('citta')){ //Filtro città
+        if($check){
+          $query.="where citta='".$request->citta."' ";
+          $check=true;
+        }else {
+          $query.="and citta='".$request->citta."' ";
+        }
+
+      }
+
+      if($request->filled('inizio')){ //FIltro periodo locazione inizio
+        if($check){
+          $query.="and inizio_locazione>='".$request->inizio."' ";
+        }else{
+          $query.="where inizio_locazione>='".$request->inizio."' ";
+          $check=true;
+        }
+      }
+
+      if($request->filled('fine')){ //Filtro periodo locazione fine
+        if($check){
+          $query.="and fine_locazione>='".$request->fine."' ";
+        }else{
+          $query.="where fine_locazione>='".$request->fine."' ";
+          $check=true;
+        }
+      }
+
+      if($request->filled('inizio')&&$request->filled('fine')){ //Filtro periodo locazione inizio-fine
         if($check){
           $query.="and inizio_locazione>='".$request->inizio."' ";
           $query.="and fine_locazione>='".$request->fine."' ";
@@ -134,6 +166,141 @@ class AnnuncioController extends Controller
           $query.="and fine_locazione>='".$request->fine."' ";
         }else{
           $query.="where fine_locazione>='".$request->fine."' ";
+          $check=true;
+        }
+      }
+
+      if($request->filled('cucina')){ //Filtro cucina
+        if($check){
+          $query.="and cucina='1' ";
+        }else{
+          $query.="where cucina='1' ";
+          $check=true;
+        }
+      }
+
+      if($request->filled('locale_ricreativo')){ //Filtro locale ricreativo
+        if($check){
+          $query.="and locale_ricreativo='1' ";
+        }else{
+          $query.="where locale_ricreativo='1' ";
+          $check=true;
+        }
+      }
+
+      if($request->filled('angolo_studio')){ //Filtro angolo studio
+        if($check){
+          $query.="and angolo_studio='1' ";
+        }else{
+          $query.="where angolo_studio='1' ";
+          $check=true;
+        }
+      }
+
+      if($request->filled('dimensione_min') && !$request->filled('dimensione_max')){ //Filtro dimensione minima
+        if($check){
+          $query.="and dimensione>='".$request->dimensione_min."' ";
+        }else{
+          $query.="where dimensione>='".$request->dimensione_min."' ";
+          $check=true;
+        }
+      }
+
+      if($request->filled('dimensione_max') && !$request->filled('dimensione_min')){ //Filtro dimensione massima
+        if($check){
+          $query.="and dimensione<='".$request->dimensione_max."' ";
+        }else{
+          $query.="where dimensione<='".$request->dimensione_max."' ";
+          $check=true;
+        }
+      }
+
+      if($request->filled('dimensione_max') && $request->filled('dimensione_min')){ //Filtro dimensione minima-massima
+        if($check){
+          $query.="and dimensione between '".$request->dimensione_min."' and '".$request->dimensione_max."' ";
+        }else{
+          $query.="where dimensione between '".$request->dimensione_min."' and '".$request->dimensione_max."' ";
+          $check=true;
+        }
+      }
+
+      if($request->filled('n_posti_letto_totali_min') && !$request->filled('n_posti_letto_totali_max')){ // Filtro posti letto totali minimi
+        if($check){
+          $query.="and posti_letto_totali>='".$request->n_posti_letto_totali_min."' ";
+        }else{
+          $query.="where posti_letto_totali>='".$request->n_posti_letto_totali_min."' ";
+          $check=true;
+        }
+      }
+
+      if($request->filled('n_posti_letto_totali_max') && !$request->filled('n_posti_letto_totali_min')){ // Filtro posti letto totali minimi
+        if($check){
+          $query.="and posti_letto_totali<='".$request->n_posti_letto_totali_max."' ";
+        }else{
+          $query.="where posti_letto_totali<='".$request->n_posti_letto_totali_max."' ";
+          $check=true;
+        }
+      }
+
+      if($request->filled('n_posti_letto_totali_min')&&$request->filled('n_posti_letto_totali_max')){ // Filtro posti letto totali minimi-massimi
+        if($check){
+          $query.="and n_posti_letto_totali between '".$request->n_posti_letto_totali_min."' and '".$request->n_posti_letto_totali_max."' ";
+        }else{
+          $query.="where n_posti_letto_totali between '".$request->n_posti_letto_totali_min."' and '".$request->n_posti_letto_totali_max."' ";
+          $check=true;
+        }
+      }
+
+      if($request->filled('n_posti_camera_min') && !$request->filled('n_posti_camera_max')){ // Filtro posti camera minimi
+        if($check){
+          $query.="and posti_camera>='".$request->n_posti_camera_min."' ";
+        }else{
+          $query.="where posti_camera>='".$request->n_posti_camera_min."' ";
+          $check=true;
+        }
+      }
+
+      if($request->filled('n_posti_camera_max') && !$request->filled('n_posti_camera_min')){ // Filtro posti camera massimi
+        if($check){
+          $query.="and posti_camera<='".$request->n_posti_camera_max."' ";
+        }else{
+          $query.="where posti_camera<='".$request->n_posti_camera_max."' ";
+          $check=true;
+        }
+      }
+
+      if($request->filled('n_posti_camera_min')&&$request->filled('n_posti_camera_max')){ // Filtro posti camera minimi-massimi
+        if($check){
+          $query.="and n_posti_camera between '".$request->n_posti_camera_min."' and '".$request->n_posti_camera_max."' ";
+        }else{
+          $query.="where n_posti_camera between '".$request->n_posti_camera_min."' and '".$request->n_posti_camera_max."' ";
+          $check=true;
+        }
+      }
+
+      if($request->filled('n_camere_min') && !$request->filled('n_camere_max')){ // Filtro camere minimi
+        if($check){
+          $query.="and numero_camere>='".$request->n_camere_min."' ";
+        }else{
+          $query.="where numero_camere>='".$request->n_camere_min."' ";
+          $check=true;
+        }
+      }
+
+      if($request->filled('n_camere_max') && !$request->filled('n_camere_min')){ // Filtro camere massimi
+        if($check){
+          $query.="and numero_camere<='".$request->n_camere_max."' ";
+        }else{
+          $query.="where numero_camere<='".$request->n_camere_max."' ";
+          $check=true;
+        }
+      }
+
+      if($request->filled('n_camere_min')&&$request->filled('n_camere_max')){ // Filtro camere minimi-massimi
+        if($check){
+          $query.="and numero_camere between '".$request->n_camere_min."' and '".$request->n_camere_max."' ";
+        }else{
+          $query.="where numero_camere between '".$request->n_camere_min."' and '".$request->n_camere_max."' ";
           $check=true;
         }
       }
