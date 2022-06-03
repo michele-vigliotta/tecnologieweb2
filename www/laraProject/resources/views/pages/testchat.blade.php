@@ -4,15 +4,34 @@
 @stop
 
 @section('content')
-<div class="container">
-        <div class="leftpane" style="background-color:#9BCB3B;">
-            <h1>try1</h1>
-        </div>
-        <div class="middlepane" style="background-color:#1AB99E;">
-            <h1>try1</h1>
-        </div>
-        <div class="rightpane" style="background-color:#F36F25;">
-            <h1>try1</h1>
-        </div>
+<div class="container-fluid">
+    <div class="row justify-content-xl-center">
+            <div class="col-4">
+                -------------------------------
+                <br>
+                message w/h centered
+                <br>
+                chatlist
+
+            </div>
+            <div class="col-8">
+                --------------------------------------------------------------------
+                <br>
+                name chat centred
+                chat section
+
+                <!--Start submit section-->
+                <div class="row justify-content">
+                    <div class="col-8">
+                        insert message
+                    </div>
+                    <div class="col-4">
+                        submit
+                    </div>
+                </div>
+                <!--End submit section-->
+            </div>
+    </div>
 </div>
+@include('contentSections/general/infoSection')
 @stop
