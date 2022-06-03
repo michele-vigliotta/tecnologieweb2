@@ -61,7 +61,7 @@ class AnnuncioController extends Controller
       if($request->tipo=="camera"){
         $annuncio->is_camera="1";
         $annuncio->posti_camera=$request->n_posti_camera;
-        if($request->disponilita_angolo_studio==null){
+        if($request->filled('disponiblita_angolo_studio')){
           $annuncio->disponiblita_angolo_studio='no';
         }else{
           $annuncio->disponilita_angolo_studio=$request->disponiblita_angolo_studio;
@@ -69,6 +69,16 @@ class AnnuncioController extends Controller
       }else{
         $annuncio->is_camera="0";
         $annuncio->numero_camere=$request->n_camere;
+        if($request->filled('cucina')){
+          $annuncio->cucina=$request->cucina;
+        }else{
+          $annuncio->cucina="0";
+        }
+        if($request->filled('locale_ricreativo')){
+          $annuncio->locale_ricreativo=$request->locale_ricreativo;
+        }else{
+          $annuncio->locale_ricreativo="";
+        }
       }
       $annuncio->save();
 
@@ -94,9 +104,64 @@ class AnnuncioController extends Controller
     }
 
     public function filterCatalog(Request $request){
+      $check=false;
+
       $query="select * from annuncio ";
-      if($request->filled('citta'))
+
+      if($request->filled('citta')){ //Filtro città
         $query.="where citta='".$request->citta."' ";
+        $check=true;
+      }
+
+      if($request->filled('inizio')&&$request->filled('fine')){ //Filtro periodo locazione
+        if($check){
+          $query.="and inizio_locazione>='".$request->inizio."' ";
+          $query.="and fine_locazione>='".$request->fine."' ";
+        }else{
+          $query.="where inizio_locazione>='".$request->inizio."' ";
+          $query.="and fine_locazione>='".$request->fine."' ";
+          $check=true;
+        }
+      }elseif($request->filled('inizio')){
+        if($check){
+          $query.="and inizio_locazione<='".$request->inizio."' ";
+        }else {
+          $query.="where inizio_locazione<='".$request->inizio."' ";
+          $check=true;
+        }
+      }elseif($request->filled('fine')){
+        if($check){
+          $query.="and fine_locazione>='".$request->fine."' ";
+        }else{
+          $query.="where fine_locazione>='".$request->fine."' ";
+          $check=true;
+        }
+      }
+
+      if($request->filled('prezzo_min')&&$request->filled('prezzo_max')){ // Filtro prezzo
+        if($check){
+          $query.="and canone_affitto between '".$request->prezzo_min."' ";
+          $query.="and '".$request->prezzo_max."' ";
+        }else{
+          $query.="where canone_affitto between '".$request->prezzo_min."' ";
+          $query.="and '".$request->prezzo_max."' ";
+          $check=true;
+        }
+      }elseif($request->filled('prezzo_min')){
+        if($check){
+          $query.="and canone_affitto>='".$request->prezzo_min."' ";
+        }else {
+          $query.="where canone_affitto>='".$request->prezzo_min."' ";
+          $check=true;
+        }
+      }elseif($request->filled('prezzo_max')){
+        if($check){
+          $query.="and canone_affitto<='".$request->prezzo_max."' ";
+        }else {
+          $query.="where canone_affitto<='".$request->prezzo_max."' ";
+          $check=true;
+        }
+      }
 
       $annunci=DB::select($query);
       return view('catalogo', ['annunci'=>$annunci]);

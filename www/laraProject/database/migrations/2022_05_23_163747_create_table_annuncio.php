@@ -25,6 +25,8 @@ class CreateTableAnnuncio extends Migration
             $table->date('inizio_locazione');
             $table->date('fine_locazione');
             $table->string('genere_locatario', 15);
+            $table->boolean('cucina')->nullable();
+            $table->boolean('locale_ricreativo')->nullable();
             $table->boolean('is_camera');
             $table->boolean('disponilita_angolo_studio')->nullable();
             $table->integer('posti_camera')->nullable();

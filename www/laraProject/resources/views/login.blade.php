@@ -75,6 +75,9 @@
                         </div>
                       </div>
                     </div>
+                    <center>
+                      <a href="{{ route('signup') }}">Non hai un account? Registrati ora<a>
+                    </center>
                      <div class="btn-box">
                       <button type="submit">
                         <span>

@@ -140,6 +140,20 @@
                         <div class="col-md-6 px-0">
                           <div class="form-group ">
                             <div class="form-control3">
+                              <input type="checkbox" name="cucina" class="checkbox-control" value="1"/> Cucina
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 px-0">
+                          <div class="form-group ">
+                            <div class="form-control3">
+                              <input type="checkbox" name="locale_ricreativo" class="checkbox-control" value="1"/> Locale Ricreativo
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 px-0">
+                          <div class="form-group ">
+                            <div class="form-control3">
                               <input type="checkbox" name="Internet" class="checkbox-control" value="si"/> Internet
                             </div>
                           </div>

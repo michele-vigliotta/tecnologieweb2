@@ -135,7 +135,6 @@
                                         <div class="col-md-6 px-0">
                                             <div class="form-group">
                                                 <div class="input-group ">
-                                                    <legend style="font-size:16px">Sei un?</legend>
                                                     <select name="tipo" class="form-control" required>
                                                         <option value="" disabled selected>Che tipo di utente sei?</option>
                                                         <option value="locatario">Locatario</option>
