@@ -85,11 +85,8 @@ class AnnuncioController extends Controller
           $image->save();
         }
       }
-      $query="select * from annuncio where id_annuncio='".$id->id_annuncio."'";
-      $query2="select * from foto where id_annuncio='".$id->id_annuncio."'";
-      $dato=DB::select($query);
-      $photo=DB::select($query2);
-      return view('dettagli', ['annuncio'=>$dato, 'photo'=>$photo]);
+
+      return redirect()->route('dettagli',['id'=>$id->id_annuncio]);
     }
 
     public function aggiungiAnnuncio(){

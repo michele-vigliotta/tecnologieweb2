@@ -916,8 +916,18 @@ a:focus {
   margin-top: 45px;
 }
 
-.sale_section .box .img-box img {
-  width: 300px;
+.sale_section .box .disabled{
+  pointer-events: none;
+  cursor: default;
+}
+
+.sale_section .box .img-box .disp{
+  width: 400px;
+}
+
+.sale_section .box .img-box .no_disp{
+  width: 400px;
+  filter: grayscale(100%);
 }
 
 .sale_section .box .detail-box {

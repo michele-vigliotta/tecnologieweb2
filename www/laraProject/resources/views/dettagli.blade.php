@@ -98,15 +98,15 @@
                 <div class="Rent_form find_form">
                   <div class="dettagli">
                     <div class="carouselDettagli">
-                      <div class="carousel slide">
+                      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                           <div class="carousel-item active">
                             <div class="container ">
                               <div class="col-md-10">
                                 @if($annuncio[0]->mainImg!=null)
-                                  <img src="../immaginiAnnunci/{{ $annuncio[0]->mainImg }}" height="300px">
+                                  <img id="img" src="../immaginiAnnunci/{{ $annuncio[0]->mainImg }}" height="300px" width="450px">
                                 @else
-                                  <img src="../images/no_img.jpg" height="300px">
+                                  <img src="../images/no_img.jpg" height="300px" width="450px">
                                 @endif
                               </div>
                             </div>
@@ -115,14 +115,22 @@
                           <div class="carousel-item">
                             <div class="container ">
                               <div class="row">
-                                <div class="col-md-10 mx-auto">
-                                  <img src="../{{$ph->url}}" height="300px">
+                                <div class="col-md-10">
+                                  <img src="../immaginiAnnunci/{{$ph->url}}" height="300px" width="450px">
                                 </div>
                               </div>
                             </div>
                           </div>
                           @endforeach
                         </div>
+                        <a class="carousel-control-prev" href="#customCarousel1" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#customCarousel1" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
                       </div>
                     </div>
                     <span class="span1"> <!-- Posizione alloggio -->

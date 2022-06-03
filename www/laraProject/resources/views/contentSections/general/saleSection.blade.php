@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="btn-box">
-                    <a href="">
+                    <a href="{{route('catalogo')}}">
                         Mostra più
                     </a>
                 </div>

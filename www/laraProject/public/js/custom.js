@@ -96,3 +96,9 @@ $("select[name='tipo']").change(function() {
     $('#nc').prop('disabled', false);
   }
 });
+
+const img = document.getElementById('img');
+
+img.addEventListener('error', function handleError() {
+  img.src = '../images/no_img.png'; 
+});
