@@ -44,7 +44,7 @@
                   @endif
                   <form method="POST" action="update">
                     @csrf
-                    <div class="form-row"> <!-- Nome e Cognome -->
+                    <div class="form-row"> <!-- Domanda e Risposta -->
                       <div class="col-md-6 px-0">
                         <div class="form-group ">
                           <div class="input-group ">
@@ -67,7 +67,7 @@
                               </div>
                             </div>
                               <label for="nrisposta">Risposta:</label><br>
-                              <textarea id="nrisposta" name="nuova_risposta" rows="4" cols="50" required value="" />
+                              <textarea id="nrisposta" name="nuova_risposta" rows="4" cols="50" required value=""> </textarea>
                             </div>
                         </div>
                       </div>

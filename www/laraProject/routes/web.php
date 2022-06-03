@@ -3,6 +3,7 @@
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\AnnuncioController;
+use App\Http\Controllers\FAQController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
