@@ -57,3 +57,7 @@ Route::get('/test2', function(){return View::make('pages.home');});
 Route::get('/annunci', 'HomeController@annunci')->name('annunci');
 Route::get('/stats', 'HomeController@stats')->name('stats');
 Route::get('/chat', 'HomeController@chat')->name('chat');
+
+Route::get('/profileedit', [UserController::class, 'profileedit'])->name('profileedit')->middleware('auth');
+
+Route::post('update', [UserController::class, 'update']);
