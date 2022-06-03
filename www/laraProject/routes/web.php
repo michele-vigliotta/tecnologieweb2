@@ -32,6 +32,8 @@ Route::get('/faq', 'HomeController@faq')->name('faq');
 
 Route::get('/homeutente', [UserController::class, 'homeutente'])->name('homeutente')->middleware('auth');
 
+Route::get('/homeadmin', [UserController::class, 'homeadmin'])->name('homeadmin')->middleware('auth');
+
 Route::get('/profile', [UserController::class, 'profile'])->name('profile')->middleware('auth');
 
 Route::post('register', [RegistrationController::class, 'store']);

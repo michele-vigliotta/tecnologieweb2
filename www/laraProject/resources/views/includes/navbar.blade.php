@@ -56,6 +56,7 @@
                 
                 
             @if(isset(Auth::user()->nome))
+                    @if('Locatore'==(Auth::user()->tipo)||'locatario'==(Auth::user()->tipo))
                 @if( Request::is('chat'))
                 <li class="nav-item active">
                 @else
@@ -63,8 +64,18 @@
                 @endif
                     <a class="nav-link" href="">Chat</a>
                 </li>
+                    @endif
                 
-                
+                @if('admin'==(Auth::user()->tipo))
+                @if( Request::is('stats'))    
+                <li class="nav-item active">
+                @else
+                <li class="nav-item">
+                @endif
+                  <a class="nav-link" href="{{route('stats')}}">Statistiche</a>
+              </li>
+                    @endif
+                    
                 @if( Request::is('profile'))
                 <li class="nav-item active">
                 @else
@@ -72,13 +83,13 @@
                 @endif
                     <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
                 </li>
-              
-                    @if('Locatore'==(Auth::user()->tipo))
-                @if( Request::is('annunci'))    
-                <li class="nav-item active">
-                @else
+                     
+                @if('Locatore'==(Auth::user()->tipo))
+                    @if( Request::is('annunci'))    
+                        <li class="nav-item active">
+                    @else
                 <li class="nav-item">
-                @endif
+                    @endif
                   <a class="nav-link" href="{{route('annunci')}}">Annunci</a>
               </li>
                     @endif
@@ -87,9 +98,15 @@
               
             @if(isset(Auth::user()->nome))
               <div class="quote_btn-container">
-                <a href="{{ route('homeutente') }}" class="quote_btn">
-                  {{ Auth::user()->nome }}
-                </a>
+                  @if((Auth::user()->tipo)!=='admin')
+                    <a href="{{ route('homeutente') }}" class="quote_btn">
+                    {{ Auth::user()->nome }}
+                    </a>
+                  @else
+                    <a href="{{ route('homeadmin') }}" class="quote_btn">
+                    {{ Auth::user()->tipo }}
+                    </a>
+                  @endif
               </div>
               &nbsp
               <div class="quote_btn-container">

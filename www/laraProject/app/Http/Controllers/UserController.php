@@ -20,7 +20,13 @@
        );
 
        if(Auth::attempt($user_data, $remember=true)){
-         return redirect()->to('/homeutente');
+         if(('Locatore'==(Auth::user()->tipo)||'locatario'==(Auth::user()->tipo))){  
+            return redirect()->to('/homeutente');
+         }
+         elseif('admin'==(Auth::user()->tipo)||'locatario'==(Auth::user()->tipo)){
+             return redirect()->to('/homeadmin');
+         }
+         
        }else{
          return back()->with('error', 'Username e/o password errati!');
        }
@@ -29,6 +35,9 @@
 
     public function homeutente(){
       return view('homeutente');
+    }
+    public function homeadmin(){
+      return view('homeadmin');
     }
     public function profile(){
       return view('profile');
