@@ -2,6 +2,7 @@
 <html>
 <head>
     @include('includes.head')
+    @yield('optionalStyle')
 </head>
 <body>
 <div class="hero_area2">

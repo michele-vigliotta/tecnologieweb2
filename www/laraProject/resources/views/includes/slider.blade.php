@@ -3,7 +3,7 @@
     <div class="slider_bg_box">
         <img src="{{ URL('images/slider-bg.jpg') }}" alt="">
     </div>
-    <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+    <div id="customCarousel1" class="carousel slide">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <div class="container ">
