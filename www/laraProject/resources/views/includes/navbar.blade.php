@@ -87,9 +87,15 @@
               
             @if(isset(Auth::user()->nome))
               <div class="quote_btn-container">
-                <a href="{{ route('homeutente') }}" class="quote_btn">
-                  {{ Auth::user()->nome }}
-                </a>
+                  @if((Auth::user()->tipo)!=='admin')
+                    <a href="{{ route('homeutente') }}" class="quote_btn">
+                    {{ Auth::user()->nome }}
+                    </a>
+                  @else
+                    <a href="{{ route('homeadmin') }}" class="quote_btn">
+                    {{ Auth::user()->tipo }}
+                    </a>
+                  @endif
               </div>
               &nbsp
               <div class="quote_btn-container">
