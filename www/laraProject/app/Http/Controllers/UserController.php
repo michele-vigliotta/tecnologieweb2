@@ -52,7 +52,7 @@
     public function update(Request $request)
     { 
         $this->validate($request, [
-        'password_attuale'    => 'required|alphaNum|min:3',
+        'password_attuale'   => 'required|alphaNum|min:3',
         'nuovo_numero'       => 'min:10|max:10',
         'nuovo_prefisso'     => 'min:2|max:3',
         'nuovo_c_fiscale'    => 'min:16|max:16',
@@ -70,7 +70,7 @@
                 }
             }
             Auth::user()->email = request('nuova_email');
-            if (($request->update_data_nascita)){
+            if (($request->nuova_data_nascita)){
                 Auth::user()->data_nascita = request('nuova_data_nascita');
             }
             Auth::user()->c_fiscale = request('nuovo_c_fiscale');

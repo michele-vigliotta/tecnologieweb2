@@ -35,8 +35,8 @@
                               <div class="d-none d-md-block col-md-9">
    <div class="d-flex align-items-center justify-content-between">
       <h3 class="h2 mr-auto">{{Auth::user()->username}}
-
-          <a href="" style="font-size:16px;">Modifica il profilo</a></h3>
+        
+          <a href="{{ route('profileedit')}}" style="font-size:16px;">&nbsp;Modifica il profilo</a></h3>
    </div>
    <div class="account-info">
       <div class="row py-2">
