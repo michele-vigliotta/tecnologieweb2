@@ -61,3 +61,5 @@ Route::get('/chat', 'HomeController@chat')->name('chat');
 Route::get('/profileedit', [UserController::class, 'profileedit'])->name('profileedit')->middleware('auth');
 
 Route::post('update', [UserController::class, 'update']);
+
+Route::get('/faqedit', [FAQController::class, 'faqedit'])->name('faqedit');
