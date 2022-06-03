@@ -32,6 +32,8 @@ Route::get('/faq', 'HomeController@faq')->name('faq');
 
 Route::get('/homeutente', [UserController::class, 'homeutente'])->name('homeutente')->middleware('auth');
 
+Route::get('/homeadmin', [UserController::class, 'homeadmin'])->name('homeadmin')->middleware('auth');
+
 Route::get('/profile', [UserController::class, 'profile'])->name('profile')->middleware('auth');
 
 Route::post('register', [RegistrationController::class, 'store']);
@@ -55,4 +57,3 @@ Route::get('/test2', function(){return View::make('pages.home');});
 Route::get('/annunci', 'HomeController@annunci')->name('annunci');
 Route::get('/stats', 'HomeController@stats')->name('stats');
 Route::get('/chat', 'HomeController@chat')->name('chat');
-Route::get('/homeadmin', 'HomeController@homeadmin')->name('homeadmin');
