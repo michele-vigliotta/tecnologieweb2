@@ -19,16 +19,41 @@ class FAQController extends Controller{
      
      return view('faqedit', ['xfaq'=>$xfaq]);
     }
+    
+ public function faqupdate(Request $request)
+    { 
+        $this->validate($request, [
+        
+        'nuova_domanda'       => 'max:50',
+        'nuovo_risposta'     => 'max:100',
+        
+      ]);
+        // $xfaq= ; 
+    }
+    
+    
+    
+    
+    
+    
+    
+    
 
     
-    /*
-  public function dettagli(Request $request){
-      $query="select * from annuncio where id_annuncio='".$request->id."'";
-      $query2="select * from foto where id_annuncio='".$request->id."'";
-      $annuncio=DB::select($query);
-      $photo=DB::select($query2);
-      return view('dettagli', ['annuncio'=>$annuncio, 'photo'=>$photo]);
-    }
-     * */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+ 
+    
+
     
 }
