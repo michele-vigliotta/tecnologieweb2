@@ -30,7 +30,8 @@
                 @if(isset(Auth::user()->nome))
                     @if('admin'==(Auth::user()->tipo))
                     <center>
-                    <a href="{{route('faqedit')}}" style="font-size:16px;">Modifica FAQ</a>
+                    <a href="{{route('faqedit',['id'=>$xfaq->id_FAQ])}}" style="font-size:16px;">Modifica FAQ</a>
+                    
                     </center>
                     @endif
                 @endif

@@ -54,7 +54,7 @@
                               </div>
                             </div>
                               <label for="ndomanda"> Domanda: </label><br>
-                              <input type="text" id="ndomanda" name="nuova_domanda" class="form-control"   required value=""  /> 
+                              <input type="text" id="ndomanda" name="nuova_domanda" class="form-control"   required value="{{ $xfaq[0]->domanda }}"  /> 
                           </div>
                         </div>
                       </div>
@@ -67,7 +67,7 @@
                               </div>
                             </div>
                               <label for="nrisposta">Risposta:</label><br>
-                              <textarea id="nrisposta" name="nuova_risposta" rows="4" cols="50" required value=""> </textarea>
+                              <textarea id="nrisposta" name="nuova_risposta" rows="4" cols="50" required value="{{ $xfaq[0]->risposta }}"> </textarea>
                             </div>
                         </div>
                       </div>
