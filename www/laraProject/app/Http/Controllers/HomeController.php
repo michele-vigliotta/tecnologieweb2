@@ -29,8 +29,8 @@
 
 
     public function faq(){
-      $FAQ=DB::select('select * from FAQ');
-      return view('faq', ['FAQ'=>$FAQ]);
+      $faq=DB::select('select * from faq');
+      return view('faq', ['faq'=>$faq]);
     }
 
 	  public function login(){
