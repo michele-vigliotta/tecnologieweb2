@@ -3,8 +3,9 @@
 
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 
-
+use Illuminate\Support\Facades\Storage;
 use App\FAQ;
 use Illuminate\Http\Request;
 
