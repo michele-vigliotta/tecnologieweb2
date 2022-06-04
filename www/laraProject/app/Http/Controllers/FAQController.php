@@ -17,7 +17,7 @@ class FAQController extends Controller{
      $xfaq=DB::select($query);
      
      
-     return view('faqedit', ['FAQ'=>$xfaq]);
+     return view('faqedit', ['faq'=>$xfaq]);
     }
 
     
