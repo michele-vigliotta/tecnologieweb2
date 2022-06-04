@@ -1,3 +1,4 @@
+<!-- client section -->
 <section class="client_section layout_padding-bottom">
     <div class="container">
         <div class="heading_container heading_center psudo_white_primary mb_45">
@@ -99,3 +100,4 @@
         </div>
     </div>
 </section>
+<!-- end client section -->
