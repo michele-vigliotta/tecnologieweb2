@@ -6,7 +6,7 @@
         Catalogo
       </h1>
       @if(isset(Auth::user()->nome))
-        @if('Locatario'==(Auth::user()->tipo))
+        @if('locatario'==(Auth::user()->tipo))
           <div class="filter_section layout_padding">
             <div class="container">
               <div class="row">
