@@ -63,4 +63,4 @@ Route::get('/profileedit', [UserController::class, 'profileedit'])->name('profil
 
 Route::post('update', [UserController::class, 'update']);
 
-Route::get('/faqedit', [FAQController::class, 'faqedit'])->name('faqedit');
+Route::get('/faqedit/{id}', 'FAQController@faqedit')->name('faqedit');
