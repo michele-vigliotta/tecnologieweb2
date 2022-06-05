@@ -18,6 +18,11 @@
 
   <section class="client_section layout_padding">
     <div class="container-fluid">
+        
+        @if(session('status'))
+        <div class=''>{{sesssion('status')}} </div>
+        @endif
+            
       <div class="heading_container psudo_white_primary mb_45">
         <h2>
           Frequently Asked Questions

@@ -20,7 +20,26 @@ class FAQController extends Controller{
      return view('faqedit', ['xfaq'=>$xfaq]);
     }
     
- public function faqupdate(Request $request)
+public function faqupdate(Request $request, $id)
+    { 
+    
+        $xfaq = FAQ::find($id);
+        $xfaq->domanda = $request->input('nuova_domanda');
+        $xfaq->risposta = $request->input('nuova_risposta');
+        $xfaq->update();
+        return redirect('faq')->with('status', 'Faq modificata con successo');
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /*
+ public function faqupdate(Request $request, $id)
     { 
         $this->validate($request, [
         
@@ -30,7 +49,7 @@ class FAQController extends Controller{
       ]);
         // $xfaq= ; 
     }
-    
+    */
     
     
     
