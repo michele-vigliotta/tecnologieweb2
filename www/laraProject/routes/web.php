@@ -67,4 +67,4 @@ Route::post('update', [UserController::class, 'update']);
 
 Route::get('/faqedit/{id}', 'FAQController@faqedit')->name('faqedit');
 
-Route::put('/faqupdate/{id}', 'FAQController@faqupdate')->name('faqupdate');
+Route::post('/faqupdate/{id}', 'FAQController@faqupdate')->name('faqupdate');
