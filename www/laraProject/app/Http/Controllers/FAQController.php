@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use App\FAQ;
 use Illuminate\Http\Request;
 
+
 class FAQController extends Controller{
     
  public function faqedit(Request $request){
@@ -20,6 +21,7 @@ class FAQController extends Controller{
      return view('faqedit', ['xfaq'=>$xfaq]);
     }
     
+    /*
 public function faqupdate(Request $request, $id)
     { 
     
@@ -29,27 +31,25 @@ public function faqupdate(Request $request, $id)
         $xfaq->update();
         return redirect('faq')->with('status', 'Faq modificata con successo');
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    /*
- public function faqupdate(Request $request, $id)
-    { 
-        $this->validate($request, [
-        
-        'nuova_domanda'       => 'max:50',
-        'nuovo_risposta'     => 'max:100',
-        
-      ]);
-        // $xfaq= ; 
-    }
     */
+    
+    
+public function faqupdate(Request $request, $id)
+{
+    $domanda = $request->input('nuova_domanda');
+    $risposta = $request->input('nuova_risposta');
+    
+    DB::update('update faq set domanda = ?, risposta=? where id = ?',[$domanda,$risposta,$id]);
+    
+}
+  
+
+    
+    
+    
+    
+    
+   
     
     
     

@@ -44,7 +44,7 @@
                   @endif
                   <form method="POST" action="faqupdate">
                     @csrf
-                    
+                    @method('PUT')
                     <div class="form-row"> <!-- Domanda e Risposta -->
                       <div class="col-md-6 px-0">
                         <div class="form-group ">
