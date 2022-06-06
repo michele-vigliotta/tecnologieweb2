@@ -75,3 +75,5 @@ Route::post('faqsave', [FAQController::class, 'faqsave']);
 Route::get('/faqedit/{id}', 'FAQController@faqedit')->name('faqedit');//vista modifica faq
 
 Route::put('faqupdate/{id}', 'FAQController@faqupdate')->name('faqupdate');//rotta update faq
+
+Route::get('faqdelete/{id}','FAQController@faqdelete')->name('faqdelete');

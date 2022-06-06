@@ -84,12 +84,7 @@
                           SALVA
                         </span>
                       </button>
-                    <div class="btn-box">
-                      <button type="submit">
-                        <span>
-                          ELIMINA
-                        </span>
-                      </button>
+                   
                         
                     </div>
                   </form>
