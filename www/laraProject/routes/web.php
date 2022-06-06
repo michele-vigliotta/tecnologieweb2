@@ -64,8 +64,10 @@ Route::get('/profileedit', [UserController::class, 'profileedit'])->name('profil
 Route::post('update', [UserController::class, 'update']);
 
 
-Route::get('/faqadd', 'AnnuncioController@aggiungiAnnuncio')->name('aggAnnuncio');
-Route::post('addAnnuncio', [AnnuncioController::class, 'addAnnuncio']);
+Route::get('faqadd', 'FAQController@faqadd')->name('faqadd');
+Route::post('faqsave', [FAQController::class, 'faqsave']);
+
+
 
 
 
