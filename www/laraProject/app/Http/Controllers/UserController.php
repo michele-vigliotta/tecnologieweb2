@@ -22,13 +22,13 @@
        );
 
        if(Auth::attempt($user_data, $remember=true)){
-         if(('Locatore'==(Auth::user()->tipo)||'locatario'==(Auth::user()->tipo))){  
+         if(('Locatore'==(Auth::user()->tipo)||'Locatario'==(Auth::user()->tipo))){  
             return redirect()->to('/homeutente');
          }
-         elseif('admin'==(Auth::user()->tipo)||'locatario'==(Auth::user()->tipo)){
+         elseif('admin'==(Auth::user()->tipo)){
              return redirect()->to('/homeadmin');
          }
-         
+
        }else{
          return back()->with('error', 'Username e/o password errati!');
        }
@@ -44,13 +44,13 @@
     public function profile(){
       return view('profile');
     }
-    
+
     public function profileedit(){
       return view('profileedit');
     }
-    
+
     public function update(Request $request)
-    { 
+    {
         $this->validate($request, [
         'password_attuale'   => 'required|alphaNum|min:3',
         'nuovo_numero'       => 'min:10|max:10',
@@ -76,9 +76,9 @@
             Auth::user()->c_fiscale = request('nuovo_c_fiscale');
             Auth::user()->prefisso = request('nuovo_prefisso');
             Auth::user()->numero = request('nuovo_numero');
-           
+
             Auth::user()->save();
-            
+
             return redirect()->to('/profile');
         }else{
            return back()->with('error', 'Password errata!');

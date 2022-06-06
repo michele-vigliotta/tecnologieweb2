@@ -127,7 +127,7 @@ class AnnuncioController extends Controller
 
       }
 
-      if($request->filled('inizio')){ //FIltro periodo locazione inizio
+      if($request->filled('inizio')&&!$request->filled('fine')){ //FIltro periodo locazione inizio
         if($check){
           $query.="and inizio_locazione>='".$request->inizio."' ";
         }else{
@@ -136,36 +136,20 @@ class AnnuncioController extends Controller
         }
       }
 
-      if($request->filled('fine')){ //Filtro periodo locazione fine
+      if($request->filled('fine')&&!$request->filled('inizio')){ //Filtro periodo locazione fine
         if($check){
-          $query.="and fine_locazione>='".$request->fine."' ";
+          $query.="and fine_locazione<='".$request->fine."' ";
         }else{
-          $query.="where fine_locazione>='".$request->fine."' ";
+          $query.="where fine_locazione<='".$request->fine."' ";
           $check=true;
         }
       }
 
       if($request->filled('inizio')&&$request->filled('fine')){ //Filtro periodo locazione inizio-fine
         if($check){
-          $query.="and inizio_locazione>='".$request->inizio."' ";
-          $query.="and fine_locazione>='".$request->fine."' ";
+          $query.="and inizio_locazione>='".$request->inizio."' and fine_locazione<='".$request->fine."' ";
         }else{
-          $query.="where inizio_locazione>='".$request->inizio."' ";
-          $query.="and fine_locazione>='".$request->fine."' ";
-          $check=true;
-        }
-      }elseif($request->filled('inizio')){
-        if($check){
-          $query.="and inizio_locazione<='".$request->inizio."' ";
-        }else {
-          $query.="where inizio_locazione<='".$request->inizio."' ";
-          $check=true;
-        }
-      }elseif($request->filled('fine')){
-        if($check){
-          $query.="and fine_locazione>='".$request->fine."' ";
-        }else{
-          $query.="where fine_locazione>='".$request->fine."' ";
+          $query.="where inizio_locazione>='".$request->inizio."' and fine_locazione<='".$request->fine."' ";
           $check=true;
         }
       }
@@ -207,20 +191,24 @@ class AnnuncioController extends Controller
       }
 
       if($request->filled('dimensione_max') && !$request->filled('dimensione_min')){ //Filtro dimensione massima
-        if($check){
-          $query.="and dimensione<='".$request->dimensione_max."' ";
-        }else{
-          $query.="where dimensione<='".$request->dimensione_max."' ";
-          $check=true;
+        if($request->dimensione_max!=0){
+          if($check){
+            $query.="and dimensione<='".$request->dimensione_max."' ";
+          }else{
+            $query.="where dimensione<='".$request->dimensione_max."' ";
+            $check=true;
+          }
         }
       }
 
       if($request->filled('dimensione_max') && $request->filled('dimensione_min')){ //Filtro dimensione minima-massima
-        if($check){
-          $query.="and dimensione between '".$request->dimensione_min."' and '".$request->dimensione_max."' ";
-        }else{
-          $query.="where dimensione between '".$request->dimensione_min."' and '".$request->dimensione_max."' ";
-          $check=true;
+        if($request->dimensione_min!=0&&$request->dimensione_max!=0){
+          if($check){
+            $query.="and dimensione between '".$request->dimensione_min."' and '".$request->dimensione_max."' ";
+          }else{
+            $query.="where dimensione between '".$request->dimensione_min."' and '".$request->dimensione_max."' ";
+            $check=true;
+          }
         }
       }
 
@@ -305,7 +293,7 @@ class AnnuncioController extends Controller
         }
       }
 
-      if($request->filled('prezzo_min')&&$request->filled('prezzo_max')){ // Filtro prezzo
+      if($request->filled('prezzo_min')&&$request->filled('prezzo_max')){ // Filtro prezzo minimo-massimo
         if($check){
           $query.="and canone_affitto between '".$request->prezzo_min."' ";
           $query.="and '".$request->prezzo_max."' ";
@@ -314,20 +302,37 @@ class AnnuncioController extends Controller
           $query.="and '".$request->prezzo_max."' ";
           $check=true;
         }
-      }elseif($request->filled('prezzo_min')){
+      }
+
+      if($request->filled('prezzo_min')&&!$request->filled('prezzo_max')){ // Filtro prezzo minimo
         if($check){
           $query.="and canone_affitto>='".$request->prezzo_min."' ";
         }else {
           $query.="where canone_affitto>='".$request->prezzo_min."' ";
           $check=true;
         }
-      }elseif($request->filled('prezzo_max')){
+      }
+
+      if($request->filled('prezzo_max')&&!$request->filled('prezzo_min')){ // Filtro prezzo massimo
         if($check){
           $query.="and canone_affitto<='".$request->prezzo_max."' ";
         }else {
           $query.="where canone_affitto<='".$request->prezzo_max."' ";
           $check=true;
         }
+      }
+
+      if($request->filled('servizi')){ // Filtro servizi
+
+        foreach($request->servizi as $servizio){
+          if($check){
+            $query.="and servizi_offerti like '%\"".$servizio."\":\"si\"%' ";
+          }else{
+            $query.="where servizi_offerti like '%\"".$servizio."\":\"si\"%' " ;
+            $check=true;
+          }
+        }
+
       }
 
       $annunci=DB::select($query);
