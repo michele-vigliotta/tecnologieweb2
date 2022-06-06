@@ -31,7 +31,7 @@
             <div class="tab-content text-center">
               <div class="tab-pane active" id="rent">
                 <div class="Rent_form find_form">
-                    <center><header>Modifica FAQ</header></center>
+                    <center><header>Inserisci FAQ</header></center>
                   @if ($message = Session::get('error'))
                    <div class="alert alert-danger alert-block">
                       <strong>{{ $message }}</strong>
@@ -44,9 +44,9 @@
                       @endforeach
                     </div>
                   @endif
-                  <form method="post" action="{{url('faqupdate', [$xfaq[0]->id_FAQ])}}">
-                    {{method_field('PUT')}}
-                    {{csrf_field()}}
+                  
+                  <form method="POST" action="faqsave">
+                    @csrf
                     
                     <div class="form-row"> <!-- Domanda e Risposta -->
                       <div class="col-md-6 px-0">
@@ -57,8 +57,8 @@
                                 <img src="" alt="Domanda" />
                               </div>
                             </div>
-                              <label for="ndomanda"> Domanda: </label><br>
-                              <input type="text" id="ndomanda" name="nuova_domanda" class="form-control"   required value="{{ $xfaq[0]->domanda }}"> </input>
+                              <label for="domanda"> Domanda: </label><br>
+                              <input type="text" id="domanda" name="domanda" class="form-control"   required > </input>
                           </div>
                         </div>
                       </div>
@@ -70,8 +70,8 @@
                                 <img src="" alt="Risposta" />
                               </div>
                             </div>
-                              <label for="nrisposta">Risposta:</label><br>
-                              <textarea id="nrisposta" name="nuova_risposta" rows="4" cols="50" required >{{ $xfaq[0]->risposta }} </textarea>
+                              <label for="risposta">Risposta:</label><br>
+                              <textarea id="risposta" name="risposta" rows="4" cols="50" required > </textarea>
                             </div>
                         </div>
                       </div>
@@ -84,9 +84,7 @@
                           SALVA
                         </span>
                       </button>
-                   
-                        
-                    </div>
+                    
                   </form>
                 </div>
               </div>
@@ -96,50 +94,3 @@
       </div>
     </div>
   </section>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-     @include('contentSections/general/infoSection')
-
-
-  @include('includes/footer')
-  @include('includes.jsScript')
-
-
-</body>
-</html>

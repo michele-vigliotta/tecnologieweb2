@@ -12,6 +12,27 @@ use Illuminate\Http\Request;
 
 class FAQController extends Controller{
     
+    
+    
+    //ritorna vista per inserire una nuova faq
+    public function faqadd() {
+        return view('faqadd');
+    }   
+    
+    //salva nel db la nuova faq
+    public function faqsave(Request $request) 
+    {
+        $domanda = $request->input('domanda');
+        $risposta = $request->input('risposta');
+        
+       DB::insert('insert into faq (domanda, risposta) values (?, ?)', [$domanda, $risposta]);
+       return redirect()->route('faq');
+    }
+    
+    
+    
+    
+  //ritorna vista per la modifica  
  public function faqedit(Request $request){
      $query="select * from faq where id_FAQ='".$request->id."'";
      
@@ -21,29 +42,24 @@ class FAQController extends Controller{
      return view('faqedit', ['xfaq'=>$xfaq]);
     }
     
-    /*
-public function faqupdate(Request $request, $id)
-    { 
+
     
-        $xfaq = FAQ::find($id);
-        $xfaq->domanda = $request->input('nuova_domanda');
-        $xfaq->risposta = $request->input('nuova_risposta');
-        $xfaq->update();
-        return redirect('faq')->with('status', 'Faq modificata con successo');
-    }
-    */
-    
-    
-public function faqupdate(Request $request, $id)
+   //salva dati modificati 
+public function faqupdate(Request $request)
 {
     $domanda = $request->input('nuova_domanda');
     $risposta = $request->input('nuova_risposta');
     
-    DB::update('update faq set domanda = ?, risposta=? where id = ?',[$domanda,$risposta,$id]);
+    DB::update('update faq set domanda = ?, risposta=? where id_FAQ = ?',[$domanda,$risposta,$request->id]);
+    return redirect()->route('faq');
     
 }
   
 
+public function faqdelete(Request $request) {
+    DB::delete('delete from faq where id_FAQ = ?',[$request->id]);
+    return redirect()->route('faq');
+}
     
     
     

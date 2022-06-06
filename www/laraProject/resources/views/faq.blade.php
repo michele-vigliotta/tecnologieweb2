@@ -27,6 +27,15 @@
         <h2>
           Frequently Asked Questions
         </h2>
+          @if(isset(Auth::user()->nome))
+                @if('admin'==(Auth::user()->tipo))
+          <div class="quote_btn-container">     
+          <a class="quote_btn" href="{{route('faqadd')}}">Aggiungi FAQ</a>
+          </div>
+                @endif
+          @endif
+          
+          
           @if(!empty($faq))
             @foreach ($faq as $xfaq)
               <div class="col-sm-62">
@@ -35,9 +44,14 @@
                 @if(isset(Auth::user()->nome))
                     @if('admin'==(Auth::user()->tipo))
                     <center>
-                    <a href="{{route('faqedit',['id'=>$xfaq->id_FAQ])}}" style="font-size:16px;">Modifica FAQ</a>
-                    
+                        <div class="quote_btn-container">
+                            <a class="quote_btn" href="{{route('faqedit',['id'=>$xfaq->id_FAQ])}}" >Modifica FAQ</a>
+                            <a class="quote_btn" href="{{route('faqdelete',['id'=>$xfaq->id_FAQ])}}" >Elimina FAQ</a>
+                            
+                        </div>
                     </center>
+                    
+                     
                     @endif
                 @endif
               </div>
