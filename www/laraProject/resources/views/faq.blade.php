@@ -27,6 +27,13 @@
         <h2>
           Frequently Asked Questions
         </h2>
+          @if(isset(Auth::user()->nome))
+                @if('admin'==(Auth::user()->tipo))
+          <a href="{{route('faqadd')}}">Aggiungi FAQ</a>
+                @endif
+          @endif
+          
+          
           @if(!empty($faq))
             @foreach ($faq as $xfaq)
               <div class="col-sm-62">
