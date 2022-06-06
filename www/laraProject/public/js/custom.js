@@ -87,6 +87,7 @@ function faqAnimation(){
 }
 faqAnimation();
 
+
 $("select[name='tipo']").change(function() {
   let type = $(this).val();
 
