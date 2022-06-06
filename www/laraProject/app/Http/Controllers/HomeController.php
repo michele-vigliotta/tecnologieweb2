@@ -4,6 +4,7 @@
 
   use Illuminate\Http\Request;
   use Illuminate\Support\Facades\DB;
+  use Auth;
 
   class HomeController extends Controller{
 
@@ -55,15 +56,17 @@
     public function provanavbar(){
       return view('provanavbar');
     }
-      public function annunci(){
-          return view('annunci');
-      }
-      public function stats(){
-          return view('stats');
-      }
-      public function chat(){
-          return view('chat');
-      }
+    public function annunci(){
+        $query="select * from annuncio where id_locatore='".Auth::user()->id."'";
+        $annunci=DB::select($query);
+        return view('annunci', ['annunci'=>$annunci]);
+    }
+    public function stats(){
+        return view('stats');
+    }
+    public function chat(){
+        return view('chat');
+    }
       
      
 

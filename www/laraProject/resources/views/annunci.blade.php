@@ -1,8 +1,93 @@
-@extends('layouts.default')
-@section('content')
-    <p>W.I.P</p>
-@stop
+<!DOCTYPE html>
+<html>
 
-@section('carousel')
+<head>
+    @include('includes.head')
+</head>
 
-@stop
+<body class="sub_page">
+    
+          <div class="hero_area2">
+          <!-- header section strats -->
+          <header class="header_section">
+            <div class="container-fluid">
+              @include('includes/navbar')
+            </div>
+          </header>
+          <!-- end header section -->
+        </div>
+
+        <!-- annunci section starts -->
+        <section class="sale_section layout_padding">
+        <div class="container-fluid">
+          <div class="heading_container">
+            <h1>
+              Annunci pubblicati:
+            </h1>
+                <div class="form-row">
+                  @if(!empty($annunci))
+                      @foreach ($annunci as $annuncio)
+                        @if($annuncio->status!=0)
+                          <div class="col-sm-6 col-md-4">
+                              <div class="box">
+                                  <a href="{{ route('dettagli',['id'=>$annuncio->id_annuncio]) }}">
+                                      <div class="img-box">
+                                          <img src="./immaginiAnnunci/{{ $annuncio->mainImg }}" height="300px" class="disp">
+                                      </div>
+                                  </a>
+                                  <div class="detail-box">
+                                      <a href="{{ route('dettagli',['id'=>$annuncio->id_annuncio]) }}">
+                                          <h4>{{ $annuncio->citta }}, {{$annuncio->stato}}</h4>
+                                      </a>
+                                      <h6>€{{ $annuncio->canone_affitto}}</h6>
+                                      <label>Da {{date('d-m-Y', strtotime($annuncio->inizio_locazione))}} a {{date('d-m-Y', strtotime($annuncio->fine_locazione))}}</label>
+                                      <p>
+                                          {{ $annuncio->descrizione }}
+                                      </p>
+                                  </div>
+                              </div>
+                          </div>
+                        @else
+                          <div class="col-sm-6 col-md-4">
+                            <div class="box">
+                              <a href="{{ route('dettagli',['id'=>$annuncio->id_annuncio]) }}" class="disabled">
+                                <div class="img-box">
+                                    <img src="./immaginiAnnunci/{{ $annuncio->mainImg }}" height="300px" class="no_disp">
+                                </div>
+                              </a>
+                              <div class="detail-box">
+                                <a href="{{ route('dettagli',['id'=>$annuncio->id_annuncio]) }}" class="disabled">
+                                  <h4>{{ $annuncio->citta }}, {{$annuncio->stato}}</h4>
+                                </a>
+                                <h6>€{{ $annuncio->canone_affitto}}</h6>
+                                <label>Da {{date('d-m-Y', strtotime($annuncio->inizio_locazione))}} a {{date('d-m-Y', strtotime($annuncio->fine_locazione))}}</label>
+                                <p>
+                                  {{ $annuncio->descrizione }}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        @endif
+                      @endforeach
+                  @else
+                      <div class="col-sm-6 col-md-4">
+                          <div class='detail-box'>
+                              <h4>Non hai ancora inserito annunci.</h4>
+                          </div>
+                      </div>
+                  @endif
+              </div>
+            </div>
+          </div>
+        </section>
+  <!-- footer -->
+
+  @include('contentSections/general/infoSection')
+
+
+  @include('includes/footer')
+  @include('includes.jsScript')
+
+
+</body>
+</html>
