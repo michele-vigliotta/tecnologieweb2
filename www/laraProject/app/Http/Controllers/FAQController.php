@@ -55,7 +55,7 @@ public function faqupdate(Request $request)
     
 }
   
-
+  //elimina faq
 public function faqdelete(Request $request) {
     DB::delete('delete from faq where id_FAQ = ?',[$request->id]);
     return redirect()->route('faq');
