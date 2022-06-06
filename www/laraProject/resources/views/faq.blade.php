@@ -46,6 +46,7 @@
                     <center>
                         <div class="quote_btn-container">
                             <a class="quote_btn" href="{{route('faqedit',['id'=>$xfaq->id_FAQ])}}" >Modifica FAQ</a>
+                             &nbsp;
                             <a class="quote_btn" href="{{route('faqdelete',['id'=>$xfaq->id_FAQ])}}" >Elimina FAQ</a>
                             
                         </div>

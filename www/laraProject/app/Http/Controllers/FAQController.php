@@ -59,12 +59,24 @@ class FAQController extends Controller{
    //salva dati modificati 
 public function faqupdate(Request $request)
 {
+    $rules = [
+			'nuova_domanda' => 'required|string|min:10|max:255',
+			'nuova_risposta' => 'required|string|min:10|max:255',
+		];
+		$validator = Validator::make($request->all(),$rules);
+		if ($validator->fails()) {
+			return redirect('faqedit')
+			->withInput()
+			->withErrors($validator);
+		}
+		else{
+    
     $domanda = $request->input('nuova_domanda');
     $risposta = $request->input('nuova_risposta');
     
     DB::update('update faq set domanda = ?, risposta=? where id_FAQ = ?',[$domanda,$risposta,$request->id]);
     return redirect()->route('faq');
-    
+                }
 }
   
   //elimina faq
