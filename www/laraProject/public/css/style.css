@@ -846,11 +846,12 @@ a:focus {
 /* filter section */
 
 .filter_section {
+  margin-top: 10px;
 }
 
 .filter_section .filter_form {
-  padding: 45px 25px 35px 25px;
-  margin: -25px auto 0 auto;
+  padding: 25px 45px 35px 25px;
+  margin: 0px auto 0 auto;
   border-radius: 5px;
   -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
           box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
@@ -902,29 +903,33 @@ a:focus {
 .filter_section .filter{
   color: #444;
   cursor: pointer;
-  padding: 30px 20px;
-  width: 100%;
-  border: none;
-  outline: none;
   transition: 0.4s;
   margin: auto;
   flex-direction: column;
+  text-align: center;
+  line-height: 65px;
+  display: inline-block;
+  padding: 12px 50px;
+  background-color: #fa4952;
+  color: #ffffff;
+  border-radius: 45px;
+  position: sticky;
+  right: 90%;
 }
 
-.filter_section .active,
-  .filter:hover {
-      background-color: #F9F9F9;
-  }
-.filter_section .filter:after {
-    content: '\02795';
-    font-size: 13px;
-    color: #777;
-    float: right;
-    margin-left: 5px;
+.filter_section .filter:hover{
+  background-color: #f00712;
 }
 
-.filter_section .filter .active:after {
-    content: "\2796";
+.filter_section .filter-body{
+/*  margin: auto;*/
+  width: 65%;
+  padding: auto;
+}
+.filter_section .filter-body {
+    padding: 10px 18px;
+    display: none;
+    overflow: hidden;
 }
 
 .filter_section .filter_form .form-control {

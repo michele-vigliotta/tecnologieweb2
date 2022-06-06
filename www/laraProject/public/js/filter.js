@@ -55,13 +55,17 @@ $("[type='number']").keypress(function (evt) {
 
 function filterAnimation(){
   var filter = document.getElementsByClassName("filter");
+  $(filter[0]).css('box-sizing', 'none');
+  console.log(filter[0]);
   filter[0].addEventListener("click", function () {
+    console.log(this);
     this.classList.toggle("active");
     var body = this.nextElementSibling;
+    console.log(body);
     if (body.style.display === "block") {
-      body.style.display = "none";
+      $(body).css('display','none');
     } else {
-      body.style.display = "block";
+      $(body).css('display','block');
     }
   });
 }
