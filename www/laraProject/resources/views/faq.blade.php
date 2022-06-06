@@ -39,7 +39,7 @@
           @if(!empty($faq))
             @foreach ($faq as $xfaq)
               <div class="col-sm-62">
-                <h4 class="faq-question">{{$xfaq->id_FAQ}})&nbsp;{{ $xfaq->domanda }}</h4>
+                <h4 class="faq-question">{{ $xfaq->domanda }}</h4>
                 <p  class="faq-answer">{{ $xfaq->risposta }}</p>
                 @if(isset(Auth::user()->nome))
                     @if('admin'==(Auth::user()->tipo))
