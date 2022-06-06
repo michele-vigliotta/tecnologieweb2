@@ -899,6 +899,34 @@ a:focus {
   border: none;
 }
 
+.filter_section .filter{
+  color: #444;
+  cursor: pointer;
+  padding: 30px 20px;
+  width: 100%;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  margin: auto;
+  flex-direction: column;
+}
+
+.filter_section .active,
+  .filter:hover {
+      background-color: #F9F9F9;
+  }
+.filter_section .filter:after {
+    content: '\02795';
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+.filter_section .filter .active:after {
+    content: "\2796";
+}
+
 .filter_section .filter_form .form-control {
   height: 50px;
   outline: none;
@@ -1193,6 +1221,7 @@ a:focus {
   width: 100%;
   padding: auto;
 }
+
 
 .client_section .active,
   .faq-question:hover {
