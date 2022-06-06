@@ -34,12 +34,13 @@ public function faqupdate(Request $request, $id)
     */
     
     
-public function faqupdate(Request $request, $id)
+public function faqupdate(Request $request)
 {
     $domanda = $request->input('nuova_domanda');
     $risposta = $request->input('nuova_risposta');
     
-    DB::update('update faq set domanda = ?, risposta=? where id = ?',[$domanda,$risposta,$id]);
+    DB::update('update faq set domanda = ?, risposta=? where id_FAQ = ?',[$domanda,$risposta,$request->id]);
+    return redirect()->route('faq');
     
 }
   

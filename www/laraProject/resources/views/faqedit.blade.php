@@ -42,9 +42,10 @@
                       @endforeach
                     </div>
                   @endif
-                  <form method="POST" action="faqupdate">
-                    @csrf
-                    @method('PUT')
+                  <form method="post" action="{{url('faqupdate', [$xfaq[0]->id_FAQ])}}">
+                    {{method_field('PUT')}}
+                    {{csrf_field()}}
+                    
                     <div class="form-row"> <!-- Domanda e Risposta -->
                       <div class="col-md-6 px-0">
                         <div class="form-group ">

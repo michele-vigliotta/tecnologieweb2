@@ -64,7 +64,12 @@ Route::get('/profileedit', [UserController::class, 'profileedit'])->name('profil
 Route::post('update', [UserController::class, 'update']);
 
 
+Route::get('/faqadd', 'AnnuncioController@aggiungiAnnuncio')->name('aggAnnuncio');
+Route::post('addAnnuncio', [AnnuncioController::class, 'addAnnuncio']);
 
-Route::get('/faqedit/{id}', 'FAQController@faqedit')->name('faqedit');
 
-Route::put('/faqupdate/{id}', 'FAQController@faqupdate')->name('faqupdate');
+
+
+Route::get('/faqedit/{id}', 'FAQController@faqedit')->name('faqedit');//vista modifica faq
+
+Route::put('faqupdate/{id}', 'FAQController@faqupdate')->name('faqupdate');//rotta update faq
