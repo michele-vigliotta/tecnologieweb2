@@ -351,6 +351,22 @@ class AnnuncioController extends Controller
       $photo=DB::select($query2);
       return view('dettagli', ['annuncio'=>$annuncio, 'photo'=>$photo]);
     }
+    public function annuncioedit(Request $request){
+     $query="select * from annuncio where id_annuncio='".$request->id."'";
+     $xannuncio=DB::select($query);
+     return view('annuncioedit', ['xannuncio'=>$xannuncio]);
+    }
+    
+    public function annuncioupdate(Request $request)
+    {
+        DB::table('annuncio')->where('id_annuncio', $request->id)->update([
+        [
+            'descrizione'      => $request->input('nuova_descrizione'),
+        ]
+    ]);
+        return redirect()->route('annunci');
+      
+    }
 
 
 }

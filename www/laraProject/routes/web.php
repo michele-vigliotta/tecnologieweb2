@@ -57,32 +57,19 @@ Route::post('filterCatalog', [AnnuncioController::class, 'filterCatalog'])->name
 Route::get('/test2', function(){return View::make('pages.home');});
 
 Route::get('/annunci', 'HomeController@annunci')->name('annunci');
+Route::get('/annuncioedit/{id}', 'AnnuncioController@annuncioedit')->name('annuncioedit');//vista modifica faq
+Route::put('annuncioupdate/{id}', 'AnnuncioController@annuncioupdate')->name('annuncioupdate');
+
 Route::get('/stats', 'HomeController@stats')->name('stats');
 
-
 Route::get('/profileedit', [UserController::class, 'profileedit'])->name('profileedit')->middleware('auth');
-
 Route::post('update', [UserController::class, 'update']);
-
 
 Route::get('faqadd', 'FAQController@faqadd')->name('faqadd');
 Route::post('faqsave', [FAQController::class, 'faqsave']);
-
-
-
-
-
-
 Route::get('/faqedit/{id}', 'FAQController@faqedit')->name('faqedit');//vista modifica faq
-
 Route::put('faqupdate/{id}', 'FAQController@faqupdate')->name('faqupdate');//rotta update faq
-
 Route::get('faqdelete/{id}','FAQController@faqdelete')->name('faqdelete');
-
-
-
-
-//start inbox
 
 Route::get('/messaggi', 'HomeController@chat')->name('messaggi');
 Route::get('nuovomessaggio', 'MessaggioController@nuovomessaggio')->name('nuovomessaggio');
