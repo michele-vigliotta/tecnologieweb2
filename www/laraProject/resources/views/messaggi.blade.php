@@ -36,8 +36,10 @@
                 </div>
                 
                 
-                
-                
+                @foreach ($messaggi as   $msg)
+                    {{$msg->id_destinatario}}
+                    {{$msg->testo}}
+                @endforeach
                 
                 
                  
