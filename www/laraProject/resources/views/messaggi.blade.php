@@ -31,7 +31,16 @@
             <div class="heading_container psudo_white_primary mb_45">
                 <h2>My Inbox</h2>
                 
-                        {{ Auth::user()->received}}
+                <div class="quote_btn-container">     
+                    <a class="quote_btn" href="nuovomessaggio">Nuovo Messaggio</a>
+                </div>
+                
+                
+                
+                
+                
+                
+                 
             </div>
         </div>
     </section>

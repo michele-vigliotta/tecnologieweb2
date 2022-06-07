@@ -4,6 +4,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\AnnuncioController;
 use App\Http\Controllers\FAQController;
+use App\Http\Controllers\MessaggioController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -84,3 +85,5 @@ Route::get('faqdelete/{id}','FAQController@faqdelete')->name('faqdelete');
 //start inbox
 
 Route::get('/messaggi', 'HomeController@chat')->name('messaggi');
+Route::get('nuovomessaggio', 'MessaggioController@nuovomessaggio')->name('nuovomessaggio');
+Route::post('sendMessage', [MessaggioController::class, 'sendMessage']);
