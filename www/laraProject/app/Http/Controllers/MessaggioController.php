@@ -38,5 +38,13 @@ class MessaggioController extends Controller{
         
     }
     
+    public function aprichat(Request $request) {
+        $query1="select * from messaggio where id_mittente='".$request->id."'";
+        $messaggimittente=DB::select($query1);
+        
+       
+        return view('messaggi', ['messaggimittente'=>$messaggimittente,'username'=>$request->username]);
+        
+    }
     
 }

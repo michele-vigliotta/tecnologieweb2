@@ -65,11 +65,11 @@
         return view('stats');
     }
     public function chat(){
-        $query="select * from messaggio where id_destinatario='".Auth::user()->id."'";
-        $messaggi=DB::select($query);
+         $query1="select * from messaggio where id_destinatario='".Auth::user()->id."'";
+        $messaggi=DB::select($query1);
         
-        $query="select * from utente";
-        $utenti = DB::select($query);
+        $query2="select * from utente";
+        $utenti = DB::select($query2);
        
         return view('messaggi', ['messaggi'=>$messaggi,'utenti'=>$utenti]);
     }

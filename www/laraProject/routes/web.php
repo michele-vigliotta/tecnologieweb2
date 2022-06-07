@@ -73,6 +73,7 @@ Route::get('/faqedit/{id}', 'FAQController@faqedit')->name('faqedit');//vista mo
 Route::put('faqupdate/{id}', 'FAQController@faqupdate')->name('faqupdate');//rotta update faq
 Route::get('faqdelete/{id}','FAQController@faqdelete')->name('faqdelete');
 
-Route::get('/messaggi', 'HomeController@chat')->name('messaggi');
+Route::get('/chat', 'HomeController@chat')->name('chat');
 Route::get('nuovomessaggio', 'MessaggioController@nuovomessaggio')->name('nuovomessaggio');
 Route::post('sendMessage', [MessaggioController::class, 'sendMessage']);
+Route::get('/messaggi/{id}/{username}', 'MessaggioController@aprichat')->name('messaggi');
