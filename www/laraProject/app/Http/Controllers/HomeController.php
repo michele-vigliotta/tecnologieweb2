@@ -70,12 +70,18 @@
         
         $query2="select * from utente";
         $utenti = DB::select($query2);
+        
+        
+       //echo '<pre>'; print_r($output); echo '</pre>';
        
-        return view('messaggi', ['messaggi'=>$messaggi,'utenti'=>$utenti]);
-    }
+       
+       
+        return view('chat', ['messaggi'=>$messaggi,'utenti'=>$utenti]);
+    
+         }
 
 
 
   }
 
- ?>
+ 

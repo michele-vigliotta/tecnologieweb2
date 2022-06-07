@@ -29,7 +29,7 @@ class MessaggioController extends Controller{
         
     DB::insert('insert into messaggio (testo, id_mittente, id_destinatario, timestamp) values (?, ?, ?, ?)', [$testo, $id_mittente, $id_destinatario, $timestamp]);
     
-    return redirect()->route('messaggi');
+    return redirect()->route('chat');
      
     }
     
