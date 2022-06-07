@@ -377,7 +377,7 @@ class AnnuncioController extends Controller
           ];
 
         Storage::disk('public')->put('service.json', json_encode($service));
-        
+
         DB::table('annuncio')->where('id_annuncio', $request->id)->update([
             'descrizione' => $request->input('nuova_descrizione'),
             'numero_camere' => $request->input('nuovo_n_camere'),
@@ -391,10 +391,6 @@ class AnnuncioController extends Controller
             'servizi_offerti' =>Storage::disk('public')->get('service.json')
             ]);
         return redirect()->route('annunci');
-<<<<<<< HEAD
-
-=======
->>>>>>> 53d9de07445923f14eaf616fded812a250f73817
     }
 
 
