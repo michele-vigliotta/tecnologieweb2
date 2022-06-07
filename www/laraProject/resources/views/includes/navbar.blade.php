@@ -62,7 +62,7 @@
                 @else
                 <li class="nav-item">
                 @endif
-                    <a class="nav-link" href="">Chat</a>
+                    <a class="nav-link" href="{{'messaggi'}}">Chat</a>
                 </li>
                     @endif
                 

@@ -57,7 +57,7 @@ Route::get('/test2', function(){return View::make('pages.home');});
 
 Route::get('/annunci', 'HomeController@annunci')->name('annunci');
 Route::get('/stats', 'HomeController@stats')->name('stats');
-Route::get('/chat', 'HomeController@chat')->name('chat');
+
 
 Route::get('/profileedit', [UserController::class, 'profileedit'])->name('profileedit')->middleware('auth');
 
@@ -77,3 +77,10 @@ Route::get('/faqedit/{id}', 'FAQController@faqedit')->name('faqedit');//vista mo
 Route::put('faqupdate/{id}', 'FAQController@faqupdate')->name('faqupdate');//rotta update faq
 
 Route::get('faqdelete/{id}','FAQController@faqdelete')->name('faqdelete');
+
+
+
+
+//start inbox
+
+Route::get('/messaggi', 'HomeController@chat')->name('messaggi');

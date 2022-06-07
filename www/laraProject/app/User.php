@@ -46,8 +46,14 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = Hash::make($password);
     }
-
-    public function messaggio(){
-      return $this->hasMany('App\messaggio', 'id');
+    //a user can send a message
+    public function sent(){
+      return $this->hasMany(messaggio::class, 'id_mittente');
     }
+    //a user can receive a message
+    public function received(){
+      return $this->hasMany(messaggio::class, 'id_destinatario');
+    }
+    
+    
 }
