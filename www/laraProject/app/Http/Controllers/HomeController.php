@@ -70,8 +70,8 @@
         
         $query="select * from utente";
         $utenti = DB::select($query);
-        echo '<pre>'; print_r($messaggi); echo '</pre>';
-        view('messaggi', ['messaggi'=>$messaggi,'utenti'=>$utenti]);
+       
+        return view('messaggi', ['messaggi'=>$messaggi,'utenti'=>$utenti]);
     }
       
      

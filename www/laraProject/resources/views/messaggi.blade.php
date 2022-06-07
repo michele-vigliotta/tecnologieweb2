@@ -37,9 +37,18 @@
                 
                 
                 @foreach ($messaggi as   $msg)
-                    {{$msg->id_destinatario}}
-                    {{$msg->testo}}
+                    
+                
+                    @foreach($utenti as $utente)
+                        @if($msg->id_mittente==$utente->id)
+                        <h3>{{$utente->username}}</h3>
+                        @endif
+                    @endforeach
+                    
+                {{$msg->testo}}  
+                    
                 @endforeach
+                 
                 
                 
                  

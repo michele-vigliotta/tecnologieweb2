@@ -1,8 +1,57 @@
-@extends('layouts.default')
-@section('content')
-    
-@stop
+<!DOCTYPE html>
+<html>
 
-@section('carousel')
+<head>
+    @include('includes.head')
+</head>
+<body class="sub_page">
 
-@stop
+  <div class="hero_area2">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+          @include('includes/navbar')
+      </div>
+    </header>
+    <!-- end header section -->
+  </div
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    @include('contentSections/general/infoSection')
+
+
+  @include('includes/footer')
+  @include('includes.jsScript')
+
+
+</body>
+</html>
