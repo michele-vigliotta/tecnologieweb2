@@ -1,3 +1,4 @@
+<script src="{{ URL('js/filter.js') }}"></script>
 <div class="filter_section">
   <div class="container">
     <div class="row">

@@ -12,7 +12,5 @@
 </script>
 <!-- custom js -->
 <script src="{{ URL('js/custom.js') }}"></script>
-<script src="{{ URL('js/image.js')  }}"></script>
-<script src="{{ URL('js/filter.js') }}"></script>
 <script src="{{ URL('js/bootstrap-multiselect.min.js') }}"></script>
 <script src="{{ URL('js/bootstrap-multiselect.js') }}"></script>

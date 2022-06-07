@@ -67,8 +67,8 @@
     public function chat(){
         return view('messaggi');
     }
-      
-     
+
+
 
   }
 

@@ -84,8 +84,10 @@ class AnnuncioController extends Controller
 
       $id=DB::table('annuncio')->latest('created_at')->first();
 
-      $val=$request->mainImg->store('/'.$id->id_annuncio,['disk'=>'my_files']);
-      DB::table('annuncio')->where('id_annuncio',$id->id_annuncio)->update(['mainImg'=>$val]);
+      if(isset($request->mainImg)){
+        $val=$request->mainImg->store('/'.$id->id_annuncio,['disk'=>'my_files']);
+        DB::table('annuncio')->where('id_annuncio',$id->id_annuncio)->update(['mainImg'=>$val]);
+      }
       if(isset($request->images)){
         foreach ($request->file('images') as $file){
           $image= new foto;
@@ -356,7 +358,7 @@ class AnnuncioController extends Controller
      $xannuncio=DB::select($query);
      return view('annuncioedit', ['xannuncio'=>$xannuncio]);
     }
-    
+
     public function annuncioupdate(Request $request)
     {
         DB::table('annuncio')->where('id_annuncio', $request->id)->update([
@@ -365,7 +367,7 @@ class AnnuncioController extends Controller
         ]
     ]);
         return redirect()->route('annunci');
-      
+
     }
 
 
