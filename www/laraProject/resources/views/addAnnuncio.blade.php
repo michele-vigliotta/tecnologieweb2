@@ -112,8 +112,8 @@
                             <label>Genere locatario: </label>
                             <select name="genere" class="form-control">
                                 <option value="Non specificato">Non specificato</option>
-                                <option value="appartamento">Uomo</option>
-                                <option valie="camera">Donna</option>
+                                <option value="Uomo">Uomo</option>
+                                <option valie="Donna">Donna</option>
                               </select>
                         </div>
                       </div>
