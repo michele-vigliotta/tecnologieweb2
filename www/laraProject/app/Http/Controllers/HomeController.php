@@ -65,7 +65,7 @@
         return view('stats');
     }
     public function chat(){
-        return view('chat');
+        return view('messaggi');
     }
       
      

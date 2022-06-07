@@ -22,7 +22,7 @@
        );
 
        if(Auth::attempt($user_data, $remember=true)){
-         if(('Locatore'==(Auth::user()->tipo)||'Locatario'==(Auth::user()->tipo))){  
+         if(('Locatore'==(Auth::user()->tipo)||'locatario'==(Auth::user()->tipo))){  
             return redirect()->to('/homeutente');
          }
          elseif('admin'==(Auth::user()->tipo)){
