@@ -68,7 +68,8 @@ Route::get('faqadd', 'FAQController@faqadd')->name('faqadd');
 Route::post('faqsave', [FAQController::class, 'faqsave']);
 
 
-
+Route::get('/t1', function(){return View::make('pages.testchat');});
+Route::get('/test2', function(){return View::make('pages.home');});
 
 
 
