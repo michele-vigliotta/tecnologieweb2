@@ -29,15 +29,15 @@ class AnnuncioController extends Controller
 
       $service=[
         "Internet" => $request->Internet,
-        "Linea telefonica" => $request->Linea_telefonica,
-        "Animali domestici" => $request->Animali_domestici,
+        "Linea_telefonica" => $request->Linea_telefonica,
+        "Animali_domestici" => $request->Animali_domestici,
         "Televisione" => $request->Televisione,
-        "Aria condizionata" => $request->Aria_condizionata,
-        "Fumatori ammessi" => $request->Fumatori_ammessi,
+        "Aria_condizionata" => $request->Aria_condizionata,
+        "Fumatori_ammessi" => $request->Fumatori_ammessi,
         "Ascensore" => $request->Ascensore,
         "Lavatrice" => $request->Lavatrice,
         "Asciugatrice" => $request->Asciugatrice,
-        "Accesso disabili" => $request->Accesso_disabili,
+        "Accesso_disabili" => $request->Accesso_disabili,
       ];
 
       Storage::disk('public')->put('service.json', json_encode($service));
@@ -61,7 +61,7 @@ class AnnuncioController extends Controller
       if($request->tipo=="camera"){
         $annuncio->is_camera="1";
         $annuncio->posti_camera=$request->n_posti_camera;
-        if($request->filled('disponiblita_angolo_studio')){
+        if(!$request->filled('disponiblita_angolo_studio')){
           $annuncio->disponiblita_angolo_studio='no';
         }else{
           $annuncio->disponilita_angolo_studio=$request->disponiblita_angolo_studio;
@@ -353,19 +353,42 @@ class AnnuncioController extends Controller
     }
     public function annuncioedit(Request $request){
      $query="select * from annuncio where id_annuncio='".$request->id."'";
-     $xannuncio=DB::select($query);
-     return view('annuncioedit', ['xannuncio'=>$xannuncio]);
+     $annuncio=DB::select($query);
+     $lista_servizi=json_decode($annuncio[0]->servizi_offerti);
+     //echo '<pre>'; print_r($lista_servizi->Televisione); echo '</pre>';
+     return view('annuncioedit', ['annuncio'=>$annuncio, 'lista_servizi'=>$lista_servizi]);
     }
     
     public function annuncioupdate(Request $request)
     {
+        $service=[
+                "Internet" => $request->nuovo_Internet,
+                "Linea_telefonica" => $request->nuovo_Linea_telefonica,
+                "Animali_domestici" => $request->nuovo_Animali_domestici,
+                "Televisione" => $request->nuovo_Televisione,
+                "Aria_condizionata" => $request->nuovo_Aria_condizionata,
+                "Fumatori_ammessi" => $request->nuovo_Fumatori_ammessi,
+                "Ascensore" => $request->nuovo_Ascensore,
+                "Lavatrice" => $request->nuovo_Lavatrice,
+                "Asciugatrice" => $request->nuovo_Asciugatrice,
+                "Accesso_disabili" => $request->nuovo_Accesso_disabili,
+          ];
+
+        Storage::disk('public')->put('service.json', json_encode($service));
+        
         DB::table('annuncio')->where('id_annuncio', $request->id)->update([
-        [
-            'descrizione'      => $request->input('nuova_descrizione'),
-        ]
-    ]);
+            'descrizione' => $request->input('nuova_descrizione'),
+            'numero_camere' => $request->input('nuovo_n_camere'),
+            'posti_camera' => $request->input('nuovo_n_posti_camera'),
+            'posti_letto_totali' => $request->input('nuovo_n_posti_letto_totali'),
+            'genere_locatario' => $request->input('nuovo_genere'),
+            'dimensione' => $request->input('nuova_dimensione'),
+            'inizio_locazione' => $request->input('nuovo_inizio_locazione'),
+            'fine_locazione' => $request->input('nuovo_fine_locazione'),
+            'canone_affitto' => $request->input('nuovo_canone'),
+            'servizi_offerti' =>Storage::disk('public')->get('service.json')
+            ]);
         return redirect()->route('annunci');
-      
     }
 
 

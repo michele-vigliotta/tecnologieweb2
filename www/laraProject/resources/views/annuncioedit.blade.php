@@ -35,7 +35,7 @@
                       @endforeach
                     </div>
                   @endif
-                  <form method="post" action="{{url('annuncioupdate', [$xannuncio[0]->id_annuncio])}}">
+                  <form method="post" action="{{url('annuncioupdate', [$annuncio[0]->id_annuncio])}}">
                     {{method_field('PUT')}}
                     {{csrf_field()}}
                     
@@ -47,37 +47,37 @@
                         </div>
                       </div>
                     </center>
-                    
-                    <div class="form-row"> <!-- N. Camere, N. Posti letto totali, N. Posti letto singola camera-->
-                      <div class="col-md-6 px-0">
-                        <div class="form-group ">
-                          <label>Numero Camere</label>
-                          <input type="number" name="n_camere" id="nc" class="form-control" placeholder="1" min="1">
-                        </div>
-                      </div>
-                      <div class="col-md-6 px-0">
-                        <div class="form-group ">
-                          <label>Numero posti letto nella camera</label>
-                          <input type="number" id="plc" name="n_posti_camera" class="form-control" placeholder="1" min="1" disabled>
-                        </div>
-                      </div>
-                    </div>
-                    <center>
+                    <div class="form-row">
+                      @if ($annuncio[0]->is_camera == 0)
+                          <div class="col-md-6 px-0">
+                            <div class="form-group ">
+                              <label>Numero Camere</label>
+                              <input type="number" name="nuovo_n_camere" id="nc" class="form-control" value="{{ $annuncio[0]->numero_camere }}" min="1">
+                            </div>
+                          </div>
+                       @else
+                          <div class="col-md-6 px-0">
+                            <div class="form-group ">
+                              <label>Numero posti letto nella camera</label>
+                              <input type="number" id="plc" name="nuovo_n_posti_camera" class="form-control" value="{{ $annuncio[0]->posti_camera }}" min="1">
+                            </div>
+                          </div>
+                       @endif
                       <div class="col-md-6 px-0">
                         <div class="form-group ">
                           <label>Numero posti letto totali</label>
-                          <input type="number" name="n_posti_letto_totali" class="form-control" placeholder="1" min="1">
+                          <input type="number" name="nuovo_n_posti_letto_totali" class="form-control" value="{{ $annuncio[0]->posti_letto_totali }}" min="1">
                         </div>
                       </div>
-                    </center>
+                    </div>
                     <div class="form-row"> <!-- Genere locatario, Dimensione-->
                       <div class="col-md-6 px-0">
                         <div class="form-group">
                             <label>Genere locatario: </label>
-                            <select name="genere" class="form-control">
+                            <select name="nuovo_genere" class="form-control" value="{{ $annuncio[0]->genere_locatario }}">
                                 <option value="Non specificato">Non specificato</option>
-                                <option value="appartamento">Uomo</option>
-                                <option valie="camera">Donna</option>
+                                <option value="Uomo">Uomo</option>
+                                <option value="Donna">Donna</option>
                              </select>
                         </div>
                       </div>
@@ -85,7 +85,7 @@
                         <div class="form-group ">
                           <div class="input-group">
                             <label>Dimensione</label>
-                            <input type="number" name="dimensione" class="form-control" min="1">
+                            <input type="number" name="nuova_dimensione" class="form-control" min="1" value="{{$annuncio[0]->dimensione}}">
                             <div class="input-group-append">
                               <span class="input-group-text">m<sup>2</sup></span>
                             </div>
@@ -104,84 +104,132 @@
                         <div class="col-md-6 px-0">
                           <div class="form-group ">
                             <div class="form-control3">
-                              <input type="checkbox" name="cucina" class="checkbox-control" value="1"/> Cucina
+                              @if($annuncio[0]->cucina == 1)
+                                <input type="checkbox" name="nuovo_cucina" class="checkbox-control" checked value="1"/> Cucina
+                              @else
+                                <input type="checkbox" name="nuovo_cucina" class="checkbox-control" value="1"/> Cucina
+                              @endif
                             </div>
                           </div>
                         </div>
                         <div class="col-md-6 px-0">
                           <div class="form-group ">
                             <div class="form-control3">
-                              <input type="checkbox" name="locale_ricreativo" class="checkbox-control" value="1"/> Locale Ricreativo
+                                @if($annuncio[0]->locale_ricreativo == 1)
+                                  <input type="checkbox" name="nuovo_locale_ricreativo" class="checkbox-control" checked value="1"/> Locale Ricreativo
+                                @else
+                                  <input type="checkbox" name="nuovo_locale_ricreativo" class="checkbox-control" value="1"/> Locale Ricreativo
+                                @endif
                             </div>
                           </div>
                         </div>
                         <div class="col-md-6 px-0">
                           <div class="form-group ">
                             <div class="form-control3">
-                              <input type="checkbox" name="Internet" class="checkbox-control" value="si"/> Internet
+                              @if($lista_servizi->Internet == 'si')
+                                <input type="checkbox" name="nuovo_Internet" class="checkbox-control" checked value="si"/> Internet
+                              @else
+                                <input type="checkbox" name="nuovo_Internet" class="checkbox-control" value="si"/> Internet
+                              @endif
                             </div>
                           </div>
                         </div>
                         <div class="col-md-6 px-0">
                           <div class="form-group ">
                             <div class="form-control3">
-                              <input type="checkbox" name="Linea_telefonica" class="checkbox-control" value="si"/> Linea telefonica
+                                @if($lista_servizi->Linea_telefonica == 'si')
+                                  <input type="checkbox" name="nuovo_Linea_telefonica" class="checkbox-control" checked value="si"/> Linea telefonica
+                                @else
+                                  <input type="checkbox" name="nuovo_Linea_telefonica" class="checkbox-control" value="si"/> Linea telefonica                              
+                                @endif
                             </div>
                           </div>
                         </div>
                         <div class="col-md-6 px-0">
                           <div class="form-group ">
                             <div class="form-control3">
-                              <input type="checkbox" name="Animali_domestici" class="checkbox-control" value="si"/> Animali domestici
+                                @if($lista_servizi->Animali_domestici == 'si')
+                                  <input type="checkbox" name="nuovo_Animali_domestici" class="checkbox-control" checked value="si"/> Animali domestici
+                                @else
+                                  <input type="checkbox" name="nuovo_Animali_domestici" class="checkbox-control" value="si"/> Animali domestici
+                                @endif
                             </div>
                           </div>
                         </div>
                         <div class="col-md-6 px-0">
                           <div class="form-group ">
                             <div class="form-control3">
-                              <input type="checkbox" name="Televisione" class="checkbox-control" value="si"/> Televisione
+                                @if($lista_servizi->Televisione == 'si')
+                                  <input type="checkbox" name="nuovo_Televisione" class="checkbox-control" checked value="si"/> Televisione
+                                @else
+                                  <input type="checkbox" name="nuovo_Televisione" class="checkbox-control" value="si"/> Televisione
+                                @endif
                             </div>
                           </div>
                         </div>
                         <div class="col-md-6 px-0">
                           <div class="form-group ">
                             <div class="form-control3">
-                              <input type="checkbox" name="Aria_condizionata" class="checkbox-control" value="si"/> Aria condizionata
+                                @if($lista_servizi->Aria_condizionata == 'si')
+                                  <input type="checkbox" name="nuovo_Aria_condizionata" class="checkbox-control" checked value="si"/> Aria condizionata
+                                @else
+                                  <input type="checkbox" name="nuovo_Aria_condizionata" class="checkbox-control" value="si"/> Aria condizionata
+                                @endif
                             </div>
                           </div>
                         </div>
                         <div class="col-md-6 px-0">
                           <div class="form-group ">
                             <div class="form-control3">
-                              <input type="checkbox" name="Fumatori_ammessi" class="checkbox-control" value="si"/> Fumatori ammessi
+                                @if($lista_servizi->Fumatori_ammessi == 'si')
+                                  <input type="checkbox" name="nuovo_Fumatori_ammessi" class="checkbox-control" checked value="si"/> Fumatori ammessi
+                                @else
+                                  <input type="checkbox" name="nuovo_Fumatori_ammessi" class="checkbox-control" value="si"/> Fumatori ammessi
+                                @endif
                             </div>
                           </div>
                         </div>
                         <div class="col-md-6 px-0">
                           <div class="form-group ">
                             <div class="form-control3">
-                              <input type="checkbox" name="Ascensore" class="checkbox-control" value="si"/> Ascensore
+                                @if($lista_servizi->Ascensore == 'si')
+                                  <input type="checkbox" name="nuovo_Ascensore" class="checkbox-control" checked value="si"/> Ascensore
+                                @else
+                                  <input type="checkbox" name="nuovo_Ascensore" class="checkbox-control" value="si"/> Ascensore
+                                @endif
                             </div>
                           </div>
                         </div>
                         <div class="col-md-6 px-0">
                           <div class="form-group ">
                             <div class="form-control3">
-                              <input type="checkbox" name="Lavatrice" class="checkbox-control" value="si"/> Lavatrice
+                                @if($lista_servizi->Lavatrice == 'si')
+                                  <input type="checkbox" name="nuovo_Lavatrice" class="checkbox-control" checked value="si"/> Lavatrice
+                                @else
+                                  <input type="checkbox" name="nuovo_Lavatrice" class="checkbox-control" value="si"/> Lavatrice
+                                @endif
                             </div>
                           </div>
                         </div>
                         <div class="col-md-6 px-0">
                           <div class="form-group ">
                             <div class="form-control3">
-                              <input type="checkbox" name="Asciugatrice" class="checkbox-control" value="si"/> Asciugatrice
+                                @if($lista_servizi->Asciugatrice == 'si')
+                                  <input type="checkbox" name="nuovo_Asciugatrice" class="checkbox-control" checked value="si"/> Asciugatrice
+                                @else
+                                  <input type="checkbox" name="nuovo_Asciugatrice" class="checkbox-control" value="si"/> Asciugatrice
+                                @endif
                             </div>
                           </div>
                         </div>
                         <div class="col-md-6 px-0">
                           <div class="form-group ">
                             <div class="form-control3">
-                              <input type="checkbox" name="Accesso_disabili" class="checkbox-control" value="si"/> Accesso disabili
+                                @if($lista_servizi->Accesso_disabili == 'si')
+                                  <input type="checkbox" name="nuovo_Accesso_disabili" class="checkbox-control" checked value="si"/> Accesso disabili
+                                @else
+                                  <input type="checkbox" name="nuovo_Accesso_disabili" class="checkbox-control" value="si"/> Accesso disabili
+                                @endif
                             </div>
                           </div>
                         </div>
@@ -189,7 +237,11 @@
                       <div class="col-md-6 px-0">
                         <div class="form-group ">
                           <div class="form-control3">
-                            <input type="checkbox" name="angolo_studio" id="as" class="checkbox-control" value="si" disabled/> Angolo studio
+                              @if($annuncio[0]->disponilita_angolo_studio != null)
+                                <input type="checkbox" name="nuovo_angolo_studio" id="as" class="checkbox-control" checked value="si" disabled/> Angolo studio
+                              @else
+                                <input type="checkbox" name="nuovo_angolo_studio" id="as" class="checkbox-control" value="si" disabled/> Angolo studio
+                              @endif
                           </div>
                         </div>
                       </div>
@@ -198,13 +250,13 @@
                       <div class="col-md-6 px-0">
                         <div class="form-group ">
                           <label>Inizio locazione</label>
-                          <input type="date" name="inizio_locazione" class="form-control" />
+                          <input type="date" name="nuovo_inizio_locazione" value="{{ $annuncio[0]->inizio_locazione }}" class="form-control" />
                         </div>
                       </div>
                       <div class="col-md-6 px-0">
                         <div class="form-group ">
                             <label>Fine locazione</label>
-                            <input type="date" name="fine_locazione" class="form-control" />
+                            <input type="date" name="nuovo_fine_locazione" value="{{ $annuncio[0]->fine_locazione }}"class="form-control" />
                         </div>
                       </div>
                     </div>
@@ -213,7 +265,7 @@
                         <div class="form-group ">
                           <div class="input-group">
                             <label>Canone d'affitto: </label>
-                            <input type="number" name="canone" class="form-control" min="0">
+                            <input type="number" name="nuovo_canone" class="form-control" value="{{ $annuncio[0]->canone_affitto }}" min="0">
                             <div class="input-group-append">
                               <span class="input-group-text">€</span>
                             </div>

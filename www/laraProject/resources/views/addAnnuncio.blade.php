@@ -44,7 +44,7 @@
                             <label>Cosa vuoi mettere in affitto?</label>
                             <select name="tipo" id="type" class="form-control" required>
                               <option value="appartamento" selected>Appartamento</option>
-                              <option valie="camera">Camera</option>
+                              <option value="camera">Camera</option>
                             </select>
                           </div>
                         </div>
@@ -112,8 +112,8 @@
                             <label>Genere locatario: </label>
                             <select name="genere" class="form-control">
                                 <option value="Non specificato">Non specificato</option>
-                                <option value="appartamento">Uomo</option>
-                                <option valie="camera">Donna</option>
+                                <option value="Uomo">Uomo</option>
+                                <option value="Camera">Donna</option>
                               </select>
                         </div>
                       </div>
