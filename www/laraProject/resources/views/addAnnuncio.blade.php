@@ -113,7 +113,11 @@
                             <select name="genere" class="form-control">
                                 <option value="Non specificato">Non specificato</option>
                                 <option value="Uomo">Uomo</option>
+<<<<<<< HEAD
                                 <option valie="Donna">Donna</option>
+=======
+                                <option value="Camera">Donna</option>
+>>>>>>> 53d9de07445923f14eaf616fded812a250f73817
                               </select>
                         </div>
                       </div>

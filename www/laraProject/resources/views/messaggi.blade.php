@@ -36,8 +36,19 @@
                 </div>
                 
                 
+                @foreach ($messaggi as   $msg)
+                    
                 
-                
+                    @foreach($utenti as $utente)
+                        @if($msg->id_mittente==$utente->id)
+                        <h3>{{$utente->username}}</h3>
+                        @endif
+                    @endforeach
+                    
+                {{$msg->testo}}  
+                    
+                @endforeach
+                 
                 
                 
                  
