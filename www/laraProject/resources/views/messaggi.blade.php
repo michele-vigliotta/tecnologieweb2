@@ -26,60 +26,102 @@
             <div class="tab-content text-center">
               <div class="tab-pane active" id="rent">
                 <div class="Rent_form find_form">
-                  @if(isset(Auth::user()->username))
-                    <div>
-                      <div class="content">
-                          <div class="individual__section" >
+                  
+                    
+                        <div class="content">
+                            <div class="individual__section" >
                             <center>
-                              <div class="d-none d-md-block col-md-9">
+                                <h3 class="h2 mr-auto">{{$username}} </h3> <br>
+                                
+                                <div class="Rent_form find_form">
+                                    
+                                        <br>
+                                        @foreach ($messaggi as $messaggio)
+                                            @if($messaggio->id_mittente==Auth::user()->id)
+                                                <p style="text-align: right;">
+                                                {{$messaggio->testo}} <br>
+                                                {{$messaggio->timestamp}} </p>
+                                            @else
+                                                <p style="text-align: left;">
+                                                {{$messaggio->testo}} <br>
+                                                {{$messaggio->timestamp}} </p>
+                                            @endif
+                                        @endforeach
+                                </div>
+                            </center>
+                            </div>
+                            
+                            <div class="Rent_form find_form">
+                    
+                  
+                  <form method="post" action="reply">
+                    {{method_field('PUT')}}
+                    {{csrf_field()}}
+                    
+                    <div class="form-row"> <!-- Messaggio -->
+                      <div class="col-md-6 px-0">
+                        <div class="form-group ">
+                          <div class="input-group ">
+                            
+                              
+                              <input type="text"  name="messaggio" placeholder="Invia un messaggio" class="form-control "   required value=""> </input>
+                          </div>
+                        </div>
+                      </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h3 class="h2 mr-auto">{{$username}} </h3>
-    <br>
-    @foreach ($messaggi as $messaggio)
-        @if($messaggio->id_mittente==Auth::user()->id)
-            <p style="text-align: right;">
-            {{$messaggio->testo}} <br>
-            {{$messaggio->timestamp}} </p>
-        @else
-            <p style="text-align: left;">
-            {{$messaggio->testo}} <br>
-            {{$messaggio->timestamp}} </p>
-        @endif
-      @endforeach
-
-
-     </div>
-                  </center>
-                  @else
-                    <script>window.location = "/index";</script>
-                  @endif
+                    </div>
+                    
+                    
+                    <div class="btn-box">
+                      <button type="submit">
+                        <span>
+                          INVIA
+                        </span>
+                      </button>
+                   
+                        
+                    </div>
+                  </form>
                 </div>
-              </div>
-            </div>
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                        </div>
+                </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+                                
+                                                      
+
+                                                     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+            
 
 
 

@@ -77,4 +77,6 @@ Route::get('/chat', 'HomeController@chat')->name('chat');
 Route::get('nuovomessaggio', 'MessaggioController@nuovomessaggio')->name('nuovomessaggio');
 Route::post('sendMessage', [MessaggioController::class, 'sendMessage']);
 Route::get('/messaggi/{id}/{username}', 'MessaggioController@aprichat')->name('messaggi');
-Route::post('reply', [MessaggioController::class, 'reply']);
+Route::put('reply', 'MessaggioController@reply')->name('reply');
+
+//Route::post('/reply', [MessaggioController::class, 'reply']);
