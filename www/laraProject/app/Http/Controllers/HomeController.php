@@ -66,18 +66,18 @@ class HomeController extends Controller{
   }
   public function chat(){
     $query1="  select * from messaggio join (
-                select dest, max(timestamp) m from (
+                select dest, max(id_messaggio) m from (
                   (
-                    select id_messaggio, id_destinatario dest, timestamp from messaggio
+                    select id_messaggio, id_destinatario dest from messaggio
                     where id_mittente='".Auth::user()->id."')
                   union (
-                    select id_messaggio, id_mittente dest, timestamp
+                    select id_messaggio, id_mittente dest
                     from messaggio where id_destinatario='".Auth::user()->id."')
                 )
                m1 group by dest)
                m2 on ((id_mittente='".Auth::user()->id."' and id_destinatario=dest)
                or (id_mittente=dest and id_destinatario='".Auth::user()->id."'))
-               and (timestamp = m) order by timestamp desc";
+               and (id_messaggio = m) order by id_messaggio desc";
           $messaggi=DB::select($query1);
 
           $query2="select * from utente";

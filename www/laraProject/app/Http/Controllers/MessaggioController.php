@@ -40,18 +40,20 @@ class MessaggioController extends Controller{
 
     public function aprichat(Request $request) {
 
-        if($request->controllo=="si"){
+        $query1="select * from messaggio where (id_mittente='".Auth::user()->id."' and id_destinatario='".$request->id."')
+                 or (id_mittente='".$request->id."' and id_destinatario='".Auth::user()->id."') order by id_messaggio";
+      /*  if($request->controllo=="si"){
           $query1="select * from messaggio where id_mittente='".$request->id."' and id_destinatario='".Auth::user()->id."' order by timestamp";
           $query2="select * from messaggio where id_mittente='".Auth::user()->id."' and id_destinatario='".$request->id."' order by timestamp";
         }else{
           $query1="select * from messaggio where id_mittente='".Auth::user()->id."' and id_destinatario='".$request->id."' order by timestamp";
           $query2="select * from messaggio where id_mittente='".$request->id."' and id_destinatario='".Auth::user()->id."' order by timestamp";
-        }
+        }*/
 
-        $messaggimittente=DB::select($query1);
-        $messaggidestinatario=DB::select($query2);
+        $messaggi=DB::select($query1);
+        //$messaggidestinatario=DB::select($query2);
 
-        return view('messaggi', ['messaggimittente'=>$messaggimittente,'messaggidestinatario'=>$messaggidestinatario,'username'=>$request->username]);
+        return view('messaggi', ['messaggi'=>$messaggi, 'username'=>$request->username]);
 
     }
 

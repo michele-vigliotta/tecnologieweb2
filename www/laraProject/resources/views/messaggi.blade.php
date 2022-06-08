@@ -54,31 +54,17 @@
 
     <h3 class="h2 mr-auto">{{$username}} </h3>
     <br>
-    @if(count($messaggimittente)>count($messaggidestinatario))
-      @for($i=0; $i<count($messaggimittente); $i++)
-          <p style="text-align: left;">
-          {{$messaggimittente[$i]->testo}} <br>
-          {{$messaggimittente[$i]->timestamp}} </p>
-
-
-          @if(array_key_exists($i,$messaggidestinatario))
+    @foreach ($messaggi as $messaggio)
+        @if($messaggio->id_mittente==Auth::user()->id)
             <p style="text-align: right;">
-              {{$messaggidestinatario[$i]->testo}} <br>
-              {{$messaggidestinatario[$i]->timestamp}} </p>
-          @endif
-      @endfor
-    @else
-      @for($i=0; $i<count($messaggidestinatario); $i++)
-        @if(array_key_exists($i,$messaggimittente))
-          <p style="text-align: left;">
-          {{$messaggimittente[$i]->testo}} <br>
-          {{$messaggimittente[$i]->timestamp}} </p>
+            {{$messaggio->testo}} <br>
+            {{$messaggio->timestamp}} </p>
+        @else
+            <p style="text-align: left;">
+            {{$messaggio->testo}} <br>
+            {{$messaggio->timestamp}} </p>
         @endif
-            <p style="text-align: right;">
-              {{$messaggidestinatario[$i]->testo}} <br>
-              {{$messaggidestinatario[$i]->timestamp}} </p>
-      @endfor
-    @endif
+      @endforeach
 
 
      </div>
