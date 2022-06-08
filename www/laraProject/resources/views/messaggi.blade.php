@@ -3,9 +3,9 @@
 
 <head>
     @include('includes.head')
-    
-    
-    
+
+
+
 </head>
 <body class="sub_page">
 
@@ -32,18 +32,18 @@
                           <div class="individual__section" >
                             <center>
                               <div class="d-none d-md-block col-md-9">
-    
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -54,24 +54,33 @@
 
     <h3 class="h2 mr-auto">{{$username}} </h3>
     <br>
-    @foreach ($messaggimittente as $msgmit)
-        @foreach ($messaggidestinatario as $msgdes)
-        
-        <p style="text-align: left;">
-        {{$msgmit->testo}} <br>
-        {{$msgmit->timestamp}} </p>
-        
-        <p style="text-align: right;">  
-            
-            {{$msgdes->testo}} <br>
-            {{$msgdes->timestamp}} </p>
-        
-        
-        
-        @endforeach
-    @endforeach
-    
-    
+    @if(count($messaggimittente)>count($messaggidestinatario))
+      @for($i=0; $i<count($messaggimittente); $i++)
+          <p style="text-align: left;">
+          {{$messaggimittente[$i]->testo}} <br>
+          {{$messaggimittente[$i]->timestamp}} </p>
+
+
+          @if(array_key_exists($i,$messaggidestinatario))
+            <p style="text-align: right;">
+              {{$messaggidestinatario[$i]->testo}} <br>
+              {{$messaggidestinatario[$i]->timestamp}} </p>
+          @endif
+      @endfor
+    @else
+      @for($i=0; $i<count($messaggidestinatario); $i++)
+        @if(array_key_exists($i,$messaggimittente))
+          <p style="text-align: left;">
+          {{$messaggimittente[$i]->testo}} <br>
+          {{$messaggimittente[$i]->timestamp}} </p>
+        @endif
+            <p style="text-align: right;">
+              {{$messaggidestinatario[$i]->testo}} <br>
+              {{$messaggidestinatario[$i]->timestamp}} </p>
+      @endfor
+    @endif
+
+
      </div>
                   </center>
                   @else
@@ -85,13 +94,13 @@
       </div>
     </div>
   </section>
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
  @include('contentSections/general/infoSection')
 
 

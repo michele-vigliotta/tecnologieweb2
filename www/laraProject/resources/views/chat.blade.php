@@ -29,8 +29,11 @@
           @foreach ($messaggi as $msg)
             @foreach($utenti as $utente)
               @if($utente->id!=Auth::user()->id)
-                @if($msg->id_mittente==$utente->id||$msg->id_destinatario==$utente->id)
-                  <a href="{{route('messaggi',['id'=>$msg->id_mittente,'username'=>$utente->username])}}">
+                @if($msg->id_mittente==$utente->id)
+                  <a href="{{route('messaggi',['id'=>$utente->id, 'username'=>$utente->, 'controllo'=>si])}}">
+                  <br><h3>{{$utente->username}}</h3>
+                @elseif($msg->id_destinatario==$utente->id)
+                  <a href="{{route('messaggi',['id'=>$utente->id, 'username'=>$utente->username, 'controllo'=>no])}}">
                   <br><h3>{{$utente->username}}</h3>
                   @break
                 @endif
