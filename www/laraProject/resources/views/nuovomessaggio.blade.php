@@ -37,17 +37,17 @@
                   @endif
                   <form method="POST" action="sendMessage" >
                     {{ csrf_field() }}
-                   
-                    
-                    
-                    
+
+
+
+
                     <div class="form-row"> <!-- Destinatario-->
                       <div class="col-md-6 px-0">
                         <div class="form-group ">
-                              <input type="text" name="destinatario" placeholder="Destinatario" class="form-control">
+                          <input type="text" name="destinatario" placeholder="Destinatario" class="form-control">
                         </div>
                       </div>
-                        
+
                     <center> <!-- Messaggio -->
                       <div class="col-md-6sd px-0">
                         <div class="form-group ">
@@ -56,8 +56,8 @@
                         </div>
                       </div>
                     </center>
-                    
-                     
+
+
                     <div class="btn-box">
                       <button type="submit">
                         <span>

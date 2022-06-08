@@ -28,7 +28,6 @@ class HomeController extends Controller{
     return view('catalogo');
   }
 
-
   public function faq(){
     $faq=DB::select('select * from faq');
     return view('faq', ['faq'=>$faq]);
@@ -49,6 +48,7 @@ class HomeController extends Controller{
   public function profile(){
     return view('profile');
   }
+  
   public function profileupdate(){
     return view('profileupdate');
   }
@@ -56,14 +56,17 @@ class HomeController extends Controller{
   public function provanavbar(){
     return view('provanavbar');
   }
+
   public function annunci(){
     $query="select * from annuncio where id_locatore='".Auth::user()->id."'";
     $annunci=DB::select($query);
     return view('annunci', ['annunci'=>$annunci]);
   }
+
   public function stats(){
     return view('stats');
   }
+
   public function chat(){
     $query1="  select * from messaggio join (
                 select dest, max(id_messaggio) m from (

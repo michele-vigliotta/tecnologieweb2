@@ -39,7 +39,11 @@ class MessaggioController extends Controller{
     }
 
     public function aprichat(Request $request) {
-
+        if($request->username=='locatore'){
+          $query2="select username from utente where id='".$request->id."'";
+          $temp=DB::select($query2);
+          $request->username=$temp[0]->username;
+        }
         $query1="select * from messaggio where (id_mittente='".Auth::user()->id."' and id_destinatario='".$request->id."')
                  or (id_mittente='".$request->id."' and id_destinatario='".Auth::user()->id."') order by id_messaggio";
 
@@ -60,6 +64,6 @@ class MessaggioController extends Controller{
 
         DB::insert('insert into messaggio (testo, id_mittente, id_destinatario, timestamp) values (?, ?, ?, ?)', [$testo, $id_mittente, $id_destinatario, $timestamp]);
 
-        return redirect()->route('chat');
+        return redirect()->back();
     }
 }

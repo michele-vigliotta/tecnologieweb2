@@ -200,7 +200,7 @@
                     <div class="contatta">
                       <div class="detail-box">
                         <div class="btn-box">
-                          <a href="{{ route('chat',['id_locatore'=>$annuncio[0]->id_locatore, 'id_locatario'=>Auth::user()->id]) }}">
+                          <a href="{{route('messaggi',['id'=>$annuncio[0]->id_locatore, 'username'=>'locatore'])}}">
                             <h4>Contatta il locatore</h4>
                           </a>
                         </div>
