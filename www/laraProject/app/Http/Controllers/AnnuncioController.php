@@ -62,7 +62,7 @@ class AnnuncioController extends Controller
         $annuncio->is_camera="1";
         $annuncio->posti_camera=$request->n_posti_camera;
         if(!$request->filled('disponiblita_angolo_studio')){
-          $annuncio->disponiblita_angolo_studio='no';
+          $annuncio->disponilita_angolo_studio='no';
         }else{
           $annuncio->disponilita_angolo_studio=$request->disponiblita_angolo_studio;
         }
@@ -84,8 +84,10 @@ class AnnuncioController extends Controller
 
       $id=DB::table('annuncio')->latest('created_at')->first();
 
-      $val=$request->mainImg->store('/'.$id->id_annuncio,['disk'=>'my_files']);
-      DB::table('annuncio')->where('id_annuncio',$id->id_annuncio)->update(['mainImg'=>$val]);
+      if(isset($request->mainImg)){
+        $val=$request->mainImg->store('/'.$id->id_annuncio,['disk'=>'my_files']);
+        DB::table('annuncio')->where('id_annuncio',$id->id_annuncio)->update(['mainImg'=>$val]);
+      }
       if(isset($request->images)){
         foreach ($request->file('images') as $file){
           $image= new foto;
@@ -358,7 +360,7 @@ class AnnuncioController extends Controller
      //echo '<pre>'; print_r($lista_servizi->Televisione); echo '</pre>';
      return view('annuncioedit', ['annuncio'=>$annuncio, 'lista_servizi'=>$lista_servizi]);
     }
-    
+
     public function annuncioupdate(Request $request)
     {
         $service=[
@@ -375,7 +377,7 @@ class AnnuncioController extends Controller
           ];
 
         Storage::disk('public')->put('service.json', json_encode($service));
-        
+
         DB::table('annuncio')->where('id_annuncio', $request->id)->update([
             'descrizione' => $request->input('nuova_descrizione'),
             'numero_camere' => $request->input('nuovo_n_camere'),

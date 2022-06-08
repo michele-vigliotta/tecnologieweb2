@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <script src="{{ URL('js/image.js')  }}"></script>
     @include('includes.head')
 </head>
 

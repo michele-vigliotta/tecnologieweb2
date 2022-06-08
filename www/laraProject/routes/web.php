@@ -55,11 +55,12 @@ Route::get('/dettagli/{id}', 'AnnuncioController@dettagli')->name('dettagli');
 Route::post('filterCatalog', [AnnuncioController::class, 'filterCatalog'])->name('filterCatalog');
 
 Route::get('/test2', function(){return View::make('pages.home');});
+Route::get('/t1', function(){return View::make('pages.testchat');});
+
 
 Route::get('/annunci', 'HomeController@annunci')->name('annunci');
 Route::get('/annuncioedit/{id}', 'AnnuncioController@annuncioedit')->name('annuncioedit');//vista modifica faq
 Route::put('annuncioupdate/{id}', 'AnnuncioController@annuncioupdate')->name('annuncioupdate');
-Route::get('annunciodelete/{id}','AnnuncioController@annunciodelete')->name('annunciodelete');
 
 Route::get('/stats', 'HomeController@stats')->name('stats');
 
@@ -72,6 +73,8 @@ Route::get('/faqedit/{id}', 'FAQController@faqedit')->name('faqedit');//vista mo
 Route::put('faqupdate/{id}', 'FAQController@faqupdate')->name('faqupdate');//rotta update faq
 Route::get('faqdelete/{id}','FAQController@faqdelete')->name('faqdelete');
 
-Route::get('/messaggi', 'HomeController@chat')->name('messaggi');
+Route::get('/chat', 'HomeController@chat')->name('chat');
 Route::get('nuovomessaggio', 'MessaggioController@nuovomessaggio')->name('nuovomessaggio');
 Route::post('sendMessage', [MessaggioController::class, 'sendMessage']);
+Route::get('/messaggi/{id}/{username}', 'MessaggioController@aprichat')->name('messaggi');
+Route::post('reply', [MessaggioController::class, 'reply']);

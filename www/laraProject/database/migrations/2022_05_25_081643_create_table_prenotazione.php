@@ -16,6 +16,7 @@ class CreateTablePrenotazione extends Migration
         Schema::create('prenotazione', function (Blueprint $table) {
             $table->increments('id_prenotazione');
             $table->integer('id_locatore')->unsigned();
+            $table->boolean('is_offerta')->default('1');
             $table->date('data_prenotazione');
             $table->timestamps();
         });

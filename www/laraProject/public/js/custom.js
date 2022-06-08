@@ -1,27 +1,3 @@
-/*function getDate(){
-  var today = new Date();
-  var tomorrow = new Date(today);
-
-  var dd = String(today.getDate()).padStart(2, '0');
-  var mm = String(today.getMonth() + 1).padStart(2, '0');
-  var yyyy = today.getFullYear();
-
-  today = yyyy + '-' + mm + '-' + dd;
-  document.getElementById('data').value = today;
-  document.getElementById('data').min = today;
-
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  var dd = String(tomorrow.getDate()).padStart(2, '0');
-  var mm = String(tomorrow.getMonth() + 1).padStart(2, '0');
-  var yyyy = tomorrow.getFullYear();
-
-  tomorrow = yyyy + '-' + mm + '-' + dd;
-  document.getElementById('endDate').value = tomorrow;
-  document.getElementById('endDate').min = tomorrow;
-}
-
-getDate();*/
-
 // to get current year
 function getYear() {
     var currentDate = new Date();
