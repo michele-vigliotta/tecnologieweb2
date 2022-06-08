@@ -4,7 +4,7 @@
 <head>
     @include('includes.head')
 
-
+<link rel="stylesheet" type="text/css" href="{{ URL('css/chatstyle.css') }}"">
 
 </head>
 <body class="sub_page">
@@ -25,73 +25,48 @@
           <div class="form_tab_container">
             <div class="tab-content text-center">
               <div class="tab-pane active" id="rent">
-                <div class="Rent_form find_form">
+                
+                    
+                    
+                    
+                  
+                    <div class="containerchat">
+                        <div class="headerchat">
+                            <h1>{{$username}} </h1>
+                        </div>
+                        <div class="bodychat">
 
-
-                        <div class="content">
-                            <div class="individual__section" >
-                            <center>
-                                <h3 class="h2 mr-auto">{{$username}} </h3> <br>
-
-                                <div class="Rent_form find_form">
-
-                                        <br>
-                                        @foreach ($messaggi as $messaggio)
+                                @foreach ($messaggi as $messaggio)
                                             @if($messaggio->id_mittente==Auth::user()->id)
-                                                <p style="text-align: right;">
+                                                <p class="message user_message">
                                                 {{$messaggio->testo}} <br>
                                                 {{$messaggio->timestamp}} </p>
                                             @else
-                                                <p style="text-align: left;">
+                                                <p class="message">
                                                 {{$messaggio->testo}} <br>
                                                 {{$messaggio->timestamp}} </p>
                                             @endif
                                         @endforeach
-                                </div>
-                            </center>
-                            </div>
-
-                            <div class="Rent_form find_form">
-
-
-                  <form method="post" action="{{url('reply', [$username])}}">
-                    {{method_field('PUT')}}
-                    {{csrf_field()}}
-
-                    <div class="form-row"> <!-- Messaggio -->
-                      <div class="col-md-6 px-0">
-                        <div class="form-group ">
-                          <div class="input-group ">
-
-
-                              <input type="text"  name="messaggio" placeholder="Invia un messaggio" class="form-control "   required value=""> </input>
-                          </div>
                         </div>
-                      </div>
-
+                        
+                        <div class="footerchat">
+                            <form method="post" action="{{url('reply', [$username])}}">
+                            {{method_field('PUT')}}
+                            {{csrf_field()}}
+                            <input type="text" name="messaggio" required> </input>
+			<button>INVIA</button>
+                            </form>	
+                        </div>    
                     </div>
+                    
 
 
-                    <div class="btn-box">
-                      <button type="submit">
-                        <span>
-                          INVIA
-                        </span>
-                      </button>
 
 
-                    </div>
-                  </form>
+
+                
                 </div>
-
-
-
-
-
-
-
-                        </div>
-                </div>
+            </div>
           </div>
         </div>
       </div>
