@@ -24,8 +24,8 @@ class FAQController extends Controller{
     public function faqsave(Request $request) 
     {
         $rules = [
-			'domanda' => 'required|string|min:10|max:255',
-			'risposta' => 'required|string|min:10|max:255',
+			'domanda' => 'required',
+			'risposta' => 'required',
 		];
 		$validator = Validator::make($request->all(),$rules);
 		if ($validator->fails()) {
@@ -47,7 +47,6 @@ class FAQController extends Controller{
   //ritorna vista per la modifica  
  public function faqedit(Request $request){
      $query="select * from faq where id_FAQ='".$request->id."'";
-     
      $xfaq=DB::select($query);
      
      
@@ -60,8 +59,8 @@ class FAQController extends Controller{
 public function faqupdate(Request $request)
 {
     $rules = [
-			'nuova_domanda' => 'required|string|min:10|max:255',
-			'nuova_risposta' => 'required|string|min:10|max:255',
+			'nuova_domanda' => 'required',
+			'nuova_risposta' => 'required',
 		];
 		$validator = Validator::make($request->all(),$rules);
 		if ($validator->fails()) {
