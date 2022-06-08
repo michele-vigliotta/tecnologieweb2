@@ -390,6 +390,11 @@ class AnnuncioController extends Controller
             ]);
         return redirect()->route('annunci');
     }
+    
+    public function annunciodelete(Request $request) {
+    DB::delete('delete from annuncio where id_annuncio = ?',[$request->id]);
+    return redirect()->route('annunci');
+}
 
 
 }

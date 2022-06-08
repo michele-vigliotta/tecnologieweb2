@@ -59,6 +59,7 @@ Route::get('/test2', function(){return View::make('pages.home');});
 Route::get('/annunci', 'HomeController@annunci')->name('annunci');
 Route::get('/annuncioedit/{id}', 'AnnuncioController@annuncioedit')->name('annuncioedit');//vista modifica faq
 Route::put('annuncioupdate/{id}', 'AnnuncioController@annuncioupdate')->name('annuncioupdate');
+Route::get('annunciodelete/{id}','AnnuncioController@annunciodelete')->name('annunciodelete');
 
 Route::get('/stats', 'HomeController@stats')->name('stats');
 

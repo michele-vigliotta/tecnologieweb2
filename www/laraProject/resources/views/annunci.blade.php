@@ -20,8 +20,13 @@
     <div class="container-fluid">
       <div class="heading_container">
         <h1>
-          Annunci pubblicati:
+          Annunci pubblicati:          
         </h1>
+          <div class="quote_btn-container">
+            <a class="quote_btn" href="{{route('aggAnnuncio')}}" >Pubblica nuovo annuncio</a>
+          </div>
+      </div>
+         
         <div class="form-row">
           @if(!empty($annunci))
           @foreach ($annunci as $annuncio)
@@ -45,7 +50,9 @@
               </div>
               <center>
                 <div class="quote_btn-container">
-                  <a class="quote_btn" href="{{route('annuncioedit',['id'=>$annuncio->id_annuncio])}}" >Modifica ANNUNCIO</a>
+                  <a class="quote_btn" href="{{route('annuncioedit',['id'=>$annuncio->id_annuncio])}}" >Modifica annuncio</a>
+                             &nbsp;
+                            <a class="quote_btn" href="{{route('annunciodelete',['id'=>$annuncio->id_annuncio])}}" >Elimina annuncio</a>
                 </div>
               </center>
             </div>
@@ -80,7 +87,6 @@
           </div>
           @endif
         </div>
-      </div>
     </div>
   </section>
     
