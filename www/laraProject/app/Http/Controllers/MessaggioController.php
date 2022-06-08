@@ -42,8 +42,10 @@ class MessaggioController extends Controller{
         $query1="select * from messaggio where id_mittente='".$request->id."'";
         $messaggimittente=DB::select($query1);
         
-       
-        return view('messaggi', ['messaggimittente'=>$messaggimittente,'username'=>$request->username]);
+        $query2="select * from messaggio where id_mittente='".Auth::user()->id."' and id_destinatario='".$request->id."'";
+        $messaggidestinatario=DB::select($query2);
+        
+        return view('messaggi', ['messaggimittente'=>$messaggimittente,'messaggidestinatario'=>$messaggidestinatario,'username'=>$request->username]);
         
     }
     

@@ -39,7 +39,7 @@
                 @endif
                     
                     
-                <!--    
+                   
                 @foreach ($messaggi as   $msg)
                     @foreach($utenti as $utente)
                             
@@ -52,7 +52,7 @@
                        {{$msg->testo}}  
                 </a>  
                 @endforeach
-                 -->
+                 
                 
                  @foreach ($messaggi as $msg)
             
