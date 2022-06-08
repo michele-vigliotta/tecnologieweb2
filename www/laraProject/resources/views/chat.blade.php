@@ -34,49 +34,10 @@
                   <br><h3>{{$utente->username}}</h3>
                   @break
                 @endif
-<<<<<<< HEAD
               @endif
             @endforeach
             {{$msg->testo}}</a>
           @endforeach
-=======
-                    
-                    
-                   
-                @foreach ($messaggi as   $msg)
-                    @foreach($utenti as $utente)
-                            
-                    
-                        @if($msg->id_mittente==$utente->id)
-                        <a href="{{route('messaggi',['id'=>$msg->id_mittente,'username'=>$utente->username])}}"><h3>{{$utente->username}}</h3>
-                        @endif
-                    @endforeach
-                    
-                       {{$msg->testo}}  
-                </a>  
-                @endforeach
-                 
-                
-                 @foreach ($messaggi as $msg)
-            
-            
-            
-        
-        
-        
-                @endforeach
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                
-                 
-            </div>
->>>>>>> 6d3c3e685d45ab2f166397bbf6b0fc6986b5cb74
         </div>
       </div>
     </section>
