@@ -49,4 +49,18 @@ class MessaggioController extends Controller{
         
     }
     
+    public function reply(Request $request) {
+        
+        $testo = $request->input('messaggio');
+        $query1 ="select id from utente where username='".$request->username."'";
+        $id = DB::select($query1);
+        $id_destinatario = $id[0]->id;
+        $id_mittente = Auth::user()->id;
+        date_default_timezone_set('Europe/Rome');
+        $timestamp = date('y-m-d  H:i:s');
+        
+        DB::insert('insert into messaggio (testo, id_mittente, id_destinatario, timestamp) values (?, ?, ?, ?)', [$testo, $id_mittente, $id_destinatario, $timestamp]);
+    
+        return redirect()->route('chat');
+    }
 }
