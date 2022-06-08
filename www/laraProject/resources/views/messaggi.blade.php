@@ -26,15 +26,15 @@
             <div class="tab-content text-center">
               <div class="tab-pane active" id="rent">
                 <div class="Rent_form find_form">
-                  
-                    
+
+
                         <div class="content">
                             <div class="individual__section" >
                             <center>
                                 <h3 class="h2 mr-auto">{{$username}} </h3> <br>
-                                
+
                                 <div class="Rent_form find_form">
-                                    
+
                                         <br>
                                         @foreach ($messaggi as $messaggio)
                                             @if($messaggio->id_mittente==Auth::user()->id)
@@ -50,46 +50,46 @@
                                 </div>
                             </center>
                             </div>
-                            
+
                             <div class="Rent_form find_form">
-                    
-                  
-                  <form method="post" action="reply">
+
+
+                  <form method="post" action="{{url('reply', [$username])}}">
                     {{method_field('PUT')}}
                     {{csrf_field()}}
-                    
+
                     <div class="form-row"> <!-- Messaggio -->
                       <div class="col-md-6 px-0">
                         <div class="form-group ">
                           <div class="input-group ">
-                            
-                              
+
+
                               <input type="text"  name="messaggio" placeholder="Invia un messaggio" class="form-control "   required value=""> </input>
                           </div>
                         </div>
                       </div>
 
                     </div>
-                    
-                    
+
+
                     <div class="btn-box">
                       <button type="submit">
                         <span>
                           INVIA
                         </span>
                       </button>
-                   
-                        
+
+
                     </div>
                   </form>
                 </div>
-                            
-                            
-                            
-                            
-                            
-                            
-                            
+
+
+
+
+
+
+
                         </div>
                 </div>
           </div>
@@ -97,10 +97,6 @@
       </div>
     </div>
   </section>
-                                
-                                                      
-
-                                                     
 
 
 
@@ -120,8 +116,12 @@
 
 
 
-    
-            
+
+
+
+
+
+
 
 
 
