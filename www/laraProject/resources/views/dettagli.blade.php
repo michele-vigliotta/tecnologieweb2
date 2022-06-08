@@ -151,12 +151,12 @@
                         <span class="span4">&dash; Genere locatario: {{$annuncio[0]->genere_locatario}}</span><br>
                         @if($annuncio[0]->is_camera==1)
                           <span class="span4">&dash; Posti letto nella camera: {{$annuncio[0]->posti_camera}}</span><br>
-                          <span class="span4">&dash; disponiblita_angolo_studio: {{$annuncio[0]->disponilita_angolo_studio}}</span><br>
+                          <span class="span4">&dash; Disponiblita angolo studio: {{$annuncio[0]->disponilita_angolo_studio}}</span><br>
                         @else
                           <span class="span4">&dash; Numero di camere: {{$annuncio[0]->numero_camere}}</span><br>
                         @endif
                         <span class="span4">&dash; Posti letto totali: {{$annuncio[0]->posti_letto_totali}}</span><br>
-                        <span class="span4">&dash; Possibilità di locazione da: {{date('d-m-Y', strtotime($annuncio[0]->inizio_locazione))}} a {{date('d-m-Y', strtotime($annuncio[0]->fine_locazione))}}</span><br>
+                        <span class="span4">&dash; Possibilità di locazione da: {{date('d-m-Y', strtotime($annuncio[0]->inizio_locazione))}} a {{date('d-m-Y', strtotime($annuncio[0]->fine_locazione))}}</span><br><br>
                       </div>
                       <div class="prezzo">
                         <h4>Prezzo: <h2>{{$annuncio[0]->canone_affitto}}€</h2></h4><br>
