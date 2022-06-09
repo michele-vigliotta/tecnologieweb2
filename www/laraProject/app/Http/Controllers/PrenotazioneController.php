@@ -27,5 +27,15 @@ class PrenotazioneController extends Controller
      $utenti=DB::select($query2);
      return view('richieste', ['richieste'=>$richieste], ['utenti'=>$utenti]);
     }
+    
+    public function confermaprenotazione(Request $request){
+     DB::update('update annuncio set status = ? where id_annuncio = ?',[0,$request->id_annuncio]);
+        return redirect()->route('annunci');
+    }
+    
+    public function eliminaprenotazione(Request $request) {
+    DB::delete('delete from prenotazione where id_prenotazione = ?',[$request->id_prenotazione]);
+    return redirect()->route('richieste');
+}
       
 }

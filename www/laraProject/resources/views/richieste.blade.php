@@ -39,6 +39,16 @@
                   </p>
                   @endif
                 @endforeach
+                <center>
+                        <div class="quote_btn-container">
+                            <a class="quote_btn" href="{{route('confermaprenotazione',['id_annuncio'=>$richiesta->id_annuncio])}}" >Accetta richiesta</a>
+                             &nbsp;
+                            <a class="quote_btn" href="{{route('eliminaprenotazione',['id_prenotazione'=>$richiesta->id_prenotazione])}}" >Elimina richiesta</a>
+                             &nbsp;
+                            <a class="quote_btn" href="" >Contatta il locatario</a>
+
+                        </div>
+                    </center>
               </div>
             @endforeach
         @else

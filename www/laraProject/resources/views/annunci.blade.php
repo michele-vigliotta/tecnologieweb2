@@ -30,7 +30,6 @@
         <div class="form-row">
           @if(!empty($annunci))
           @foreach ($annunci as $annuncio)
-          @if($annuncio->status!=0)
           <div class="col-sm-6 col-md-4">
             <div class="box">
               <a href="{{ route('dettagli',['id'=>$annuncio->id_annuncio]) }}">
@@ -57,34 +56,6 @@
               </center>
             </div>
           </div>
-          @else
-          <div class="col-sm-6 col-md-4">
-            <div class="box">
-              <a href="{{ route('dettagli',['id'=>$annuncio->id_annuncio]) }}" class="disabled">
-                <div class="img-box">
-                  <img src="./immaginiAnnunci/{{ $annuncio->mainImg }}" height="300px" class="no_disp">
-                </div>
-              </a>
-              <div class="detail-box">
-                <a href="{{ route('dettagli',['id'=>$annuncio->id_annuncio]) }}" class="disabled">
-                  <h4>{{ $annuncio->citta }}, {{$annuncio->stato}}</h4>
-                </a>
-                <h6>€{{ $annuncio->canone_affitto}}</h6>
-                <label>Da {{date('d-m-Y', strtotime($annuncio->inizio_locazione))}} a {{date('d-m-Y', strtotime($annuncio->fine_locazione))}}</label>
-                <p>
-                  {{ $annuncio->descrizione }}
-                </p>
-              </div>
-              <center>
-                <div class="quote_btn-container">
-                  <a class="quote_btn" href="{{route('annuncioedit',['id'=>$annuncio->id_annuncio])}}" >Modifica annuncio</a>
-                             &nbsp;
-                  <a class="quote_btn" href="{{route('annunciodelete',['id'=>$annuncio->id_annuncio])}}" >Elimina annuncio</a>
-                </div>
-              </center>
-            </div>
-          </div>
-          @endif
           @endforeach
           @else
           <div class="col-sm-6 col-md-4">
