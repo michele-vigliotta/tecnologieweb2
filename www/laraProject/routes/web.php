@@ -87,8 +87,7 @@ Route::get('/richieste', 'PrenotazioneController@richieste')->name('richieste');
 
 
 
-Route::put('confermaprenotazione/{id_annuncio}', [PrenotazioneController::class, 'confermaprenotazione'])->name('confermaprenotazione');
+Route::put('/confermaprenotazione/{id_annuncio}/{id_prenotazione}', [PrenotazioneController::class, 'confermaprenotazione'])->name('confermaprenotazione');
 
 
 Route::get('/eliminaprenotazione', 'PrenotazioneController@eliminaprenotazione')->name('eliminaprenotazione');
-
