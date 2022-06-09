@@ -13,8 +13,8 @@ body{
 } */
 .containerchat {
     margin: auto;
-    
-	
+
+
     width: 800px;
 	height: 400px;
 	display: flex;
@@ -28,11 +28,10 @@ body{
 
 }
 .bodychat{
-    overflow-y: scroll;  
+    overflow-y: scroll;
     overflow-x:hidden;
-    
-    
-    
+
+
 	flex: 1;
 	color: white;
 	background-color: #ccc8c8;
