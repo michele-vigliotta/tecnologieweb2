@@ -357,13 +357,18 @@ class AnnuncioController extends Controller
         return redirect()->route('login');
       }
       $query="select * from annuncio where id_annuncio='".$request->id."'";
-      $query2="select * from foto where id_annuncio='".$request->id."'";
       $annuncio=DB::select($query);
+      
+      $query2="select * from foto where id_annuncio='".$request->id."'";
       $photo=DB::select($query2);
       
       $query3 = "select * from prenotazione where id_annuncio='".$request->id."' and id_locatario='".Auth::user()->id."'" ;
       $controllo= DB::select($query3);
-      return view('dettagli', ['annuncio'=>$annuncio, 'photo'=>$photo, 'controllo'=>$controllo]);
+      
+      $query4 = "select username from utente where id='".$annuncio[0]->id_locatore."'";
+      $username= DB::select($query4);
+
+      return view('dettagli', ['annuncio'=>$annuncio, 'photo'=>$photo, 'controllo'=>$controllo, 'username_destinatario'=>$username[0]->username]);
     }
 
     public function annuncioedit(Request $request){
