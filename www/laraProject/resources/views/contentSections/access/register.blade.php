@@ -138,7 +138,7 @@
                                                     <select name="tipo" class="form-control" required>
                                                         <option value="" disabled selected>Che tipo di utente sei?</option>
                                                         <option value="locatario">Locatario</option>
-                                                        <option valie="locatore"> Locatore </option>
+                                                        <option value="locatore"> Locatore </option>
                                                     </select>
                                                 </div>
                                             </div>

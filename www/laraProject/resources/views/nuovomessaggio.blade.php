@@ -50,7 +50,6 @@
                     <center> <!-- Messaggio -->
                       <div class="col-md-6sd px-0">
                         <div class="form-group ">
-                            <label class="label">Descrizione</label>
                             <textarea name="messaggio" max="500" rows="50" cols="50" placeholder="Messaggio" class="form-control"></textarea>
                         </div>
                       </div>

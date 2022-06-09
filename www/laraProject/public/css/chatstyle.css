@@ -21,6 +21,7 @@ body{
 	flex-direction: column;
         box-shadow: 2px 2px 20px rgba(0,0,0,0.4);
 	background-color: #fa4952;
+    
 }
 .headerchat h1{
 	color: white;
@@ -45,6 +46,8 @@ body{
 	width: fit-content;
 	border-radius: 10px;
 	margin-bottom: 15px;
+        
+        word-wrap:break-word;
 }
 .user_message{
 	margin-left: auto;

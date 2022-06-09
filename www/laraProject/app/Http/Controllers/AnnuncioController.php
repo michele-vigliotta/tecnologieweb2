@@ -419,6 +419,7 @@ class AnnuncioController extends Controller
 
     public function annunciodelete(Request $request) {
     DB::delete('delete from annuncio where id_annuncio = ?',[$request->id]);
+    DB::delete('delete from prenotazione where id_annuncio = ?',[$request->id]);
     return redirect()->route('annunci');
     }
 

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 
 
@@ -13,14 +12,23 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Auth;
+use Illuminate\Support\Facades\Session;
 
 class MessaggioController extends Controller{
 
 
     public function sendMessage(Request $request){
-
+        
+     
+        
      $query = "SELECT id FROM utente WHERE username='".$request->destinatario."'";
      $id = DB::select($query);
+     
+     if(($request->input('destinatario')== Auth::user()->username) || (empty($id))){
+         Session::flash('message', "Username non valido o inesistente"); 
+         return redirect()->back();
+     }  
+     else{
      $id_destinatario = $id[0]->id;
      $testo = $request->input('messaggio');
      $id_mittente = Auth::user()->id;
@@ -31,7 +39,7 @@ class MessaggioController extends Controller{
     DB::insert('insert into messaggio (testo, id_mittente, id_destinatario, timestamp) values (?, ?, ?, ?)', [$testo, $id_mittente, $id_destinatario, $timestamp]);
 
     return redirect()->route('chat');
-
+     }
     }
 
     public function nuovomessaggio() {
@@ -47,10 +55,8 @@ class MessaggioController extends Controller{
         }
         $query1="select * from messaggio where (id_mittente='".Auth::user()->id."' and id_destinatario='".$request->id."')
                  or (id_mittente='".$request->id."' and id_destinatario='".Auth::user()->id."') order by id_messaggio";
+
         $messaggi=DB::select($query1);
-        
-        
-        
         return view('messaggi', ['messaggi'=>$messaggi, 'username'=>$request->username]);
 
     }
@@ -70,4 +76,3 @@ class MessaggioController extends Controller{
         return redirect()->back();
     }
 }
-

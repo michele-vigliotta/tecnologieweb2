@@ -34,6 +34,7 @@
                           <div class="carousel-item active">
                             <div class="container ">
                               <div class="col-md-10">
+                              
                                 @if($annuncio[0]->mainImg!=null)
                                   <img id="img" src="{{asset('/immaginiAnnunci/'.$annuncio[0]->mainImg) }}" height="300px" width="450px">
                                 @else
@@ -133,9 +134,10 @@
                                   </a>
                             &nbsp;
                             @else
-                                  <a class="quote_btn" style="pointer-events: none; cursor: default;">
+                                  <a class="quote_btn" style="pointer-events: none; cursor: default;"> 
                                     Prenota locazione
-                                  </a>
+                                  </a> 
+                            
                             &nbsp;
                             @endif
                               <a class="quote_btn" href="{{ route('messaggi',['id'=>$annuncio[0]->id_locatore, 'username'=>$username_destinatario]) }}">
