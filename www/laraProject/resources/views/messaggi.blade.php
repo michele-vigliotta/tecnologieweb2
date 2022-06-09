@@ -4,7 +4,7 @@
 <head>
     @include('includes.head')
 
-<link rel="stylesheet" type="text/css" href="{{ URL('css/chatstyle.css') }}"">
+<link rel="stylesheet" type="text/css" href="{{ URL('css/chatstyle.css') }}">
 
 </head>
 <body class="sub_page">
@@ -25,16 +25,16 @@
           <div class="form_tab_container">
             <div class="tab-content text-center">
               <div class="tab-pane active" id="rent">
-                
-                    
-                    
-                    
-                  
+
+
+
+
+
                     <div class="containerchat">
                         <div class="headerchat">
                             <h1>{{$username}} </h1>
                         </div>
-                        <div class="bodychat">
+                        <div class="bodychat" id="chat">
 
                                 @foreach ($messaggi as $messaggio)
                                             @if($messaggio->id_mittente==Auth::user()->id)
@@ -48,23 +48,23 @@
                                             @endif
                                         @endforeach
                         </div>
-                        
+
                         <div class="footerchat">
                             <form method="post" action="{{url('reply', [$username])}}">
                             {{method_field('PUT')}}
                             {{csrf_field()}}
                             <input type="text" name="messaggio" required> </input>
 			<button>INVIA</button>
-                            </form>	
-                        </div>    
+                            </form>
+                        </div>
                     </div>
-                    
 
 
 
 
 
-                
+
+
                 </div>
             </div>
           </div>

@@ -29,15 +29,15 @@ class AnnuncioController extends Controller
 
       $service=[
         "Internet" => $request->Internet,
-        "Linea_telefonica" => $request->Linea_telefonica,
-        "Animali_domestici" => $request->Animali_domestici,
+        "Linea telefonica" => $request->Linea_telefonica,
+        "Animali domestici" => $request->Animali_domestici,
         "Televisione" => $request->Televisione,
-        "Aria_condizionata" => $request->Aria_condizionata,
-        "Fumatori_ammessi" => $request->Fumatori_ammessi,
+        "Aria condizionata" => $request->Aria_condizionata,
+        "Fumatori ammessi" => $request->Fumatori_ammessi,
         "Ascensore" => $request->Ascensore,
         "Lavatrice" => $request->Lavatrice,
         "Asciugatrice" => $request->Asciugatrice,
-        "Accesso_disabili" => $request->Accesso_disabili,
+        "Accesso disabili" => $request->Accesso_disabili,
       ];
 
       Storage::disk('public')->put('service.json', json_encode($service));
@@ -56,7 +56,12 @@ class AnnuncioController extends Controller
       $annuncio->genere_locatario=$request->genere;
       $annuncio->canone_affitto=$request->canone;
       $annuncio->posti_letto_totali=$request->n_posti_letto_totali;
-      $annuncio->servizi_offerti=Storage::disk('public')->get('service.json');
+      if(Storage::disk('public')->exists('service.json')){
+        $annuncio->servizi_offerti=Storage::disk('public')->get('service.json');
+        Storage::disk('public')->delete('service.json');
+      }
+
+
 
       if($request->tipo=="camera"){
         $annuncio->is_camera="1";
@@ -347,6 +352,9 @@ class AnnuncioController extends Controller
     }
 
     public function dettagli(Request $request){
+      if(!isset(Auth::user()->username)){
+        return redirect()->route('login');
+      }
       $query="select * from annuncio where id_annuncio='".$request->id."'";
       $query2="select * from foto where id_annuncio='".$request->id."'";
       $annuncio=DB::select($query);
@@ -392,12 +400,12 @@ class AnnuncioController extends Controller
             ]);
         return redirect()->route('annunci');
     }
-    
+
     public function annunciodelete(Request $request) {
     DB::delete('delete from annuncio where id_annuncio = ?',[$request->id]);
     return redirect()->route('annunci');
     }
-    
+
     public function prenota(Request $request){
      $id_locatario= Auth::user()->id;
      date_default_timezone_set('Europe/Rome');
@@ -405,8 +413,8 @@ class AnnuncioController extends Controller
      $query="select * from annuncio where id_annuncio='".$request->id."'";
      $annuncio=DB::select($query);
      DB::insert('insert into prenotazione (id_locatario, data_prenotazione, id_annuncio) values (?, ?, ?)', [$id_locatario, $data_prenotazione, $annuncio[0]->id]);
-     
+
     return redirect()->route('catalogo');
     }
-    
+
 }

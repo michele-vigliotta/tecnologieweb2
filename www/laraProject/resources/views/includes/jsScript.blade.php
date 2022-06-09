@@ -15,3 +15,4 @@
 <script src="{{ URL('js/bootstrap-multiselect.min.js') }}"></script>
 <script src="{{ URL('js/bootstrap-multiselect.js') }}"></script>
 <script src="{{ URL('js/filter.js') }}"></script>
+<script src="{{ URL('js/chat.js') }}"></script>

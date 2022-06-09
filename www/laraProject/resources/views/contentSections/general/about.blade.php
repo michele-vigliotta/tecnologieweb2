@@ -23,10 +23,6 @@
                         <a href="{{ route('signup') }}">
                             Registrati
                         </a>
-                    @else
-                        <a href={{ route('about') }}>
-                            Leggi più
-                        </a>
                     @endif
 
                 </div>

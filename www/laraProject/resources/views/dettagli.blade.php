@@ -166,7 +166,7 @@
                       <span class="span3">
                         SERVIZI DISPONIBILI
                       </span>
-                      <div class="row">
+                      <div class="row"> <!-- cucina, locale ricreativo-->
                         <img class="service-img" src="../images/icon/service/Cucina.png">
                         @if($annuncio[0]->cucina==1)
                           <span class="service">Cucina</span>
@@ -175,12 +175,12 @@
                         @endif
                         <img class="service-img" src="../images/icon/service/Locale ricreativo.png">
                         @if($annuncio[0]->locale_ricreativo==1)
-                          <span class="service">Locale ricereativo</span>
+                          <span class="service">Locale ricreativo</span>
                         @else
-                          <span class="service_no">Locale ricereativo</span>
+                          <span class="service_no">Locale ricreativo</span>
                         @endif
-                        </div>
-                        <div class="row">
+                      </div>
+                      <div class="row"> <!-- altri servizi -->
                         @foreach(json_decode($annuncio[0]->servizi_offerti) as $service=>$value)
                           <img class="service-img" src="../images/icon/service/{{$service}}.png">
                           @if($value!=null)
