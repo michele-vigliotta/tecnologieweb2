@@ -67,7 +67,7 @@
                             &nbsp;
                             <a class="quote_btn" href="{{route('eliminaprenotazione',['id_prenotazione'=>$richiesta->id_prenotazione])}}" >Elimina richiesta</a>
                              &nbsp;
-                            <a class="quote_btn" href="" >Contatta il locatario</a>
+                            <a class="quote_btn" href="{{ route('messaggi',['id'=>$richiesta->id_locatario, 'username_destinatario'=>$utente->username]) }}" >Contatta il locatario</a>
 
                         </div>
                     </center>

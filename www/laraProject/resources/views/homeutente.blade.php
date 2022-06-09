@@ -28,7 +28,7 @@
                 Bentornato {{Auth::user()->nome}}!
               </h2>
             </div>
-            @if('Locatore'==(Auth::user()->tipo))
+            @if('locatore'==(Auth::user()->tipo))
             <p>
               Inizia ora a pubblicare un annuncio!
             </p>

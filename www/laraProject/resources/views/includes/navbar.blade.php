@@ -56,7 +56,7 @@
 
 
             @if(isset(Auth::user()->nome))
-                    @if('Locatore'==(Auth::user()->tipo)||'locatario'==(Auth::user()->tipo))
+                    @if('locatore'==(Auth::user()->tipo)||'locatario'==(Auth::user()->tipo))
                 @if( Request::is('chat'))
                 <li class="nav-item active">
                 @else
@@ -84,7 +84,7 @@
                     <a class="nav-link" href="{{ route('profile')}}">Profilo</a>
                 </li>
 
-                @if('Locatore'==(Auth::user()->tipo))
+                @if('locatore'==(Auth::user()->tipo))
                     @if( Request::is('annunci'))
                         <li class="nav-item active">
                     @else

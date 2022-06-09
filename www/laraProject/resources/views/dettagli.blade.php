@@ -138,11 +138,11 @@
                                   </a>
                             &nbsp;
                             @endif
-                              <a class="quote_btn" href="{{ route('chat',['id_locatore'=>$annuncio[0]->id_locatore, 'id_locatario'=>Auth::user()->id]) }}">
+                              <a class="quote_btn" href="{{ route('messaggi',['id'=>$annuncio[0]->id_locatore, 'username'=>$username_destinatario]) }}">
                                 Contatta il locatore
                               </a>
                           </div>
-                    @elseif('Locatore'==(Auth::user()->tipo))
+                    @elseif('locatore'==(Auth::user()->tipo))
                          <a class="quote_btn" href="{{ route('richieste', ['id_annuncio'=>$annuncio[0]->id_annuncio]) }}">
                                 Visualizza richieste ricevute
                               </a>
