@@ -66,7 +66,8 @@ return [
 
         'my_files' => [
           'driver' => 'local',
-          'root'   => 'immaginiAnnunci'.'/'
+          'root'   => 'immaginiAnnunci'.'/',
+          'visibility'=>'public'
         ]
 
     ],

@@ -56,6 +56,7 @@ class AnnuncioController extends Controller
       $annuncio->genere_locatario=$request->genere;
       $annuncio->canone_affitto=$request->canone;
       $annuncio->posti_letto_totali=$request->n_posti_letto_totali;
+
       if(Storage::disk('public')->exists('service.json')){
         $annuncio->servizi_offerti=Storage::disk('public')->get('service.json');
         Storage::disk('public')->delete('service.json');
@@ -364,6 +365,7 @@ class AnnuncioController extends Controller
       $controllo= DB::select($query3);
       return view('dettagli', ['annuncio'=>$annuncio, 'photo'=>$photo, 'controllo'=>$controllo]);
     }
+
     public function annuncioedit(Request $request){
      $query="select * from annuncio where id_annuncio='".$request->id."'";
      $annuncio=DB::select($query);
@@ -372,8 +374,7 @@ class AnnuncioController extends Controller
      return view('annuncioedit', ['annuncio'=>$annuncio, 'lista_servizi'=>$lista_servizi]);
     }
 
-    public function annuncioupdate(Request $request)
-    {
+    public function annuncioupdate(Request $request){
         $service=[
                 "Internet" => $request->nuovo_Internet,
                 "Linea_telefonica" => $request->nuovo_Linea_telefonica,
