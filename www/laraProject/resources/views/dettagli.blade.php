@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 
@@ -202,7 +201,7 @@
                           <div class="detail-box">
                             <div class="btn-box">
                               <a onclick="return confirm('Sicuro di voler prenotare questa locazione?')" href="{{ route('prenota',['id_locatore'=>$annuncio[0]->id_locatore, 'id_locatario'=>Auth::user()->id]) }}">
-                                Prenota locazione                       
+                                Prenota locazione
                               </a>
                             </div>
                           </div>
@@ -217,7 +216,7 @@
                           </div>
                         </div>
                      </div>
-                    
+
                   </div>
                 </div>
               </div>
