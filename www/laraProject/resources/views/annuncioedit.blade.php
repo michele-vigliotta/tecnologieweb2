@@ -260,7 +260,7 @@
                         </div>
                       </div>
                     </div>
-                    <center> <!-- Canone affitto -->
+                    <div class="form-row"> <!-- Canone affitto e aggiungi immagini -->
                       <div class="col-md-6 px-0">
                         <div class="form-group ">
                           <div class="input-group">
@@ -271,15 +271,25 @@
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </center>
-                    <center> <!-- Other Img -->
+                      </div> <!-- Other Img -->
                       <div class="col-md-6 px-0">
                         <div class="form-group ">
                           <div class="input-group ">
                             <label>Aggiungi immagine</label>
                             <input type="file" name="images[]" class="form-control" id="inputRentDestination" multiple/>
                           </div>
+                        </div>
+                      </div>
+                    </div>
+                    <center>
+                      <div class="col-md-6 px-0">
+                        <div class="form-group">
+                            <label> Disponibilità locazione: </label>
+                            <select name="disponibilità" class="form-control" value="Nessuna modifica">
+                                <option value="Non specificato">Nessuna modifica</option>
+                                <option value="Disponibile">Disponibile</option>
+                                <option value="Non disponibile">Non disponibile</option>
+                             </select>
                         </div>
                       </div>
                     </center>

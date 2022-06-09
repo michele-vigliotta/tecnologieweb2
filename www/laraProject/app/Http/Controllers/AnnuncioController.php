@@ -400,8 +400,15 @@ class AnnuncioController extends Controller
             'inizio_locazione' => $request->input('nuovo_inizio_locazione'),
             'fine_locazione' => $request->input('nuovo_fine_locazione'),
             'canone_affitto' => $request->input('nuovo_canone'),
-            'servizi_offerti' =>Storage::disk('public')->get('service.json')
+            'servizi_offerti' =>Storage::disk('public')->get('service.json'),
+            
             ]);
+        if($request->input('disponibilità')=='Disponibile'){
+              DB::table('annuncio')->where('id_annuncio', $request->id)->update(['status'=> 1]);             
+            }
+        elseif($request->input('disponibilità')=='Non disponibile'){
+              DB::table('annuncio')->where('id_annuncio', $request->id)->update(['status'=> 0]);   
+            }
         return redirect()->route('annunci');
     }
 
