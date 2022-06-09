@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 
@@ -69,3 +70,4 @@ class MessaggioController extends Controller{
         return redirect()->back();
     }
 }
+
