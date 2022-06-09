@@ -10,6 +10,7 @@ class prenotazione extends Model
 
     protected $fillable=[
       'id_locatario',
+      'username_locatario',
       'data_prenotazione',
       'id_annuncio'
     ];

@@ -47,7 +47,6 @@
                 <center>
                         <div class="quote_btn-container">
                             
-                            
                             <form method="post" action="{{url('confermaprenotazione',['id_annuncio'=>$richiesta->id_annuncio,'id_prenotazione'=>$richiesta->id_prenotazione] )}}">
                             {{method_field('PUT')}}
                             {{csrf_field()}}
@@ -62,12 +61,10 @@
                             
                             </form>
                            
-                            
-                            
                             &nbsp;
                             <a class="quote_btn" href="{{route('eliminaprenotazione',['id_prenotazione'=>$richiesta->id_prenotazione])}}" >Elimina richiesta</a>
                              &nbsp;
-                            <a class="quote_btn" href="{{ route('messaggi',['id'=>$richiesta->id_locatario, 'username_destinatario'=>$utente->username]) }}" >Contatta il locatario</a>
+                            <a class="quote_btn" href="{{ route('messaggi',['id'=>$richiesta->id_locatario, 'username'=>$richiesta->username_locatario]) }}" >Contatta il locatario</a>
 
                         </div>
                     </center>

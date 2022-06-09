@@ -13,9 +13,10 @@ class PrenotazioneController extends Controller
 {
     public function prenota(Request $request){
      $id_locatario= Auth::user()->id;
+     $username_locatario=Auth::user()->username;
      date_default_timezone_set('Europe/Rome');
      $data_prenotazione = date('y-m-d  H:i:s');
-     DB::insert('insert into prenotazione (id_locatario, data_prenotazione, id_annuncio) values (?, ?, ?)', [$id_locatario, $data_prenotazione, $request->id_annuncio]);
+     DB::insert('insert into prenotazione (id_locatario, username_locatario, data_prenotazione, id_annuncio) values (?, ?, ?, ?)', [$id_locatario, $username_locatario, $data_prenotazione, $request->id_annuncio]);
      
     return redirect()->route('catalogo');
     }
