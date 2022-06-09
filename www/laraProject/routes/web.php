@@ -5,6 +5,7 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\AnnuncioController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\MessaggioController;
+use App\Http\Controllers\PrenotazioneController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -81,4 +82,5 @@ Route::get('/messaggi/{id}/{username}', 'MessaggioController@aprichat')->name('m
 Route::put('reply/{username}', 'MessaggioController@reply')->name('reply');
 
 //Route::post('prenota', [AnnuncioController::class, 'prenota'])->name('prenota');
-Route::get('/prenota', 'AnnuncioController@prenota')->name('prenota');
+Route::get('/prenota', 'PrenotazioneController@prenota')->name('prenota');
+Route::get('/richieste', 'PrenotazioneController@richieste')->name('richieste');

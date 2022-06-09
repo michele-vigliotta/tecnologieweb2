@@ -197,39 +197,29 @@
                     </div>
                     <br>
                     @if('locatario'==(Auth::user()->tipo))
-                        <div class="container">
+                    <center>
+                          <div class="quote_btn-container">
                             @if(empty($controllo))
-                            <div class="prenota">
-                              <div class="detail-box">
-                                <div class="btn-box">
-                                  <a onclick="return confirm('Sicuro di voler prenotare questa locazione?')" href="{{ route('prenota',['id_locatore'=>$annuncio[0]->id_locatore, 'id_locatario'=>Auth::user()->id, 'id_annuncio'=>$annuncio[0]->id_annuncio]) }}">
+                                  <a class="quote_btn" onclick="return confirm('Sicuro di voler prenotare questa locazione?')" href="{{ route('prenota',['id_locatore'=>$annuncio[0]->id_locatore, 'id_locatario'=>Auth::user()->id, 'id_annuncio'=>$annuncio[0]->id_annuncio]) }}">
                                     Prenota locazione                       
                                   </a>
-                                </div>
-                              </div>
-                            </div>
-                            @else                            
-                            <div class="prenota">
-                              <div class="detail-box">
-                                <div class="btn-box">
-                                  <a style="pointer-events: none; cursor: default;" onclick="return confirm('Sicuro di voler prenotare questa locazione?')" href="{{ route('prenota',['id_locatore'=>$annuncio[0]->id_locatore, 'id_locatario'=>Auth::user()->id, 'id_annuncio'=>$annuncio[0]->id_annuncio]) }}">
+                            &nbsp;
+                            @else
+                                  <a class="quote_btn" style="pointer-events: none; cursor: default;">
                                     Prenota locazione                       
                                   </a>
-                                </div>
-                              </div>
-                            </div>
+                            &nbsp;
                             @endif
-                        <div class="contatta">
-                          <div class="detail-box">
-                            <div class="btn-box">
-                              <a href="{{ route('chat',['id_locatore'=>$annuncio[0]->id_locatore, 'id_locatario'=>Auth::user()->id]) }}">
+                              <a class="quote_btn" href="{{ route('chat',['id_locatore'=>$annuncio[0]->id_locatore, 'id_locatario'=>Auth::user()->id]) }}">
                                 Contatta il locatore
                               </a>
-                            </div>
                           </div>
-                        </div>
-                     </div>
+                    @elseif('Locatore'==(Auth::user()->tipo))
+                         <a class="quote_btn" href="{{ route('richieste', ['id_annuncio'=>$annuncio[0]->id_annuncio]) }}">
+                                Visualizza richieste ricevute
+                              </a>
                     @endif
+                   </center>
                   </div>
                 </div>
               </div>
