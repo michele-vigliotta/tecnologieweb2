@@ -28,7 +28,11 @@
         @if(!empty($richieste))
             @foreach ($richieste as $richiesta)
               <div class="col-sm-62">
+                    @if($richiesta->confermata==0)
+                <h4 class="faq-question">Id richiesta: {{ $richiesta->id_prenotazione }} ACCETTATA</h4>
+                    @else
                 <h4 class="faq-question">Id richiesta: {{ $richiesta->id_prenotazione }}</h4>
+                    @endif
                 @foreach($utenti as $utente)
                   @if($utente->id == $richiesta->id_locatario)
                   <p  class="faq-answer"> Nome: {{ $utente->nome }} <br>
@@ -41,7 +45,9 @@
                 @endforeach
                 <center>
                         <div class="quote_btn-container">
-                            <form method="post" action="{{url('confermaprenotazione',['id_annuncio'=>$richiesta->id_annuncio] )}}">
+                            
+                            
+                            <form method="post" action="{{url('confermaprenotazione',['id_annuncio'=>$richiesta->id_annuncio,'id_prenotazione'=>$richiesta->id_prenotazione] )}}">
                             {{method_field('PUT')}}
                             {{csrf_field()}}
                                 
@@ -54,7 +60,7 @@
                                 </div>    
                             
                             </form>
-                            
+                           
                             
                             
                             &nbsp;
