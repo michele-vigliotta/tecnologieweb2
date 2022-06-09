@@ -30,7 +30,9 @@ class PrenotazioneController extends Controller
     
     public function confermaprenotazione(Request $request){
      DB::update('update annuncio set status = ? where id_annuncio = ?',[0,$request->id_annuncio]);
-        return redirect()->route('annunci');
+        
+     
+     return redirect()->route('richieste', ['id_annuncio'=>$request->id_annuncio]);
     }
     
     public function eliminaprenotazione(Request $request) {
