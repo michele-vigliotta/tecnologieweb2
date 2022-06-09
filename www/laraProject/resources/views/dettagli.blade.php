@@ -162,7 +162,6 @@
                         <h4>Prezzo: <h2>{{$annuncio[0]->canone_affitto}}€</h2></h4><br>
                       </div>
                     <br>
-
                     <div class="servizi"> <!-- Servizi disponibli-->
                       <span class="span3">
                         SERVIZI DISPONIBILI
@@ -197,15 +196,27 @@
                       </div>
                     </div>
                     <br>
-                    <div class="contatta">
-                      <div class="detail-box">
-                        <div class="btn-box">
-                          <a href="{{ route('chat',['id_locatore'=>$annuncio[0]->id_locatore, 'id_locatario'=>Auth::user()->id]) }}">
-                            <h4>Contatta il locatore</h4>
-                          </a>
+                    <div class="span4">
+                        <div class="prenota">
+                          <div class="detail-box">
+                            <div class="btn-box">
+                              <a onclick="return confirm('Sicuro di voler prenotare questa locazione?')" href="{{ route('prenota',['id_locatore'=>$annuncio[0]->id_locatore, 'id_locatario'=>Auth::user()->id]) }}">
+                                Prenota locazione                       
+                              </a>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
+                        <div class="contatta">
+                          <div class="detail-box">
+                            <div class="btn-box">
+                              <a href="{{ route('chat',['id_locatore'=>$annuncio[0]->id_locatore, 'id_locatario'=>Auth::user()->id]) }}">
+                                Contatta il locatore
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                     </div>
+                    
                   </div>
                 </div>
               </div>
