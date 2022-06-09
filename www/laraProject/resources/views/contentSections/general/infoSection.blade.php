@@ -15,7 +15,7 @@
             Email : demo@gmail.com
           </span>
             </a>
-            <a href="">
+            <a href="https://goo.gl/maps/ZSrmbSAptYYnGv3J8" target="_blank">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 <span>
             Location
