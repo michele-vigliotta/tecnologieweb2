@@ -351,7 +351,10 @@ class AnnuncioController extends Controller
       $query2="select * from foto where id_annuncio='".$request->id."'";
       $annuncio=DB::select($query);
       $photo=DB::select($query2);
-      return view('dettagli', ['annuncio'=>$annuncio, 'photo'=>$photo]);
+      
+      $query3 = "select * from prenotazione where id_annuncio='".$request->id."' and id_locatario='".Auth::user()->id."'" ;
+      $controllo= DB::select($query3);
+      return view('dettagli', ['annuncio'=>$annuncio, 'photo'=>$photo, 'controllo'=>$controllo]);
     }
     public function annuncioedit(Request $request){
      $query="select * from annuncio where id_annuncio='".$request->id."'";
@@ -402,9 +405,7 @@ class AnnuncioController extends Controller
      $id_locatario= Auth::user()->id;
      date_default_timezone_set('Europe/Rome');
      $data_prenotazione = date('y-m-d  H:i:s');
-     $query="select * from annuncio where id_annuncio='".$request->id."'";
-     $annuncio=DB::select($query);
-     DB::insert('insert into prenotazione (id_locatario, data_prenotazione, id_annuncio) values (?, ?, ?)', [$id_locatario, $data_prenotazione, $annuncio[0]->id]);
+     DB::insert('insert into prenotazione (id_locatario, data_prenotazione, id_annuncio) values (?, ?, ?)', [$id_locatario, $data_prenotazione, $request->id_annuncio]);
      
     return redirect()->route('catalogo');
     }

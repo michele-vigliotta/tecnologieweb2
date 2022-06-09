@@ -80,4 +80,5 @@ Route::post('sendMessage', [MessaggioController::class, 'sendMessage']);
 Route::get('/messaggi/{id}/{username}', 'MessaggioController@aprichat')->name('messaggi');
 Route::put('reply/{username}', 'MessaggioController@reply')->name('reply');
 
-Route::get('prenota', 'AnnuncioController@prenota')->name('prenota');
+//Route::post('prenota', [AnnuncioController::class, 'prenota'])->name('prenota');
+Route::get('/prenota', 'AnnuncioController@prenota')->name('prenota');

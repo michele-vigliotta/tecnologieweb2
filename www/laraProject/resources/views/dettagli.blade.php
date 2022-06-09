@@ -196,16 +196,29 @@
                       </div>
                     </div>
                     <br>
-                    <div class="span4">
-                        <div class="prenota">
-                          <div class="detail-box">
-                            <div class="btn-box">
-                              <a onclick="return confirm('Sicuro di voler prenotare questa locazione?')" href="{{ route('prenota',['id_locatore'=>$annuncio[0]->id_locatore, 'id_locatario'=>Auth::user()->id]) }}">
-                                Prenota locazione                       
-                              </a>
+                    @if('locatario'==(Auth::user()->tipo))
+                        <div class="container">
+                            @if(empty($controllo))
+                            <div class="prenota">
+                              <div class="detail-box">
+                                <div class="btn-box">
+                                  <a onclick="return confirm('Sicuro di voler prenotare questa locazione?')" href="{{ route('prenota',['id_locatore'=>$annuncio[0]->id_locatore, 'id_locatario'=>Auth::user()->id, 'id_annuncio'=>$annuncio[0]->id_annuncio]) }}">
+                                    Prenota locazione                       
+                                  </a>
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                        </div>
+                            @else                            
+                            <div class="prenota">
+                              <div class="detail-box">
+                                <div class="btn-box">
+                                  <a style="pointer-events: none; cursor: default;" onclick="return confirm('Sicuro di voler prenotare questa locazione?')" href="{{ route('prenota',['id_locatore'=>$annuncio[0]->id_locatore, 'id_locatario'=>Auth::user()->id, 'id_annuncio'=>$annuncio[0]->id_annuncio]) }}">
+                                    Prenota locazione                       
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                            @endif
                         <div class="contatta">
                           <div class="detail-box">
                             <div class="btn-box">
@@ -216,7 +229,7 @@
                           </div>
                         </div>
                      </div>
-                    
+                    @endif
                   </div>
                 </div>
               </div>
