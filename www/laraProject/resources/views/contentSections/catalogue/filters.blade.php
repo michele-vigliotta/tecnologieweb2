@@ -1,4 +1,3 @@
-<script src="{{ URL('js/filter.js') }}"></script>
 <div class="filter_section">
   <div class="container">
     <div class="row">
@@ -6,7 +5,7 @@
         <div class="form_tab_container">
           <div class="tab-content text-center">
             <div class="tab-pane active" id="rent">
-              <button type="button" class="filter">
+              <button type="button" id="fil" class="filter">
                 Filtro
               </button>
               <div class="filter-body">
