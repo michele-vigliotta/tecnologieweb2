@@ -84,6 +84,11 @@ Route::put('reply/{username}', 'MessaggioController@reply')->name('reply');
 //Route::post('prenota', [AnnuncioController::class, 'prenota'])->name('prenota');
 Route::get('/prenota', 'PrenotazioneController@prenota')->name('prenota'); //rotta per generare nuova richiesta
 Route::get('/richieste', 'PrenotazioneController@richieste')->name('richieste');
-Route::get('/confermaprenotazione', 'PrenotazioneController@confermaprenotazione')->name('confermaprenotazione'); //rotta per modificare lo status annuncio
+
+
+
+Route::put('confermaprenotazione/{id_annuncio}', [PrenotazioneController::class, 'confermaprenotazione'])->name('confermaprenotazione');
+
+
 Route::get('/eliminaprenotazione', 'PrenotazioneController@eliminaprenotazione')->name('eliminaprenotazione');
-//stiamo usando il get un po' a sproposito.
+

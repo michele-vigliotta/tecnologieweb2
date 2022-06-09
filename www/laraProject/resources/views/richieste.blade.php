@@ -41,8 +41,23 @@
                 @endforeach
                 <center>
                         <div class="quote_btn-container">
-                            <a class="quote_btn" href="{{route('confermaprenotazione',['id_annuncio'=>$richiesta->id_annuncio])}}" >Accetta richiesta</a>
-                             &nbsp;
+                            <form method="post" action="{{url('confermaprenotazione',['id_annuncio'=>$richiesta->id_annuncio] )}}">
+                            {{method_field('PUT')}}
+                            {{csrf_field()}}
+                                
+                                <div class="btn-box">
+                                <button type="submit">
+                                <span>
+                                    Accetta richiesta
+                                </span>
+                                </button>
+                                </div>    
+                            
+                            </form>
+                            
+                            
+                            
+                            &nbsp;
                             <a class="quote_btn" href="{{route('eliminaprenotazione',['id_prenotazione'=>$richiesta->id_prenotazione])}}" >Elimina richiesta</a>
                              &nbsp;
                             <a class="quote_btn" href="" >Contatta il locatario</a>
