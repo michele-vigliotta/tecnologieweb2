@@ -193,27 +193,30 @@
                       </div>
                     </div>
                     <br>
-                    <div class="span4">
-                        <div class="prenota">
-                          <div class="detail-box">
-                            <div class="btn-box">
-                              <a onclick="return confirm('Sicuro di voler prenotare questa locazione?')" href="{{ route('prenota',['id_locatore'=>$annuncio[0]->id_locatore, 'id_locatario'=>Auth::user()->id]) }}">
-                                Prenota locazione
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="contatta">
-                          <div class="detail-box">
-                            <div class="btn-box">
-                              <a href="{{ route('chat',['id_locatore'=>$annuncio[0]->id_locatore, 'id_locatario'=>Auth::user()->id]) }}">
+                    @if('locatario'==(Auth::user()->tipo))
+                    <center>
+                          <div class="quote_btn-container">
+                            @if(empty($controllo))
+                                  <a class="quote_btn" onclick="return confirm('Sicuro di voler prenotare questa locazione?')" href="{{ route('prenota',['id_locatore'=>$annuncio[0]->id_locatore, 'id_locatario'=>Auth::user()->id, 'id_annuncio'=>$annuncio[0]->id_annuncio]) }}">
+                                    Prenota locazione                       
+                                  </a>
+                            &nbsp;
+                            @else
+                                  <a class="quote_btn" style="pointer-events: none; cursor: default;">
+                                    Prenota locazione                       
+                                  </a>
+                            &nbsp;
+                            @endif
+                              <a class="quote_btn" href="{{ route('chat',['id_locatore'=>$annuncio[0]->id_locatore, 'id_locatario'=>Auth::user()->id]) }}">
                                 Contatta il locatore
                               </a>
-                            </div>
                           </div>
-                        </div>
-                     </div>
-
+                    @elseif('Locatore'==(Auth::user()->tipo))
+                         <a class="quote_btn" href="{{ route('richieste', ['id_annuncio'=>$annuncio[0]->id_annuncio]) }}">
+                                Visualizza richieste ricevute
+                              </a>
+                    @endif
+                   </center>
                   </div>
                 </div>
               </div>
