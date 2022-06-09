@@ -23,7 +23,11 @@
             <div class="box">
               <a href="{{ route('dettagli',['id'=>$annuncio->id_annuncio]) }}">
                 <div class="img-box">
-                  <img src="./immaginiAnnunci/{{ $annuncio->mainImg }}" height="300px" class="disp">
+                  @if($annuncio->mainImg!=null)
+                    <img src="./immaginiAnnunci/{{ $annuncio->mainImg }}" height="300px" width="450px">
+                  @else
+                    <img src="./images/no_img.jpg" height="300px" width="450px">
+                  @endif
                 </div>
               </a>
               <div class="detail-box">

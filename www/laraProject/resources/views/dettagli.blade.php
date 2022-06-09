@@ -2,7 +2,6 @@
 <html>
 
 <head>
-    <script src="{{ URL('js/image.js')  }}"></script>
     @include('includes.head')
 </head>
 
@@ -105,7 +104,7 @@
                             <div class="container ">
                               <div class="col-md-10">
                                 @if($annuncio[0]->mainImg!=null)
-                                  <img id="img" src="../immaginiAnnunci/{{ $annuncio[0]->mainImg }}" height="300px" width="450px">
+                                  <img id="img" src="{{asset('/immaginiAnnunci/'.$annuncio[0]->mainImg) }}" height="300px" width="450px">
                                 @else
                                   <img src="../images/no_img.jpg" height="300px" width="450px">
                                 @endif
@@ -115,10 +114,8 @@
                           @foreach($photo as $ph)
                           <div class="carousel-item">
                             <div class="container ">
-                              <div class="row">
-                                <div class="col-md-10">
-                                  <img src="../immaginiAnnunci/{{$ph->url}}" height="300px" width="450px">
-                                </div>
+                              <div class="col-md-10">
+                                <img src="{{asset('/immaginiAnnunci/'.$ph->url)}}" height="300px" width="450px">
                               </div>
                             </div>
                           </div>
@@ -156,7 +153,7 @@
                           <span class="span4">&dash; Numero di camere: {{$annuncio[0]->numero_camere}}</span><br>
                         @endif
                         <span class="span4">&dash; Posti letto totali: {{$annuncio[0]->posti_letto_totali}}</span><br>
-                        <span class="span4">&dash; Possibilità di locazione da: {{date('d-m-Y', strtotime($annuncio[0]->inizio_locazione))}} a {{date('d-m-Y', strtotime($annuncio[0]->fine_locazione))}}</span><br>
+                        <span class="span4">&dash; Possibilità di locazione da: {{date('d-m-Y', strtotime($annuncio[0]->inizio_locazione))}} a {{date('d-m-Y', strtotime($annuncio[0]->fine_locazione))}}</span><br><br>
                       </div>
                       <div class="prezzo">
                         <h4>Prezzo: <h2>{{$annuncio[0]->canone_affitto}}€</h2></h4><br>
@@ -166,23 +163,23 @@
                       <span class="span3">
                         SERVIZI DISPONIBILI
                       </span>
-                      <div class="row"> <!-- cucina, locale ricreativo-->
-                        <img class="service-img" src="../images/icon/service/Cucina.png">
+                      <div class="row">
+                        &nbsp;&nbsp;<img class="service-img" src="{{asset('/images/icon/Service/Cucina.png')}}">
                         @if($annuncio[0]->cucina==1)
                           <span class="service">Cucina</span>
                         @else
                           <span class="service_no">Cucina</span>
                         @endif
-                        <img class="service-img" src="../images/icon/service/Locale ricreativo.png">
+                        &nbsp;&nbsp;<img class="service-img" src="{{asset('/images/icon/Service/Locale ricreativo.png')}}">
                         @if($annuncio[0]->locale_ricreativo==1)
-                          <span class="service">Locale ricreativo</span>
+                          <span class="service">Locale ricereativo</span>
                         @else
-                          <span class="service_no">Locale ricreativo</span>
+                          <span class="service_no">Locale ricereativo</span>
                         @endif
-                      </div>
-                      <div class="row"> <!-- altri servizi -->
+                        </div>
+                        <div class="row">
                         @foreach(json_decode($annuncio[0]->servizi_offerti) as $service=>$value)
-                          <img class="service-img" src="../images/icon/service/{{$service}}.png">
+                          &nbsp;&nbsp;<img class="service-img" src="{{asset('/images/icon/Service/'.$service.'.png')}}">
                           @if($value!=null)
                             <span class="service">{{$service}}</span>
                           @else
