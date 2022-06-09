@@ -28,7 +28,6 @@ class HomeController extends Controller{
     return view('catalogo');
   }
 
-
   public function faq(){
     $faq=DB::select('select * from faq');
     return view('faq', ['faq'=>$faq]);
@@ -49,6 +48,7 @@ class HomeController extends Controller{
   public function profile(){
     return view('profile');
   }
+  
   public function profileupdate(){
     return view('profileupdate');
   }
@@ -56,28 +56,31 @@ class HomeController extends Controller{
   public function provanavbar(){
     return view('provanavbar');
   }
+
   public function annunci(){
     $query="select * from annuncio where id_locatore='".Auth::user()->id."'";
     $annunci=DB::select($query);
     return view('annunci', ['annunci'=>$annunci]);
   }
+
   public function stats(){
     return view('stats');
   }
+
   public function chat(){
     $query1="  select * from messaggio join (
-                select dest, max(timestamp) m from (
+                select dest, max(id_messaggio) m from (
                   (
-                    select id_messaggio, id_destinatario dest, timestamp from messaggio
+                    select id_messaggio, id_destinatario dest from messaggio
                     where id_mittente='".Auth::user()->id."')
                   union (
-                    select id_messaggio, id_mittente dest, timestamp
+                    select id_messaggio, id_mittente dest
                     from messaggio where id_destinatario='".Auth::user()->id."')
                 )
                m1 group by dest)
                m2 on ((id_mittente='".Auth::user()->id."' and id_destinatario=dest)
                or (id_mittente=dest and id_destinatario='".Auth::user()->id."'))
-               and (timestamp = m) order by timestamp desc";
+               and (id_messaggio = m) order by id_messaggio desc";
           $messaggi=DB::select($query1);
 
           $query2="select * from utente";

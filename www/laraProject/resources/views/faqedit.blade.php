@@ -32,18 +32,7 @@
               <div class="tab-pane active" id="rent">
                 <div class="Rent_form find_form">
                     <center><h2>Modifica FAQ</h2></center>
-                  @if ($message = Session::get('error'))
-                   <div class="alert alert-danger alert-block">
-                      <strong>{{ $message }}</strong>
-                   </div>
-                  @endif
-                  @if (count($errors) > 0)
-                    <div class="alert alert-danger">
-                      @foreach($errors->all() as $error)
-                        {{ $error }}<br>
-                      @endforeach
-                    </div>
-                  @endif
+                  
                   <form method="post" action="{{url('faqupdate', [$xfaq[0]->id_FAQ])}}">
                     {{method_field('PUT')}}
                     {{csrf_field()}}

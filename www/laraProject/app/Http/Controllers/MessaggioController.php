@@ -39,19 +39,16 @@ class MessaggioController extends Controller{
     }
 
     public function aprichat(Request $request) {
-
-        if($request->controllo=="si"){
-          $query1="select * from messaggio where id_mittente='".$request->id."' and id_destinatario='".Auth::user()->id."' order by timestamp";
-          $query2="select * from messaggio where id_mittente='".Auth::user()->id."' and id_destinatario='".$request->id."' order by timestamp";
-        }else{
-          $query1="select * from messaggio where id_mittente='".Auth::user()->id."' and id_destinatario='".$request->id."' order by timestamp";
-          $query2="select * from messaggio where id_mittente='".$request->id."' and id_destinatario='".Auth::user()->id."' order by timestamp";
+        if($request->username=='locatore'){
+          $query2="select username from utente where id='".$request->id."'";
+          $temp=DB::select($query2);
+          $request->username=$temp[0]->username;
         }
+        $query1="select * from messaggio where (id_mittente='".Auth::user()->id."' and id_destinatario='".$request->id."')
+                 or (id_mittente='".$request->id."' and id_destinatario='".Auth::user()->id."') order by id_messaggio";
 
-        $messaggimittente=DB::select($query1);
-        $messaggidestinatario=DB::select($query2);
-
-        return view('messaggi', ['messaggimittente'=>$messaggimittente,'messaggidestinatario'=>$messaggidestinatario,'username'=>$request->username]);
+        $messaggi=DB::select($query1);
+        return view('messaggi', ['messaggi'=>$messaggi, 'username'=>$request->username]);
 
     }
 
@@ -67,6 +64,6 @@ class MessaggioController extends Controller{
 
         DB::insert('insert into messaggio (testo, id_mittente, id_destinatario, timestamp) values (?, ?, ?, ?)', [$testo, $id_mittente, $id_destinatario, $timestamp]);
 
-        return redirect()->route('chat');
+        return redirect()->back();
     }
 }

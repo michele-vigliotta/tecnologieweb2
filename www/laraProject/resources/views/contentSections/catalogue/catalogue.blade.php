@@ -6,7 +6,7 @@
         Catalogo
       </h1>
       @if(isset(Auth::user()->nome))
-      @if('Locatario'==(Auth::user()->tipo))
+      @if('locatario'==(Auth::user()->tipo))
         @include('contentSections/catalogue/filters')
       @else
       <a href="{{ route('login') }}">Accedi come locatario per filtrare<a>
