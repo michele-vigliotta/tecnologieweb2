@@ -79,7 +79,7 @@
                 <div class="quote_btn-container">
                   <a class="quote_btn" href="{{route('annuncioedit',['id'=>$annuncio->id_annuncio])}}" >Modifica annuncio</a>
                              &nbsp;
-                            <a class="quote_btn" href="{{route('annunciodelete',['id'=>$annuncio->id_annuncio])}}" >Elimina annuncio</a>
+                  <a class="quote_btn" href="{{route('annunciodelete',['id'=>$annuncio->id_annuncio])}}" >Elimina annuncio</a>
                 </div>
               </center>
             </div>

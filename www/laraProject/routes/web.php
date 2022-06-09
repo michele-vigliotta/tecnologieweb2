@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 use App\Http\Controllers\UserController;
@@ -61,6 +62,7 @@ Route::get('/t1', function(){return View::make('pages.testchat');});
 Route::get('/annunci', 'HomeController@annunci')->name('annunci');
 Route::get('/annuncioedit/{id}', 'AnnuncioController@annuncioedit')->name('annuncioedit');//vista modifica faq
 Route::put('annuncioupdate/{id}', 'AnnuncioController@annuncioupdate')->name('annuncioupdate');
+Route::get('annunciodelete/{id}','AnnuncioController@annunciodelete')->name('annunciodelete');
 
 Route::get('/stats', 'HomeController@stats')->name('stats');
 
@@ -79,4 +81,4 @@ Route::post('sendMessage', [MessaggioController::class, 'sendMessage']);
 Route::get('/messaggi/{id}/{username}', 'MessaggioController@aprichat')->name('messaggi');
 Route::put('reply/{username}', 'MessaggioController@reply')->name('reply');
 
-//Route::post('/reply', [MessaggioController::class, 'reply']);
+Route::get('prenota', 'AnnuncioController@prenota')->name('prenota');

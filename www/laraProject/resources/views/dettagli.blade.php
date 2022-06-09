@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 
@@ -151,18 +152,17 @@
                         <span class="span4">&dash; Genere locatario: {{$annuncio[0]->genere_locatario}}</span><br>
                         @if($annuncio[0]->is_camera==1)
                           <span class="span4">&dash; Posti letto nella camera: {{$annuncio[0]->posti_camera}}</span><br>
-                          <span class="span4">&dash; Disponiblita angolo studio: {{$annuncio[0]->disponilita_angolo_studio}}</span><br>
+                          <span class="span4">&dash; disponiblita_angolo_studio: {{$annuncio[0]->disponilita_angolo_studio}}</span><br>
                         @else
                           <span class="span4">&dash; Numero di camere: {{$annuncio[0]->numero_camere}}</span><br>
                         @endif
                         <span class="span4">&dash; Posti letto totali: {{$annuncio[0]->posti_letto_totali}}</span><br>
-                        <span class="span4">&dash; Possibilità di locazione da: {{date('d-m-Y', strtotime($annuncio[0]->inizio_locazione))}} a {{date('d-m-Y', strtotime($annuncio[0]->fine_locazione))}}</span><br><br>
+                        <span class="span4">&dash; Possibilità di locazione da: {{date('d-m-Y', strtotime($annuncio[0]->inizio_locazione))}} a {{date('d-m-Y', strtotime($annuncio[0]->fine_locazione))}}</span><br>
                       </div>
                       <div class="prezzo">
                         <h4>Prezzo: <h2>{{$annuncio[0]->canone_affitto}}€</h2></h4><br>
                       </div>
                     <br>
-
                     <div class="servizi"> <!-- Servizi disponibli-->
                       <span class="span3">
                         SERVIZI DISPONIBILI
@@ -197,15 +197,27 @@
                       </div>
                     </div>
                     <br>
-                    <div class="contatta">
-                      <div class="detail-box">
-                        <div class="btn-box">
-                          <a href="{{route('messaggi',['id'=>$annuncio[0]->id_locatore, 'username'=>'locatore'])}}">
-                            <h4>Contatta il locatore</h4>
-                          </a>
+                    <div class="span4">
+                        <div class="prenota">
+                          <div class="detail-box">
+                            <div class="btn-box">
+                              <a onclick="return confirm('Sicuro di voler prenotare questa locazione?')" href="{{ route('prenota',['id_locatore'=>$annuncio[0]->id_locatore, 'id_locatario'=>Auth::user()->id]) }}">
+                                Prenota locazione                       
+                              </a>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
+                        <div class="contatta">
+                          <div class="detail-box">
+                            <div class="btn-box">
+                              <a href="{{ route('chat',['id_locatore'=>$annuncio[0]->id_locatore, 'id_locatario'=>Auth::user()->id]) }}">
+                                Contatta il locatore
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                     </div>
+                    
                   </div>
                 </div>
               </div>
