@@ -28,23 +28,22 @@
             <div class="tab-content text-center">
               <div class="tab-pane active" id="rent">
                 <div class="Rent_form find_form">
-                  @if (count($errors) > 0)
-                    <div class="alert alert-danger">
-                      @foreach($errors->all() as $error)
-                        {{ $error }}<br>
-                      @endforeach
-                    </div>
-                  @endif
+                  
                   <form method="POST" action="sendMessage" >
                     {{ csrf_field() }}
-
+                    
+                    @if (Session::has('message')) 
+                    <div class='alert-warning'>
+                        {{ Session::get('message') }}
+                    </div>  
+                  @endif 
 
 
 
                     <div class="form-row"> <!-- Destinatario-->
                       <div class="col-md-6 px-0">
                         <div class="form-group ">
-                          <input type="text" name="destinatario" placeholder="Destinatario" class="form-control">
+                          <input type="text" name="destinatario" placeholder="Username destinatario" class="form-control">
                         </div>
                       </div>
 
