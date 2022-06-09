@@ -409,16 +409,6 @@ class AnnuncioController extends Controller
     return redirect()->route('annunci');
     }
 
-    public function prenota(Request $request){
-     $id_locatario= Auth::user()->id;
-     date_default_timezone_set('Europe/Rome');
-     $data_prenotazione = date('y-m-d  H:i:s');
-     $query="select * from annuncio where id_annuncio='".$request->id."'";
-     $annuncio=DB::select($query);
-     DB::insert('insert into prenotazione (id_locatario, data_prenotazione, id_annuncio) values (?, ?, ?)', [$id_locatario, $data_prenotazione, $annuncio[0]->id]);
-
-    return redirect()->route('catalogo');
-    }
 
 }
 
